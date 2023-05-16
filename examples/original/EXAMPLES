@@ -1,0 +1,21 @@
+Nr  File      Integration region
+--  -----     ----------------------------------
+ 0            interactive choice
+ 1  vb1.cpp   TRIANGLE
+ 2  vb2.cpp   CIRCLE
+ 3  vb3.cpp   PLANE_SECTOR (wedge)
+ 4  vb4.cpp   GENERALIZED_RECTANGLE (parabola)
+ 5  vb5.cpp   GENERALIZED_RECTANGLE (lemniscate)
+ 6  vb6.cpp   SEMI_INFINITE_STRIP
+ 7  vb7.cpp   SEMI_INFINITE_STRIP
+ 8  vb8.cpp   INFINITE_STRIP
+ 9  vb9.cpp   RECTANGLE
+10  vb10.cpp  TRIANGLE
+11  vb11.cpp  PLANE_SECTOR (half plane)
+12  vb12.cpp  PLANE_SECTOR (quadrant)
+13  vb13.cpp  House = TRIANGLE + RECTANGLE
+14  vb14.cpp  SEMI_INFINITE_STRIP (variant of vb6)
+15  vb15.cpp  House               (variant of vb13)
+16  vb16.cpp  House               (variant of vb13)
+17  vb17.cpp  GENERALIZED_RECTANGLE (variant of vb4)
+18  vb18.cpp  PLANE_SECTOR (Bivariate normal distribution)

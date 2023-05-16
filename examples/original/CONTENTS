@@ -1,0 +1,35 @@
+What you find in the current directory
+--------------------------------------
+CONTENTS   : this file
+
+    Small examples of main programs illustrating the use
+    of different geometries. You can start playing with
+    Cubpack++ by modifying these. ----------------------
+    ------------------------------
+              
+source          region                                output
+------          ------                                ------
+vb1.cpp       : TRIANGLE                            : vb1.out
+vb2.cpp       : CIRCLE                              : vb2.out
+vb3.cpp       : PLANE_SECTOR (wedge)                : vb3.out
+vb4.cpp       : GENERALIZED_RECTANGLE (parabola)    : vb4.out
+vb5.cpp       : GENERALIZED_RECTANGLE (lemniscate)  : vb5.out
+vb6.cpp       : SEMI_INFINITE_STRIP                 : vb6.out
+vb7.cpp       : SEMI_INFINITE_STRIP                 : vb7.out
+vb8.cpp       : INFINITE_STRIP                      : vb8.out
+vb9.cpp       : RECTANGLE                           : vb9.out
+vb10.cpp      : TRIANGLE                            : vb10.out
+vb11.cpp      : PLANE_SECTOR (half plane)           : vb11.out
+vb12.cpp      : PLANE_SECTOR (quadrant)             : vb12.out
+vb13.cpp      : House = TRIANGLE + RECTANGLE        : vb13.out
+
+vb14.cpp      : SEMI_INFINITE_STRIP  (see vb6)      : vb14.out
+vb15.cpp      : House                (see vb13)     : vb15.out
+vb16.cpp      : House                (see vb13)     : vb16.out
+vb17.cpp      : GENERALIZED_RECTANGLE (see vb4)     : vb17.out
+
+vb18.cpp      : PLANE_SECTOR (Bivariate normal distribution)
+
+    The output files where generated using the xlC compiler
+    on an IBM RS6000 running AIX version 3.2.5
+
