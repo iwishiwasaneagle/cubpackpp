@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <iostream>
 ////////////////////////////////////////
-inline void Error(int b,char* message)
+inline void Error(int b,const char* message)
   {
   if (b)
     {
