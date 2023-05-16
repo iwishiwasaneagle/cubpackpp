@@ -2,6 +2,7 @@ message(STATUS "Adding examples...")
 
 set(examples
         simple_triangle.cpp
+        so_many_triangles.cpp
         simple_rectangle.cpp
         )
 
