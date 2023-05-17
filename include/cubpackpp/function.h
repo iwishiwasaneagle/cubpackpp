@@ -29,7 +29,6 @@
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
 typedef std::function<real(const Point&)> Function;
-//typedef real (*Function)(const Point &);
 
 template<typename T, typename... U>
 inline size_t getAddress(std::function<T(U...)> f) {
