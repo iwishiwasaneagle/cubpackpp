@@ -32,7 +32,7 @@ namespace cubpackpp {
 long Integrand::Number = 0;
 
 //////////////////////////////////////////////////////
-Integrand::Integrand(real (*f)(const Point &))
+Integrand::Integrand(Function f)
     : TheFunction(f), AppliedTransformations(), ReferenceCounting() {}
 
 ////////////////////////////////////////////////
@@ -81,7 +81,7 @@ Boolean Integrand::operator==(const Integrand &i) const {
   if ((AppliedTransformations.Size() > 0) ||
       (i.AppliedTransformations.Size() > 0))
     return False;
-  return (Boolean)(TheFunction == i.TheFunction);
+  return (Boolean)(getAddress(TheFunction) == getAddress( i.TheFunction));
 }
 ///////////////////////////////////////////////
 } // namespace cubpackpp

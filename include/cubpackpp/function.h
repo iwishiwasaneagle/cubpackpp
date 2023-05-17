@@ -24,10 +24,19 @@
 #include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
 
+#include <functional>
+
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
+typedef std::function<real(const Point&)> Function;
+//typedef real (*Function)(const Point &);
 
-typedef real (*Function)(const Point &);
+template<typename T, typename... U>
+inline size_t getAddress(std::function<T(U...)> f) {
+    typedef T(fnType)(U...);
+    fnType ** fnPointer = f.template target<fnType*>();
+    return (size_t) *fnPointer;
+}
 /////////////////////////////////////////////////////////
 
 } // namespace cubpackpp
