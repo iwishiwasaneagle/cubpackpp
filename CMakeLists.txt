@@ -65,8 +65,9 @@ endif ()
 #
 # Format the project using the `clang-format` target (i.e: cmake --build build --target clang-format)
 #
-
+if(PROJECT_IS_TOP_LEVEL)
 add_clang_format_target()
+endif ()
 
 #
 # Install library for easy downstream inclusion

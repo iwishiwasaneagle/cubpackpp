@@ -160,9 +160,4 @@ set(sources
         src/T2tops.cpp
         src/translat.cpp
         src/trnsfrm.cpp
-
         )
-
-
-
-
