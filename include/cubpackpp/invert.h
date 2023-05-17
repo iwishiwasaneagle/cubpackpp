@@ -51,24 +51,23 @@
 #define INVERT_H
 ////////////////////////////////////////////////////////
 
-#include "cubpackpp/trnsfrm.h"
-#include "cubpackpp/point.h"
 #include "cubpackpp/S2.h"
+#include "cubpackpp/point.h"
+#include "cubpackpp/trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////////
-    class Invert : public Transformation {
-    public:
-        Invert(Circle *);
+class Invert : public Transformation {
+public:
+  Invert(Circle *);
 
-        void Transform(real &w, Point &p);
+  void Transform(real &w, Point &p);
 
-    private:
-
-        Pointer<Circle> C_ptr;
-        real RadiusSq;
-    };
+private:
+  Pointer<Circle> C_ptr;
+  real RadiusSq;
+};
 ////////////////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

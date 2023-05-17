@@ -55,25 +55,23 @@
 #ifndef STRIP_H
 #define STRIP_H
 //////////////////////////////////////////////////
-#include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
+#include "cubpackpp/point.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////////////
-    class InfiniteStrip : public Geometry {
-    public:
+class InfiniteStrip : public Geometry {
+public:
+  InfiniteStrip(const Point &, const Point &);
 
-        InfiniteStrip(const Point &, const Point &);
+  const Point &A() const;
 
-        const Point &A() const;
+  const Point &B() const;
 
-        const Point &B() const;
-
-    private:
-
-        Point TheA;
-        Point TheB;
-    };
+private:
+  Point TheA;
+  Point TheB;
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

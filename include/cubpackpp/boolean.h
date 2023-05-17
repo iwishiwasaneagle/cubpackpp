@@ -27,12 +27,10 @@
 namespace cubpackpp {
 /////////////////////////////////////////////////
 
-    enum Boolean {
-        False, True
-    };
+enum Boolean { False, True };
 
-    extern std::ostream &operator<<(std::ostream &, const Boolean &);
+extern std::ostream &operator<<(std::ostream &, const Boolean &);
 
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

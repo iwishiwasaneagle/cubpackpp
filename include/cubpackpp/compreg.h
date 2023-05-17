@@ -76,42 +76,37 @@
 #ifndef COMPREG_H
 #define COMPREG_H
 /////////////////////////////////////////////
-#include "cubpackpp/region.h"
-#include "cubpackpp/integran.h"
-#include "cubpackpp/function.h"
-#include "cubpackpp/pointer.h"
 #include "cubpackpp/atomreg.h"
+#include "cubpackpp/function.h"
+#include "cubpackpp/integran.h"
+#include "cubpackpp/pointer.h"
+#include "cubpackpp/region.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
 
-    class COMPOUND_REGION : public Region {
-    public:
+class COMPOUND_REGION : public Region {
+public:
+  virtual void LocalIntegrand(Integrand *) = 0;
 
-        virtual void LocalIntegrand(Integrand *) = 0;
+  void Process();
 
-        void Process();
+  COMPOUND_REGION();
 
-        COMPOUND_REGION();
+  virtual ~COMPOUND_REGION();
 
-        virtual ~COMPOUND_REGION();
+  virtual void Preprocess() = 0;
 
-        virtual void Preprocess() = 0;
+  virtual void Improve() = 0;
 
-        virtual void Improve() = 0;
+  virtual real MaxAtomicError() const = 0;
 
-        virtual real MaxAtomicError() const = 0;
+  virtual COMPOUND_REGION *NewCopy() const = 0;
 
-        virtual COMPOUND_REGION *NewCopy() const = 0;
-
-
-    private:
-
-        enum Status {
-            Virgin, Active
-        };
-        Status TheStatus;
-    };
+private:
+  enum Status { Virgin, Active };
+  Status TheStatus;
+};
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

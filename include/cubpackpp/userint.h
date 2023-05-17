@@ -72,64 +72,60 @@
 #ifndef USERINT_H
 #define USERINT_H
 /////////////////////////////////////////////////
-#include "cubpackpp/compreg.h"
-#include "cubpackpp/regcoll.h"
-#include "cubpackpp/geometry.h"
-#include "cubpackpp/regproc.h"
-#include "cubpackpp/atomreg.h"
 #include "cubpackpp/atomic.h"
-#include "cubpackpp/stack.h"
+#include "cubpackpp/atomreg.h"
+#include "cubpackpp/compreg.h"
+#include "cubpackpp/geometry.h"
 #include "cubpackpp/heap.h"
+#include "cubpackpp/regcoll.h"
+#include "cubpackpp/regproc.h"
+#include "cubpackpp/stack.h"
 /////////////////////////////////////////////////
 
 namespace cubpackpp {
-    template<class GEOMETRY>
-    class USERINTERFACE : public COMPOUND_REGION {
-    public:
-        typedef Stack<AtomicRegion> StackAtomicRegion;
-        typedef Heap<AtomicRegion> HeapAtomicRegion;
+template <class GEOMETRY> class USERINTERFACE : public COMPOUND_REGION {
+public:
+  typedef Stack<AtomicRegion> StackAtomicRegion;
+  typedef Heap<AtomicRegion> HeapAtomicRegion;
 
-        USERINTERFACE();
+  USERINTERFACE();
 
-        USERINTERFACE(const USERINTERFACE<GEOMETRY> &);
+  USERINTERFACE(const USERINTERFACE<GEOMETRY> &);
 
-        ~USERINTERFACE();
+  ~USERINTERFACE();
 
-        void Use(Processor<GEOMETRY> *);
+  void Use(Processor<GEOMETRY> *);
 
-        REGION_COLLECTION operator+(const COMPOUND_REGION &);
+  REGION_COLLECTION operator+(const COMPOUND_REGION &);
 
-        void LocalIntegrand(Integrand *);
+  void LocalIntegrand(Integrand *);
 
-        void LocalIntegrand(Function);
+  void LocalIntegrand(Function);
 
-        operator AtomicRegion *() {
-            Error(SAR_ptr->Empty(),
-                  "converting empty compound region to atomic.");
-            return SAR_ptr->Pop();
-        }
+  operator AtomicRegion *() {
+    Error(SAR_ptr->Empty(), "converting empty compound region to atomic.");
+    return SAR_ptr->Pop();
+  }
 
-    protected:
+protected:
+  Pointer<StackAtomicRegion> HopelessAR_ptr;
+  Pointer<StackAtomicRegion> SAR_ptr;
+  Pointer<HeapAtomicRegion> HAR_ptr;
+  Pointer<Integrand> Int_ptr;
 
-        Pointer<StackAtomicRegion> HopelessAR_ptr;
-        Pointer<StackAtomicRegion> SAR_ptr;
-        Pointer<HeapAtomicRegion> HAR_ptr;
-        Pointer<Integrand> Int_ptr;
+  void StoreAtomic(GEOMETRY *, Processor<GEOMETRY> *);
 
-        void StoreAtomic(GEOMETRY *, Processor<GEOMETRY> *);
+  // void StoreAtomic(Geometry*);
+  void Preprocess();
 
-        //void StoreAtomic(Geometry*);
-        void Preprocess();
+  void Improve();
 
-        void Improve();
+  real MaxAtomicError() const;
 
-        real MaxAtomicError() const;
-
-        COMPOUND_REGION *NewCopy() const;
-
-    };
+  COMPOUND_REGION *NewCopy() const;
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

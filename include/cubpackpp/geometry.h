@@ -59,17 +59,15 @@
 namespace cubpackpp {
 //////////////////////////////////////////////////
 
-    class Geometry : public ReferenceCounting {
-    public:
+class Geometry : public ReferenceCounting {
+public:
+  explicit Geometry(unsigned int Dim);
 
-        explicit Geometry(unsigned int Dim);
+  [[nodiscard]] unsigned int Dimension() const;
 
-        [[nodiscard]] unsigned int Dimension() const;
-
-    private:
-
-        unsigned int TheDimension;
-    };
+private:
+  unsigned int TheDimension;
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

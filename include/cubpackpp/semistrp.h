@@ -55,25 +55,23 @@
 #ifndef SEMISTRP_H
 #define SEMISTRP_H
 //////////////////////////////////////////////////
-#include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
+#include "cubpackpp/point.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////////////
-    class SemiInfiniteStrip : public Geometry {
-    public:
+class SemiInfiniteStrip : public Geometry {
+public:
+  SemiInfiniteStrip(const Point &, const Point &);
 
-        SemiInfiniteStrip(const Point &, const Point &);
+  const Point &A() const;
 
-        const Point &A() const;
+  const Point &B() const;
 
-        const Point &B() const;
-
-    private:
-
-        Point TheA;
-        Point TheB;
-    };
+private:
+  Point TheA;
+  Point TheB;
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

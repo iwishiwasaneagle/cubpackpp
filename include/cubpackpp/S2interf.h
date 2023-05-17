@@ -54,18 +54,17 @@
 #ifndef S2INTERF_H
 #define S2INTERF_H
 ////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/S2.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////////
-    class CIRCLE : public USERINTERFACE<Circle> {
-    public:
+class CIRCLE : public USERINTERFACE<Circle> {
+public:
+  CIRCLE(const Point &, const Point &);
 
-        CIRCLE(const Point &, const Point &);
-
-        CIRCLE(const Point &, real);
-    };
+  CIRCLE(const Point &, real);
+};
 ////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

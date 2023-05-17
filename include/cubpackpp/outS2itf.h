@@ -54,19 +54,18 @@
 #ifndef OUTS2ITF_H
 #define OUTS2ITF_H
 ////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/S2.h"
 #include "cubpackpp/outS2.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////////
-    class OUT_CIRCLE : public USERINTERFACE<OutCircle> {
-    public:
+class OUT_CIRCLE : public USERINTERFACE<OutCircle> {
+public:
+  OUT_CIRCLE(const Point &, const Point &);
 
-        OUT_CIRCLE(const Point &, const Point &);
-
-        OUT_CIRCLE(const Point &, real);
-    };
+  OUT_CIRCLE(const Point &, real);
+};
 ////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

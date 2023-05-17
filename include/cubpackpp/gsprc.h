@@ -63,16 +63,14 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-    class GeneralizedSector_Processor :
-            public Processor<GeneralizedSector> {
-    public:
+class GeneralizedSector_Processor : public Processor<GeneralizedSector> {
+public:
+  GeneralizedSector_Processor();
 
-        GeneralizedSector_Processor();
+  void Process(Stack<AtomicRegion> &);
 
-        void Process(Stack<AtomicRegion> &);
-
-        Processor<GeneralizedSector> *NewCopy() const;
-    };
+  Processor<GeneralizedSector> *NewCopy() const;
+};
 /////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

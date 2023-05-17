@@ -58,21 +58,19 @@
 #ifndef POLC2PRC_H
 #define POLC2PRC_H
 //////////////////////////////////////////////
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/polC2.h"
+#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-    class PolarRectangle_Processor :
-            public Processor<PolarRectangle> {
-    public:
+class PolarRectangle_Processor : public Processor<PolarRectangle> {
+public:
+  PolarRectangle_Processor();
 
-        PolarRectangle_Processor();
+  void Process(Stack<AtomicRegion> &);
 
-        void Process(Stack<AtomicRegion> &);
-
-        Processor<PolarRectangle> *NewCopy() const;
-    };
+  Processor<PolarRectangle> *NewCopy() const;
+};
 /////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

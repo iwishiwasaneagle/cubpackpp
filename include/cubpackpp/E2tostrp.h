@@ -50,26 +50,24 @@
 //
 /////////////////////////////////////////////////////////
 #ifndef E2TOSTRP_H
-#define  E2TOSTRP_H
+#define E2TOSTRP_H
 /////////////////////////////////////////////////////////
-#include "trnsfrm.h"
-#include "strip.h"
 #include "E2.h"
 #include "pointer.h"
+#include "strip.h"
+#include "trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class E2toIS : public Transformation {
-    public:
+class E2toIS : public Transformation {
+public:
+  E2toIS(InfiniteStrip *);
 
-        E2toIS(InfiniteStrip *);
+  void Transform(real &w, Point &p);
 
-        void Transform(real &w, Point &p);
-
-    private:
-
-        Pointer<InfiniteStrip> IS_ptr;
-    };
+private:
+  Pointer<InfiniteStrip> IS_ptr;
+};
 //////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

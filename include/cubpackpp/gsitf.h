@@ -56,17 +56,16 @@
 #ifndef GSITF_H
 #define GSITF_H
 ////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/gs.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////
-    class GENERALIZED_SECTOR : public USERINTERFACE<GeneralizedSector> {
-    public:
-
-        GENERALIZED_SECTOR(real(*)(real), real, real, const Point &);
-    };
+class GENERALIZED_SECTOR : public USERINTERFACE<GeneralizedSector> {
+public:
+  GENERALIZED_SECTOR(real (*)(real), real, real, const Point &);
+};
 ///////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

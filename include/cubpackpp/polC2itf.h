@@ -56,18 +56,17 @@
 #ifndef POLC2ITF_H
 #define POLC2ITF_H
 /////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/polC2.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////
-    class POLAR_RECTANGLE : public USERINTERFACE<PolarRectangle> {
-    public:
+class POLAR_RECTANGLE : public USERINTERFACE<PolarRectangle> {
+public:
+  POLAR_RECTANGLE(const Point &, const Point &, const Point &);
 
-        POLAR_RECTANGLE(const Point &, const Point &, const Point &);
-
-        POLAR_RECTANGLE(const Point &, real, real, real, real);
-    };
+  POLAR_RECTANGLE(const Point &, real, real, real, real);
+};
 /////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

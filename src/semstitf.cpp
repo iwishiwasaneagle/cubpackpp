@@ -10,7 +10,7 @@
 //                                                     //
 /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////
-//File stripitf.c
+// File stripitf.c
 //////////////////////////////////////////////
 #include "cubpackpp/semstitf.h"
 #include "cubpackpp/passbuck.h"
@@ -19,13 +19,13 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////////
-    SEMI_INFINITE_STRIP::SEMI_INFINITE_STRIP(const Point &a, const Point &b)
-            : USERINTERFACE<SemiInfiniteStrip>() {
-        Point orig(0, 0), one(1, 0);
-        INFINITE_STRIP I(orig, one);
-        StoreAtomic(new SemiInfiniteStrip(a, b),
-                    new PassTheBuck<InfiniteStrip, SemiInfiniteStrip,
-                            IStoSIS>((AtomicRegion *) I));
-    }
+SEMI_INFINITE_STRIP::SEMI_INFINITE_STRIP(const Point &a, const Point &b)
+    : USERINTERFACE<SemiInfiniteStrip>() {
+  Point orig(0, 0), one(1, 0);
+  INFINITE_STRIP I(orig, one);
+  StoreAtomic(new SemiInfiniteStrip(a, b),
+              new PassTheBuck<InfiniteStrip, SemiInfiniteStrip, IStoSIS>(
+                  (AtomicRegion *)I));
+}
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp

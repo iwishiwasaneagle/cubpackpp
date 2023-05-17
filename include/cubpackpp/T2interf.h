@@ -48,17 +48,16 @@
 #ifndef T2INTERF_H
 #define T2INTERF_H
 ///////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/T2.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class TRIANGLE : public USERINTERFACE<Triangle> {
-    public:
-
-        TRIANGLE(const Point &, const Point &, const Point &);
-    };
+class TRIANGLE : public USERINTERFACE<Triangle> {
+public:
+  TRIANGLE(const Point &, const Point &, const Point &);
+};
 
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

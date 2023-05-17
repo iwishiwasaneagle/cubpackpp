@@ -55,16 +55,15 @@
 #ifndef PSITF_H
 #define PSITF_H
 /////////////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/ps.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
-    class PARABOLIC_SEGMENT : public USERINTERFACE<ParabolicSegment> {
-    public:
-
-        PARABOLIC_SEGMENT(const Point &A, const Point &B, const Point &p);
-    };
+class PARABOLIC_SEGMENT : public USERINTERFACE<ParabolicSegment> {
+public:
+  PARABOLIC_SEGMENT(const Point &A, const Point &B, const Point &p);
+};
 ////////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

@@ -67,36 +67,34 @@
 #ifndef REGINFO_H
 #define REGINFO_H
 //////////////////////////////////////////
-#include "cubpackpp/refcount.h"
-#include "cubpackpp/real.h"
 #include "cubpackpp/boolean.h"
+#include "cubpackpp/real.h"
+#include "cubpackpp/refcount.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////
 
-    class RegionInfo : public ReferenceCounting {
-    public :
+class RegionInfo : public ReferenceCounting {
+public:
+  RegionInfo();
 
-        RegionInfo();
+  real Integral() const;
 
-        real Integral() const;
+  real &Integral();
 
-        real &Integral();
+  real AbsoluteError() const;
 
-        real AbsoluteError() const;
+  real &AbsoluteError();
 
-        real &AbsoluteError();
+  Boolean Hopeless() const;
 
-        Boolean Hopeless() const;
+  Boolean &Hopeless();
 
-        Boolean &Hopeless();
-
-    private:
-
-        real TheIntegral;
-        real TheAbsoluteError;
-        Boolean IsHopeless;
-    };
+private:
+  real TheIntegral;
+  real TheAbsoluteError;
+  Boolean IsHopeless;
+};
 /////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

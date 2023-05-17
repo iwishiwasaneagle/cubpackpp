@@ -58,23 +58,22 @@
 #ifndef ATOMREG_H
 #define ATOMREG_H
 ///////////////////////////////////////////////
-#include "region.h"
 #include "integran.h"
+#include "region.h"
 #include "stack.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////
-    class AtomicRegion : public Region {
-    public:
+class AtomicRegion : public Region {
+public:
+  AtomicRegion();
 
-        AtomicRegion();
+  virtual void LocalIntegrand(Integrand *) = 0;
 
-        virtual void LocalIntegrand(Integrand *) = 0;
+  virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
 
-        virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
-
-        virtual ~AtomicRegion();
-    };
+  virtual ~AtomicRegion();
+};
 /////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

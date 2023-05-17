@@ -60,32 +60,31 @@
 #ifndef S2ADAPT_H
 #define S2ADAPT_H
 /////////////////////////////////////////////////
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/S2.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/regproc.h"
 #include "cubpackpp/rule.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////////
-    class CircleAdaptive : public Processor<Circle> {
-    public:
-        typedef Rule<Circle> RuleCircle;
+class CircleAdaptive : public Processor<Circle> {
+public:
+  typedef Rule<Circle> RuleCircle;
 
-        CircleAdaptive(Rule<Circle> *);
+  CircleAdaptive(Rule<Circle> *);
 
-        void Process(Stack<AtomicRegion> &);
+  void Process(Stack<AtomicRegion> &);
 
-        Processor<Circle> *NewCopy() const;
+  Processor<Circle> *NewCopy() const;
 
-    private:
+private:
+  Pointer<RuleCircle> TheRule;
 
-        Pointer<RuleCircle> TheRule;
+  CircleAdaptive *Descendant() const;
 
-        CircleAdaptive *Descendant() const;
-
-        unsigned int TimesCalled;
-        unsigned int GenerationNumber;
-    };
+  unsigned int TimesCalled;
+  unsigned int GenerationNumber;
+};
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

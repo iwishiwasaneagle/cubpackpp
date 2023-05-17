@@ -72,33 +72,31 @@
 #define CHRONO_H
 
 //////////////////////////////////////////////////////////
-#include "cubpackpp/counter.h"
 #include "cubpackpp/boolean.h"
+#include "cubpackpp/counter.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////////////////////
 
-    class Chrono : public Counter {
-    public:
+class Chrono : public Counter {
+public:
+  Chrono();
 
-        Chrono();
+  void Start();
 
-        void Start();
+  void Stop();
 
-        void Stop();
+  void Reset();
 
-        void Reset();
+  unsigned long Read();
 
-        unsigned long Read();
+private:
+  long Time;
+  long OldTime;
+  Boolean Running;
 
-    private:
-
-        long Time;
-        long OldTime;
-        Boolean Running;
-
-        long times_();
-    };
+  long times_();
+};
 /////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

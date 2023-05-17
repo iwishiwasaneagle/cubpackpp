@@ -71,35 +71,32 @@
 #define C2_H
 /////////////////////////////////////////////////////////
 
-#include "cubpackpp/vector.h"
-#include "cubpackpp/point.h"
 #include "cubpackpp/boolean.h"
 #include "cubpackpp/geometry.h"
+#include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/regproc.h"
+#include "cubpackpp/vector.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
-    class Parallelogram : public ::cubpackpp::Geometry {
-    public:
+class Parallelogram : public ::cubpackpp::Geometry {
+public:
+  Parallelogram(const Point &, const Point &, const Point &);
 
-        Parallelogram(const Point &, const Point &, const Point &);
+  const Point &Vertex(int) const;
 
-        const Point &Vertex(int) const;
+  real Volume() const;
 
-        real Volume() const;
+  void Volume(real);
 
-        void Volume(real);
+private:
+  Vector<Point> Vertices;
+  real TheVolume;
+  Boolean TheVolumeKnown;
 
-
-    private:
-
-        Vector<Point> Vertices;
-        real TheVolume;
-        Boolean TheVolumeKnown;
-
-        void ComputeVolume();
-    };
+  void ComputeVolume();
+};
 /////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

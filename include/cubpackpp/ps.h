@@ -65,24 +65,22 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
-    class ParabolicSegment : public Geometry {
-    public:
+class ParabolicSegment : public Geometry {
+public:
+  ParabolicSegment(const Point &, const Point &, const Point &);
 
-        ParabolicSegment(const Point &, const Point &, const Point &);
+  const Point &A() const;
 
-        const Point &A() const;
+  const Point &B() const;
 
-        const Point &B() const;
+  const Point &P() const;
 
-        const Point &P() const;
-
-    private:
-
-        Point TheA;
-        Point TheB;
-        Point TheP;
-    };
+private:
+  Point TheA;
+  Point TheB;
+  Point TheP;
+};
 /////////////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

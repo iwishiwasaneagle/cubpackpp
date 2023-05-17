@@ -54,15 +54,14 @@
 #include "cubpackpp/refcount.h"
 
 namespace cubpackpp {
-    class Transformation : public ReferenceCounting {
-    public:
+class Transformation : public ReferenceCounting {
+public:
+  Transformation();
 
-        Transformation();
+  virtual void Transform(real &w, Point &p) = 0;
 
-        virtual void Transform(real &w, Point &p) = 0;
+  virtual ~Transformation();
+};
 
-        virtual ~Transformation();
-    };
-
-} // cubpackpp
+} // namespace cubpackpp
 #endif

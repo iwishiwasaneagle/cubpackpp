@@ -70,37 +70,34 @@
 #define GS_H
 //////////////////////////////////////////////////
 
-#include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
+#include "cubpackpp/point.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////////////
-    typedef real (*RealFunction)(real);
+typedef real (*RealFunction)(real);
 
 //////////////////////////////////////////////////
-    class GeneralizedSector : public Geometry {
-    public:
+class GeneralizedSector : public Geometry {
+public:
+  GeneralizedSector(real (*)(real), real, real, const Point &);
 
-        GeneralizedSector(real(*)(real),
-                          real, real, const Point &);
+  real Alpha() const;
 
-        real Alpha() const;
+  real Beta() const;
 
-        real Beta() const;
+  real Boundary(real) const;
 
-        real Boundary(real) const;
+  RealFunction Boundary() const;
 
-        RealFunction Boundary() const;
+  const Point &Center() const;
 
-        const Point &Center() const;
+private:
+  Point TheCenter;
+  real TheAlpha, TheBeta;
 
-    private:
-
-        Point TheCenter;
-        real TheAlpha, TheBeta;
-
-        real (*TheBoundary)(real);
-    };
+  real (*TheBoundary)(real);
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

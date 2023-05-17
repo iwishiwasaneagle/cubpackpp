@@ -76,18 +76,17 @@
 namespace cubpackpp {
 //////////////////////////////////////////
 
-    class Parallelogram_Rule13 : public Rule<Parallelogram> {
-    public:
+class Parallelogram_Rule13 : public Rule<Parallelogram> {
+public:
+  Parallelogram_Rule13();
 
-        Parallelogram_Rule13();
+  void ApplyWithDiffs(Integrand &, Parallelogram &, real &Result, real &Error,
+                      Vector<real> &);
 
-        void ApplyWithDiffs(Integrand &, Parallelogram &, real &Result,
-                            real &Error, Vector<real> &);
+  int NumberOfPoints() const { return 37; };
 
-        int NumberOfPoints() const { return 37; };
-
-        int Degree() const { return 13; };
-    };
+  int Degree() const { return 13; };
+};
 ////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

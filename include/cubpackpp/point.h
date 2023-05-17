@@ -24,8 +24,8 @@
 
 namespace cubpackpp {
 ///////////////////////////////////////
-    typedef Point_2D Point;
+typedef Point_2D Point;
 /////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

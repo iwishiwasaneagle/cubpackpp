@@ -56,18 +56,17 @@
 #ifndef E2SECITF_H
 #define E2SECITF_H
 /////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/E2sec.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////
-    class PLANE_SECTOR : public USERINTERFACE<PlaneSector> {
-    public:
+class PLANE_SECTOR : public USERINTERFACE<PlaneSector> {
+public:
+  PLANE_SECTOR(const Point &, const Point &, const Point &);
 
-        PLANE_SECTOR(const Point &, const Point &, const Point &);
-
-        PLANE_SECTOR(const Point &, real, real, real);
-    };
+  PLANE_SECTOR(const Point &, real, real, real);
+};
 /////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

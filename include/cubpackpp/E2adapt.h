@@ -24,7 +24,7 @@
 //
 // PURPOSE:
 //   during the first call of Process() a degree 13 rule
-//   is applied to the plane. during the second call 
+//   is applied to the plane. during the second call
 //   the plane is divided into a CIRCLE and an OUT_CIRCLE
 //
 // TEMPLATES:
@@ -56,30 +56,28 @@
 //     returns a pointer to it.
 /////////////////////////////////////////////////////////
 #ifndef E2ADAPT_H
-#define  E2ADAPT_H
+#define E2ADAPT_H
 /////////////////////////////////////////////////////
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/E2.h"
 #include "cubpackpp/integran.h"
+#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////////////
-    class PlaneAdaptive : public Processor<Plane> {
-    public:
+class PlaneAdaptive : public Processor<Plane> {
+public:
+  PlaneAdaptive();
 
-        PlaneAdaptive();
+  void Process(Stack<AtomicRegion> &);
 
-        void Process(Stack<AtomicRegion> &);
+  Processor<Plane> *NewCopy() const;
 
-        Processor<Plane> *NewCopy() const;
+private:
+  static void Rule(Integrand &, Plane &, real &, real &, real &);
 
-    private:
-
-        static void Rule(Integrand &, Plane &, real &, real &, real &);
-
-        unsigned int TimesCalled;
-        real HalfValueRadius;
-    };
+  unsigned int TimesCalled;
+  real HalfValueRadius;
+};
 /////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

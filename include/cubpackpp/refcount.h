@@ -66,31 +66,29 @@
 //     None
 //
 /////////////////////////////////////////////////////////
-#ifndef  REFCOUNT_H
-#define  REFCOUNT_H
+#ifndef REFCOUNT_H
+#define REFCOUNT_H
 ///////////////////////////////////////////////////
 
 namespace cubpackpp {
-    class ReferenceCounting {
-    public:
+class ReferenceCounting {
+public:
+  ReferenceCounting();
 
-        ReferenceCounting();
+  ReferenceCounting(const ReferenceCounting &);
 
-        ReferenceCounting(const ReferenceCounting &);
+  void Refer();
 
-        void Refer();
+  void UnRefer();
 
-        void UnRefer();
+  ReferenceCounting &operator=(const ReferenceCounting &);
 
-        ReferenceCounting &operator=(const ReferenceCounting &);
+  unsigned int NumberOfReferences() const;
 
-        unsigned int NumberOfReferences() const;
-
-    private:
-
-        unsigned int numref{0};
-    };
+private:
+  unsigned int numref{0};
+};
 
 ////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

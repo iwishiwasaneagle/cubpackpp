@@ -2,7 +2,5 @@
 // #  SPDX-License-Identifier: GPL-3.0-only
 
 namespace cubpackpp {
-    enum {
-        PATCHLEVEL = 6
-    };
-} // cubpackpp
+enum { PATCHLEVEL = 6 };
+} // namespace cubpackpp

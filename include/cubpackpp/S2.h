@@ -64,30 +64,28 @@
 #define S2_H
 /////////////////////////////////////////
 #include "cubpackpp/geometry.h"
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
+#include "cubpackpp/regproc.h"
 /////////////////////////////////////////
 
 namespace cubpackpp {
-    class Circle : public Geometry {
-    public:
+class Circle : public Geometry {
+public:
+  Circle(const Point &Center, real Radius);
 
-        Circle(const Point &Center, real Radius);
+  Circle(const Point &Center, const Point &Boundary);
 
-        Circle(const Point &Center, const Point &Boundary);
+  real Volume() const;
 
-        real Volume() const;
+  const Point &Center() const;
 
-        const Point &Center() const;
+  real Radius() const;
 
-        real Radius() const;
-
-    private:
-        Point TheCenter;
-        real TheRadius;
-
-    };
+private:
+  Point TheCenter;
+  real TheRadius;
+};
 //////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

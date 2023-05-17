@@ -87,25 +87,23 @@
 #ifndef C2INTERF_H
 #define C2INTERF_H
 ///////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/C2.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class PARALLELOGRAM : public USERINTERFACE<Parallelogram> {
-    public:
-
-        PARALLELOGRAM(const Point &, const Point &, const Point &);
-    };
+class PARALLELOGRAM : public USERINTERFACE<Parallelogram> {
+public:
+  PARALLELOGRAM(const Point &, const Point &, const Point &);
+};
 
 //////////////////////////////////////////////////
-    class RECTANGLE : public USERINTERFACE<Parallelogram> {
-    public:
-
-        RECTANGLE(const Point &, const Point &, const Point &);
-    };
+class RECTANGLE : public USERINTERFACE<Parallelogram> {
+public:
+  RECTANGLE(const Point &, const Point &, const Point &);
+};
 
 //////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

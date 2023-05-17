@@ -74,42 +74,37 @@
 #define REGION_H
 //////////////////////////////////////////////////
 #include "cubpackpp/boolean.h"
+#include "cubpackpp/pointer.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/reginfo.h"
-#include "cubpackpp/pointer.h"
-
 
 namespace cubpackpp {
 /////////////////////////////////////////////////
 
-    class Region {
-    public:
+class Region {
+public:
+  Region();
 
-        Region();
+  real Integral() const;
 
-        real Integral() const;
+  real AbsoluteError() const;
 
-        real AbsoluteError() const;
+  Boolean Hopeless() const;
 
-        Boolean Hopeless() const;
+  Boolean operator<(const Region &) const;
 
-        Boolean operator<(const Region &) const;
+  Boolean operator<=(const Region &) const;
 
-        Boolean operator<=(const Region &) const;
+  Boolean operator>(const Region &) const;
 
-        Boolean operator>(const Region &) const;
+  Boolean operator>=(const Region &) const;
 
-        Boolean operator>=(const Region &) const;
+protected:
+  RegionInfo &LocalInfo();
 
-    protected :
-
-        RegionInfo &LocalInfo();
-
-    private:
-
-        Pointer<RegionInfo> RI_ptr;
-
-    };
+private:
+  Pointer<RegionInfo> RI_ptr;
+};
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

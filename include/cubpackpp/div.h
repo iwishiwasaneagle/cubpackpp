@@ -58,21 +58,17 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////
-    template<class GEOMETRY>
-    class Divisor : public ReferenceCounting {
+template <class GEOMETRY> class Divisor : public ReferenceCounting {
 
-    public:
+public:
+  Divisor();
 
-        Divisor();
+  virtual int NumberOfParts() const = 0;
 
-        virtual int NumberOfParts() const = 0;
-
-        virtual ~Divisor();
-
-
-    };
+  virtual ~Divisor();
+};
 ///////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 
 #include "templist.h"
 

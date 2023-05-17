@@ -68,31 +68,28 @@
 #define gr2_H
 //////////////////////////////////////////////////
 
-#include "cubpackpp/point.h"
-#include "cubpackpp/geometry.h"
 #include "cubpackpp/function.h"
+#include "cubpackpp/geometry.h"
+#include "cubpackpp/point.h"
 #include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////////////
-    class GeneralizedRectangle : public Geometry {
-    public:
+class GeneralizedRectangle : public Geometry {
+public:
+  GeneralizedRectangle(Function, const Point &, const Point &);
 
-        GeneralizedRectangle(Function,
-                             const Point &, const Point &);
+  const Point &A() const;
 
-        const Point &A() const;
+  const Point &B() const;
 
-        const Point &B() const;
+  real Boundary(const Point &) const;
 
-        real Boundary(const Point &) const;
-
-    private:
-
-        const Function TheBoundary;
-        Point TheA;
-        Point TheB;
-    };
+private:
+  const Function TheBoundary;
+  Point TheA;
+  Point TheB;
+};
 //////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

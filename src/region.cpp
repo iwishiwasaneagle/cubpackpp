@@ -10,74 +10,51 @@
 //                                                     //
 /////////////////////////////////////////////////////////
 //////////////////////////////////////////////
-//File region.cpp
-// History:
-//   (date)          (version)
-//   19 Aug 1994     V0.1 (first limited distribution)
+// File region.cpp
+//  History:
+//    (date)          (version)
+//    19 Aug 1994     V0.1 (first limited distribution)
 //////////////////////////////////////////////
 
-#include <iostream>
-#include "cubpackpp/point.h"
 #include "cubpackpp/region.h"
 #include "cubpackpp/error.h"
+#include "cubpackpp/point.h"
+#include <iostream>
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-    real
-    Region::AbsoluteError() const {
-        return RI_ptr->AbsoluteError();
-    }
+real Region::AbsoluteError() const { return RI_ptr->AbsoluteError(); }
 
 ///////////////////////////////////////////////
-    real
-    Region::Integral() const {
-        return RI_ptr->Integral();
-    }
+real Region::Integral() const { return RI_ptr->Integral(); }
 
 ///////////////////////////////////////////////
-    Boolean
-    Region::operator<(const Region &r)
-    const {
-        return (Boolean) (AbsoluteError() < r.AbsoluteError());
-    }
+Boolean Region::operator<(const Region &r) const {
+  return (Boolean)(AbsoluteError() < r.AbsoluteError());
+}
 
 ///////////////////////////////////////////////
-    Boolean
-    Region::operator<=(const Region &r)
-    const {
-        return (Boolean) (AbsoluteError() <= r.AbsoluteError());
-    }
+Boolean Region::operator<=(const Region &r) const {
+  return (Boolean)(AbsoluteError() <= r.AbsoluteError());
+}
 
 ///////////////////////////////////////////////
-    Boolean
-    Region::operator>(const Region &r)
-    const {
-        return (Boolean) (AbsoluteError() > r.AbsoluteError());
-    }
+Boolean Region::operator>(const Region &r) const {
+  return (Boolean)(AbsoluteError() > r.AbsoluteError());
+}
 
 ///////////////////////////////////////////////
-    Boolean
-    Region::operator>=(const Region &r)
-    const {
-        return (Boolean) (AbsoluteError() >= r.AbsoluteError());
-    }
+Boolean Region::operator>=(const Region &r) const {
+  return (Boolean)(AbsoluteError() >= r.AbsoluteError());
+}
 
 ///////////////////////////////////////////////
-    RegionInfo &
-    Region::LocalInfo() {
-        return *RI_ptr;
-    }
+RegionInfo &Region::LocalInfo() { return *RI_ptr; }
 
 ////////////////////////////////////////////////
-    Region::Region()
-            : RI_ptr(new RegionInfo) {
-    }
+Region::Region() : RI_ptr(new RegionInfo) {}
 
 ////////////////////////////////////////////////
-    Boolean
-    Region::Hopeless()
-    const {
-        return RI_ptr->Hopeless();
-    }
+Boolean Region::Hopeless() const { return RI_ptr->Hopeless(); }
 ////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp

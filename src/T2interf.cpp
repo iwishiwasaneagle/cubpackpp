@@ -10,28 +10,26 @@
 //                                                     //
 /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////
-//File T2interf.c
-// History:
-//   (date)          (version)
-//   19 Aug 1994     V0.1 (first limited distribution)
-//   25 Jan 1996     V0.1f(typedef introduced)
+// File T2interf.c
+//  History:
+//    (date)          (version)
+//    19 Aug 1994     V0.1 (first limited distribution)
+//    25 Jan 1996     V0.1f(typedef introduced)
 ////////////////////////////////////////////////
 #include "cubpackpp/T2interf.h"
-#include "cubpackpp/s_adapt.h"
-#include "cubpackpp/T2rule13.h"
 #include "cubpackpp/T2dv4.h"
+#include "cubpackpp/T2rule13.h"
+#include "cubpackpp/s_adapt.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////
-    typedef Rule<Triangle> RuleTriangle;
-    typedef SameShapeDivisor<Triangle> SameShapeDivisorTriangle;
+typedef Rule<Triangle> RuleTriangle;
+typedef SameShapeDivisor<Triangle> SameShapeDivisorTriangle;
 
-    TRIANGLE::TRIANGLE(const Point &p1, const Point &p2,
-                       const Point &p3) {
-        Pointer<RuleTriangle> R13(new Triangle_Rule13);
-        Pointer<SameShapeDivisorTriangle> D4(new Triangle_Divide4);
-        StoreAtomic(new Triangle(p1, p2, p3),
-                    new SimpleAdaptive<Triangle>(R13, D4));
-    }
+TRIANGLE::TRIANGLE(const Point &p1, const Point &p2, const Point &p3) {
+  Pointer<RuleTriangle> R13(new Triangle_Rule13);
+  Pointer<SameShapeDivisorTriangle> D4(new Triangle_Divide4);
+  StoreAtomic(new Triangle(p1, p2, p3), new SimpleAdaptive<Triangle>(R13, D4));
+}
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp

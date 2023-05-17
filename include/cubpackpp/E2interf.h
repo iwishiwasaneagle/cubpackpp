@@ -59,23 +59,22 @@
 #ifndef E2INTERF_H
 #define E2INTERF_H
 ////////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/E2.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////////
-    class PLANE : public USERINTERFACE<Plane> {
-    public:
+class PLANE : public USERINTERFACE<Plane> {
+public:
+  PLANE();
 
-        PLANE();
+  PLANE(const Point &);
 
-        PLANE(const Point &);
-
-        PLANE(const Point &, real, real);
-    };
+  PLANE(const Point &, real, real);
+};
 ////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

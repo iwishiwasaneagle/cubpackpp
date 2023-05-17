@@ -180,385 +180,286 @@
 /////////////////////////////////////////////////////////
 
 #include "cubpackpp/boolean.h"
+#include "cubpackpp/error.h"
 #include "cubpackpp/tools.h"
 #include <math.h>
 #include <ostream>
-#include "cubpackpp/error.h"
 
 namespace cubpackpp {
 // introduction
-    class Point_2D;
+class Point_2D;
 
-    static Point_2D operator*(real, const Point_2D &);
+static Point_2D operator*(real, const Point_2D &);
 
-    static std::ostream &operator<<(std::ostream &, const Point_2D &);
+static std::ostream &operator<<(std::ostream &, const Point_2D &);
 
 /////////////////////////////////////////////////////////
 // EXPORT
 /////////////////////////////////////////////////////////
-    class Point_2D {
+class Point_2D {
 
-        friend
+  friend
 
-        Point_2D operator*(real, const Point_2D &);
+      Point_2D
+      operator*(real, const Point_2D &);
 
-        friend
+  friend
 
-        std::ostream &operator<<(std::ostream &, const Point_2D &);
+      std::ostream &
+      operator<<(std::ostream &, const Point_2D &);
 
-    public:
+public:
+  Point_2D(const Point_2D &);
 
-        Point_2D(const Point_2D &);
+  Point_2D(const real, const real);
 
-        Point_2D(const real, const real);
+  Point_2D(int n);
 
-        Point_2D(int n);
+  Point_2D();
 
-        Point_2D();
+  ~Point_2D();
 
-        ~Point_2D();
+  Point_2D &operator=(const Point_2D &);
 
-        Point_2D &operator=(const Point_2D &);
+  Point_2D operator+(const Point_2D &) const;
 
-        Point_2D operator+(const Point_2D &) const;
+  Point_2D operator-(const Point_2D &) const;
 
-        Point_2D operator-(const Point_2D &) const;
+  Point_2D operator-() const;
 
-        Point_2D operator-() const;
+  Point_2D operator*(const real) const;
 
-        Point_2D operator*(const real) const;
+  Point_2D operator/(const real) const;
 
-        Point_2D operator/(const real) const;
+  real operator*(const Point_2D &) const;
 
-        real operator*(const Point_2D &) const;
+  Point_2D &operator+=(const Point_2D &);
 
-        Point_2D &operator+=(const Point_2D &);
+  Point_2D &operator-=(const Point_2D &);
 
-        Point_2D &operator-=(const Point_2D &);
+  Point_2D &operator*=(real);
 
-        Point_2D &operator*=(real);
+  Point_2D &operator/=(real);
 
-        Point_2D &operator/=(real);
+  real X() const;
 
-        real X() const;
+  real Y() const;
 
-        real Y() const;
+  real R() const;
 
-        real R() const;
+  real Theta() const;
 
-        real Theta() const;
+  real operator[](int i) const;
 
-        real operator[](int i) const;
+  real &X();
 
-        real &X();
+  real &Y();
 
-        real &Y();
+  real &R();
 
-        real &R();
+  real &Theta();
 
-        real &Theta();
+  real &operator[](int i);
 
-        real &operator[](int i);
+  real /* in[0,2pi] */ Angle() const;
 
-        real/* in[0,2pi] */ Angle() const;
+  real Length() const;
 
-        real Length() const;
+  Boolean operator==(const Point_2D &) const;
 
-        Boolean operator==(const Point_2D &) const;
+  Boolean operator!=(const Point_2D &) const;
 
-        Boolean operator!=(const Point_2D &) const;
+  int Size() const;
 
-        int Size() const;
+  Point_2D Proj(const Point_2D &p) const;
 
-        Point_2D Proj(const Point_2D &p) const;
-
-
-    private:
-
-        real x, y;
-    };
-
+private:
+  real x, y;
+};
 
 /////////////////////////////////////////////
-//INLINE DEFINITIONS
+// INLINE DEFINITIONS
 /////////////////////////////////////////////
 
-    inline
-    Point_2D &
-    Point_2D::operator=(const Point_2D &v) {
-        x = v.x;
-        y = v.y;
-        return *this;
-    }
+inline Point_2D &Point_2D::operator=(const Point_2D &v) {
+  x = v.x;
+  y = v.y;
+  return *this;
+}
 ///////////////////////////////////////////////
 
-    inline
-    Point_2D
-    operator*(real d, const Point_2D &v) {
-        Point_2D r(v);
-        r.x *= d;
-        r.y *= d;
-        return r;
-    }
+inline Point_2D operator*(real d, const Point_2D &v) {
+  Point_2D r(v);
+  r.x *= d;
+  r.y *= d;
+  return r;
+}
 
 /////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::X()
-    const {
-        return x;
-    }
+inline real Point_2D::X() const { return x; }
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::Y()
-    const {
-        return y;
-    }
+inline real Point_2D::Y() const { return y; }
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::R()
-    const {
-        return x;
-    }
+inline real Point_2D::R() const { return x; }
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::Theta()
-    const {
-        return y;
-    }
+inline real Point_2D::Theta() const { return y; }
 
 /////////////////////////////////////////////////
-    inline
-    real &
-    Point_2D::X() {
-        return x;
-    }
+inline real &Point_2D::X() { return x; }
 
 ////////////////////////////////////////////////////
-    inline
-    real &
-    Point_2D::Y() {
-        return y;
-    }
+inline real &Point_2D::Y() { return y; }
 
 ////////////////////////////////////////////////////
-    inline
-    real &
-    Point_2D::R() {
-        return x;
-    }
+inline real &Point_2D::R() { return x; }
 
 ////////////////////////////////////////////////////
-    inline
-    real &
-    Point_2D::Theta() {
-        return y;
-    }
+inline real &Point_2D::Theta() { return y; }
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::Angle()
-    const {
-        real Return;
-        if (x == 0) {
-            Return = M_PI - M_PI / 2 * sign(y);
-        };
-        if (x < 0) {
-            Return = M_PI + atan(y / x);
-        } else {
-            real a = 2 * M_PI + atan(y / x);
-            Return = (a >= 2 * M_PI) ? a - 2 * M_PI : a;
-        };
-        return Return;
-    }
+inline real Point_2D::Angle() const {
+  real Return;
+  if (x == 0) {
+    Return = M_PI - M_PI / 2 * sign(y);
+  };
+  if (x < 0) {
+    Return = M_PI + atan(y / x);
+  } else {
+    real a = 2 * M_PI + atan(y / x);
+    Return = (a >= 2 * M_PI) ? a - 2 * M_PI : a;
+  };
+  return Return;
+}
 
 /////////////////////////////////////////////////////
-    inline
-    ::std::ostream &
-    operator<<(::std::ostream &os, const Point_2D &p) {
-        os << "Point_2D(" << p.x << "," << p.y << ")";
-        return os;
-    }
+inline ::std::ostream &operator<<(::std::ostream &os, const Point_2D &p) {
+  os << "Point_2D(" << p.x << "," << p.y << ")";
+  return os;
+}
 
 //////////////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::operator+(const Point_2D &v)
-    const {
-        Point_2D r(*this);
-        r.x += v.x;
-        r.y += v.y;
-        return r;
-    }
+inline Point_2D Point_2D::operator+(const Point_2D &v) const {
+  Point_2D r(*this);
+  r.x += v.x;
+  r.y += v.y;
+  return r;
+}
 
 /////////////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::operator-(const Point_2D &v)
-    const {
-        Point_2D r(*this);
-        r.x -= v.x;
-        r.y -= v.y;
-        return r;
-    }
+inline Point_2D Point_2D::operator-(const Point_2D &v) const {
+  Point_2D r(*this);
+  r.x -= v.x;
+  r.y -= v.y;
+  return r;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::operator-()
-    const {
-        Point_2D r(-x, -y);
-        return r;
-    }
+inline Point_2D Point_2D::operator-() const {
+  Point_2D r(-x, -y);
+  return r;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::operator*(const real d)
-    const {
-        Point_2D r(*this);
-        r.x *= d;
-        r.y *= d;
-        return r;
-    }
+inline Point_2D Point_2D::operator*(const real d) const {
+  Point_2D r(*this);
+  r.x *= d;
+  r.y *= d;
+  return r;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::operator/(const real d)
-    const {
-        Error(d == 0, "Point_2D:division by zero error");
-        Point_2D r(*this);
-        r.x /= d;
-        r.y /= d;
-        return r;
-    }
+inline Point_2D Point_2D::operator/(const real d) const {
+  Error(d == 0, "Point_2D:division by zero error");
+  Point_2D r(*this);
+  r.x /= d;
+  r.y /= d;
+  return r;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::Length()
-    const {
-        return sqrt(x * x + y * y);
-        //if (y>x)
-        //{
-        //return y*sqrt((x/y)*(x/y)+1);
-        //}
-        //else
-        //{
-        //return x*sqrt((y/x)*(y/x)+1);
-        //};
-    }
+inline real Point_2D::Length() const {
+  return sqrt(x * x + y * y);
+  // if (y>x)
+  //{
+  // return y*sqrt((x/y)*(x/y)+1);
+  // }
+  // else
+  //{
+  // return x*sqrt((y/x)*(y/x)+1);
+  // };
+}
 
 ////////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::operator*(const Point_2D &v)
-    const {
-        real inprod = x * v.x + y * v.y;
-        return inprod;
-    }
+inline real Point_2D::operator*(const Point_2D &v) const {
+  real inprod = x * v.x + y * v.y;
+  return inprod;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    Point_2D &
-    Point_2D::operator+=(const Point_2D &v) {
-        x += v.x;
-        y += v.y;
-        return (*this);
-    }
+inline Point_2D &Point_2D::operator+=(const Point_2D &v) {
+  x += v.x;
+  y += v.y;
+  return (*this);
+}
 
 ///////////////////////////////////////////////////
-    inline
-    Point_2D &
-    Point_2D::operator-=(const Point_2D &v) {
-        x -= v.x;
-        y -= v.y;
-        return (*this);
-    }
+inline Point_2D &Point_2D::operator-=(const Point_2D &v) {
+  x -= v.x;
+  y -= v.y;
+  return (*this);
+}
 
 ///////////////////////////////////////////////////
-    inline
-    Point_2D &
-    Point_2D::operator*=(real d) {
-        x *= d;
-        y *= d;
-        return (*this);
-    }
+inline Point_2D &Point_2D::operator*=(real d) {
+  x *= d;
+  y *= d;
+  return (*this);
+}
 
 ///////////////////////////////////////////////////
-    inline
-    Point_2D &
-    Point_2D::operator/=(real d) {
-        Error(d == 0, "Point_2D:division by zero error");
-        x /= d;
-        y /= d;
-        return (*this);
-    }
+inline Point_2D &Point_2D::operator/=(real d) {
+  Error(d == 0, "Point_2D:division by zero error");
+  x /= d;
+  y /= d;
+  return (*this);
+}
 
 ///////////////////////////////////////////////////
-    inline
-    real
-    Point_2D::operator[](int i)
-    const {
-        return i ? y : x;
-    }
+inline real Point_2D::operator[](int i) const { return i ? y : x; }
 
 ///////////////////////////////////////////////
-    inline
-    real &
-    Point_2D::operator[](int i) {
-        return i ? y : x;
-    }
+inline real &Point_2D::operator[](int i) { return i ? y : x; }
 
 ///////////////////////////////////////////////
-    inline
-    Boolean
-    Point_2D::operator==(const Point_2D &v)
-    const {
-        int b = (x == v.x) && (y == v.y);
-        return (Boolean) b;
-    }
+inline Boolean Point_2D::operator==(const Point_2D &v) const {
+  int b = (x == v.x) && (y == v.y);
+  return (Boolean)b;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    Boolean
-    Point_2D::operator!=(const Point_2D &v)
-    const {
-        int b = (x != v.x) || (y != v.y);
-        return (Boolean) b;
-    }
+inline Boolean Point_2D::operator!=(const Point_2D &v) const {
+  int b = (x != v.x) || (y != v.y);
+  return (Boolean)b;
+}
 
 ////////////////////////////////////////////////////
-    inline
-    int
-    Point_2D::Size() const {
-        return 2;
-    }
+inline int Point_2D::Size() const { return 2; }
 
 //////////////////////////////////////////////////
-    inline
-    Point_2D
-    Point_2D::Proj(const Point_2D &v)
-    const {
-        Point_2D r(v);
-        r *= (*this) * v;
-        r /= (*this) * (*this);
-        return r;
-    }
+inline Point_2D Point_2D::Proj(const Point_2D &v) const {
+  Point_2D r(v);
+  r *= (*this) * v;
+  r /= (*this) * (*this);
+  return r;
+}
 
 //////////////////////////////////////////////////
-    inline
-    Point_2D::Point_2D(int n) {
-        Error(n != 2, "a Point_2D should be two-dimensional");
-    }
+inline Point_2D::Point_2D(int n) {
+  Error(n != 2, "a Point_2D should be two-dimensional");
+}
 /////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

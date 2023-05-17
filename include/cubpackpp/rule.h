@@ -77,32 +77,30 @@
 #define RULE_H
 
 /////////////////////////////////////////
-#include "cubpackpp/refcount.h"
 #include "cubpackpp/integran.h"
 #include "cubpackpp/real.h"
+#include "cubpackpp/refcount.h"
 
 namespace cubpackpp {
 //////////////////////////////////////////
 
-    template<class GEOMETRY>
-    class Rule : public ReferenceCounting {
-    public:
+template <class GEOMETRY> class Rule : public ReferenceCounting {
+public:
+  Rule();
 
-        Rule();
+  virtual void ApplyWithDiffs(Integrand &, GEOMETRY &, real &, real &,
+                              Vector<real> &);
 
-        virtual void ApplyWithDiffs(Integrand &, GEOMETRY &, real &, real &, Vector<real> &);
+  virtual void Apply(Integrand &, GEOMETRY &, real &, real &);
 
-        virtual void Apply(Integrand &, GEOMETRY &, real &, real &);
+  virtual int Degree() const = 0;
 
-        virtual int Degree() const = 0;
+  virtual int NumberOfPoints() const = 0;
 
-        virtual int NumberOfPoints() const = 0;
-
-        virtual ~Rule();
-
-    };
+  virtual ~Rule();
+};
 //////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

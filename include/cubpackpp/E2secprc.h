@@ -58,21 +58,19 @@
 #ifndef E2SECPRC_H
 #define E2SECPRC_H
 //////////////////////////////////////////////
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/E2sec.h"
+#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-    class PlaneSector_Processor :
-            public Processor<PlaneSector> {
-    public:
+class PlaneSector_Processor : public Processor<PlaneSector> {
+public:
+  PlaneSector_Processor();
 
-        PlaneSector_Processor();
+  void Process(Stack<AtomicRegion> &);
 
-        void Process(Stack<AtomicRegion> &);
-
-        Processor<PlaneSector> *NewCopy() const;
-    };
+  Processor<PlaneSector> *NewCopy() const;
+};
 /////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

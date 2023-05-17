@@ -50,26 +50,24 @@
 //
 /////////////////////////////////////////////////////////
 #ifndef STTOSMST_H
-#define  STTOSMST_H
+#define STTOSMST_H
 /////////////////////////////////////////////////////////
-#include "cubpackpp/trnsfrm.h"
-#include "cubpackpp/strip.h"
-#include "cubpackpp/semistrp.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/semistrp.h"
+#include "cubpackpp/strip.h"
+#include "cubpackpp/trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class IStoSIS : public Transformation {
-    public:
+class IStoSIS : public Transformation {
+public:
+  IStoSIS(SemiInfiniteStrip *);
 
-        IStoSIS(SemiInfiniteStrip *);
+  void Transform(real &w, Point &p);
 
-        void Transform(real &w, Point &p);
-
-    private:
-
-        Pointer<SemiInfiniteStrip> SIS_ptr;
-    };
+private:
+  Pointer<SemiInfiniteStrip> SIS_ptr;
+};
 //////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

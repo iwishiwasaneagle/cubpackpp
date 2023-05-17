@@ -21,15 +21,15 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 /////////////////////////////////////////////////////////
-#include "cubpackpp/real.h"
 #include "cubpackpp/point.h"
+#include "cubpackpp/real.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
 
-    typedef real (*Function)(const Point &);
+typedef real (*Function)(const Point &);
 /////////////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 
 #endif

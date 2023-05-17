@@ -60,14 +60,13 @@
 
 namespace cubpackpp {
 ///////////////////////////////////////////////
-    class OutCircle : public Circle {
-    public:
+class OutCircle : public Circle {
+public:
+  OutCircle(const Point &, const Point &);
 
-        OutCircle(const Point &, const Point &);
-
-        OutCircle(const Point &, real);
-    };
+  OutCircle(const Point &, real);
+};
 ////////////////////////////////////////////////
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

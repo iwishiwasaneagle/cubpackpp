@@ -51,27 +51,25 @@
 //
 /////////////////////////////////////////////////////////
 #ifndef T2TOPS_H
-#define  T2TOPS_H
+#define T2TOPS_H
 /////////////////////////////////////////////////////////
-#include "cubpackpp/trnsfrm.h"
-#include "cubpackpp/ps.h"
 #include "cubpackpp/T2.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/ps.h"
+#include "cubpackpp/trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class T2toPS : public Transformation {
-    public:
+class T2toPS : public Transformation {
+public:
+  T2toPS(ParabolicSegment *);
 
-        T2toPS(ParabolicSegment *);
+  void Transform(real &w, Point &p);
 
-        void Transform(real &w, Point &p);
-
-    private:
-
-        Point P, M, H;
-        real a, k;
-    };
+private:
+  Point P, M, H;
+  real a, k;
+};
 //////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

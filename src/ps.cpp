@@ -20,31 +20,17 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
-    ParabolicSegment::ParabolicSegment(const Point &a,
-                                       const Point &b,
-                                       const Point &p)
-            : Geometry(2), TheA(a), TheB(b), TheP(p) {
-    }
+ParabolicSegment::ParabolicSegment(const Point &a, const Point &b,
+                                   const Point &p)
+    : Geometry(2), TheA(a), TheB(b), TheP(p) {}
 
 /////////////////////////////////////////////////////////
-    const Point &
-    ParabolicSegment::A()
-    const {
-        return TheA;
-    }
+const Point &ParabolicSegment::A() const { return TheA; }
 
 //////////////////////////////////////////////////////////
-    const Point &
-    ParabolicSegment::B()
-    const {
-        return TheB;
-    }
+const Point &ParabolicSegment::B() const { return TheB; }
 
 //////////////////////////////////////////////////////////
-    const Point &
-    ParabolicSegment::P()
-    const {
-        return TheP;
-    }
+const Point &ParabolicSegment::P() const { return TheP; }
 //////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp

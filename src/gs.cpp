@@ -20,43 +20,26 @@
 
 namespace cubpackpp {
 ////////////////////////////////////////////////////////
-    GeneralizedSector::GeneralizedSector(real (*f)(real), real a, real b, const Point &C)
-            : Geometry(2), TheCenter(C), TheAlpha(a), TheBeta(b), TheBoundary(f) {
-    }
+GeneralizedSector::GeneralizedSector(real (*f)(real), real a, real b,
+                                     const Point &C)
+    : Geometry(2), TheCenter(C), TheAlpha(a), TheBeta(b), TheBoundary(f) {}
 
 /////////////////////////////////////////////////////////
-    real
-    GeneralizedSector::Alpha()
-    const {
-        return TheAlpha;
-    }
+real GeneralizedSector::Alpha() const { return TheAlpha; }
 
 //////////////////////////////////////////////////////////
-    real
-    GeneralizedSector::Beta()
-    const {
-        return TheBeta;
-    }
+real GeneralizedSector::Beta() const { return TheBeta; }
 
 //////////////////////////////////////////////////////////
-    const Point &
-    GeneralizedSector::Center()
-    const {
-        return TheCenter;
-    }
+const Point &GeneralizedSector::Center() const { return TheCenter; }
 
 //////////////////////////////////////////////////////////
-    real
-    GeneralizedSector::Boundary(real p) const {
-        GeneralizedSector *G = (GeneralizedSector *) this;
-        return G->TheBoundary(p);
-    }
+real GeneralizedSector::Boundary(real p) const {
+  GeneralizedSector *G = (GeneralizedSector *)this;
+  return G->TheBoundary(p);
+}
 
 ///////////////////////////////////////////////////////////
-    RealFunction
-    GeneralizedSector::Boundary()
-    const {
-        return TheBoundary;
-    }
+RealFunction GeneralizedSector::Boundary() const { return TheBoundary; }
 /////////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp

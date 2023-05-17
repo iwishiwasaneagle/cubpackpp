@@ -67,22 +67,19 @@
 namespace cubpackpp {
 /////////////////////////////////////////////////
 
+template <class T> class VectorStack : public Vector<T> {
 
-    template<class T>
-    class VectorStack : public Vector<T> {
+public:
+  VectorStack();
 
-    public:
+  VectorStack(const VectorStack<T> &);
 
-        VectorStack();
+  VectorStack<T> &operator=(const VectorStack<T> &);
 
-        VectorStack(const VectorStack<T> &);
-
-        VectorStack<T> &operator=(const VectorStack<T> &);
-
-        void operator+=(const T &);
-    };
+  void operator+=(const T &);
+};
 ///////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

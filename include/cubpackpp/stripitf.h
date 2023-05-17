@@ -51,16 +51,15 @@
 #ifndef STRIPITF_H
 #define STRIPITF_H
 ////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/strip.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////
-    class INFINITE_STRIP : public USERINTERFACE<InfiniteStrip> {
-    public:
-
-        INFINITE_STRIP(const Point &, const Point &);
-    };
+class INFINITE_STRIP : public USERINTERFACE<InfiniteStrip> {
+public:
+  INFINITE_STRIP(const Point &, const Point &);
+};
 ////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

@@ -65,45 +65,43 @@
 #ifndef REGCOLL_H
 #define REGCOLL_H
 /////////////////////////////////////////////
+#include "cubpackpp/atomreg.h"
 #include "cubpackpp/compreg.h"
-#include "cubpackpp/integran.h"
 #include "cubpackpp/function.h"
+#include "cubpackpp/integran.h"
 #include "cubpackpp/pointer.h"
 #include "cubpackpp/stack.h"
-#include "cubpackpp/atomreg.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
 
-    class REGION_COLLECTION : public COMPOUND_REGION {
-    public:
-        typedef Stack<COMPOUND_REGION> StackCOMPOUND_REGION;
+class REGION_COLLECTION : public COMPOUND_REGION {
+public:
+  typedef Stack<COMPOUND_REGION> StackCOMPOUND_REGION;
 
-        void LocalIntegrand(Integrand *);
+  void LocalIntegrand(Integrand *);
 
-        void LocalIntegrand(Function);
+  void LocalIntegrand(Function);
 
-        REGION_COLLECTION &operator+=(const COMPOUND_REGION &);
+  REGION_COLLECTION &operator+=(const COMPOUND_REGION &);
 
-        REGION_COLLECTION operator+(const COMPOUND_REGION &);
+  REGION_COLLECTION operator+(const COMPOUND_REGION &);
 
-        REGION_COLLECTION();
+  REGION_COLLECTION();
 
-        REGION_COLLECTION(const REGION_COLLECTION &);
+  REGION_COLLECTION(const REGION_COLLECTION &);
 
-    protected:
+protected:
+  Pointer<StackCOMPOUND_REGION> SCR_ptr;
 
-        Pointer<StackCOMPOUND_REGION> SCR_ptr;
+  void Preprocess();
 
-        void Preprocess();
+  void Improve();
 
-        void Improve();
+  real MaxAtomicError() const;
 
-        real MaxAtomicError() const;
-
-        COMPOUND_REGION *NewCopy() const;
-
-    };
+  COMPOUND_REGION *NewCopy() const;
+};
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

@@ -63,29 +63,25 @@
 #ifndef PASSBUCK_H
 #define PASSBUCK_H
 ///////////////////////////////////////////
-#include "cubpackpp/regproc.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////
-    template<class FROM, class TO, class VIA>
-    class PassTheBuck : public Processor<TO> {
-    public:
+template <class FROM, class TO, class VIA>
+class PassTheBuck : public Processor<TO> {
+public:
+  PassTheBuck(AtomicRegion *);
 
-        PassTheBuck(AtomicRegion *);
+  void Process(Stack<AtomicRegion> &);
 
-        void Process(Stack<AtomicRegion> &);
+  Processor<TO> *NewCopy() const;
 
-        Processor<TO> *NewCopy() const;
-
-
-    private:
-
-        AtomicRegion *AR_ptr;
-
-    };
+private:
+  AtomicRegion *AR_ptr;
+};
 //////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

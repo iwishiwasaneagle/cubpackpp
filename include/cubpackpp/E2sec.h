@@ -75,32 +75,26 @@
 namespace cubpackpp {
 /////////////////////////////////////////
 
-    class PlaneSector : public Geometry {
-    public:
+class PlaneSector : public Geometry {
+public:
+  PlaneSector(const Point &A, const Point &B, const Point &C);
 
-        PlaneSector(
-                const Point &A, const Point &B, const Point &C);
+  PlaneSector(const Point &O, real r, real theta1, real theta2);
 
-        PlaneSector(
-                const Point &O, real r, real theta1, real theta2);
+  const Point &Center() const;
 
-        const Point &Center() const;
+  real InnerRadius() const;
 
-        real InnerRadius() const;
+  real OuterRadius() const;
 
-        real OuterRadius() const;
+  real SmallAngle() const;
 
-        real SmallAngle() const;
+  real BigAngle() const;
 
-        real BigAngle() const;
-
-
-    private:
-
-        Point TheCenter;
-        real TheInnerRadius, TheSmallAngle, TheBigAngle;
-
-    };
+private:
+  Point TheCenter;
+  real TheInnerRadius, TheSmallAngle, TheBigAngle;
+};
 //////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

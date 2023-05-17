@@ -65,17 +65,16 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////////
-    class Counter {
-    public:
+class Counter {
+public:
+  virtual void Start() = 0;
 
-        virtual void Start() = 0;
+  virtual void Stop() = 0;
 
-        virtual void Stop() = 0;
+  virtual void Reset() = 0;
 
-        virtual void Reset() = 0;
-
-        virtual unsigned long Read() = 0;
-    };
+  virtual unsigned long Read() = 0;
+};
 //////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

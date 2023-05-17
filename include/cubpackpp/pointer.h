@@ -49,44 +49,41 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////////////
-    template<class T>
-    class Pointer {
-    public:
+template <class T> class Pointer {
+public:
+  Pointer();
 
-        Pointer();
+  Pointer(const Pointer<T> &);
 
-        Pointer(const Pointer<T> &);
+  Pointer(T *tp);
 
-        Pointer(T *tp);
+  Pointer<T> &operator=(const Pointer<T> &tp);
 
-        Pointer<T> &operator=(const Pointer<T> &tp);
+  Pointer<T> &operator=(T *tp);
 
-        Pointer<T> &operator=(T *tp);
+  Boolean operator==(const Pointer<T> &tp) const;
 
-        Boolean operator==(const Pointer<T> &tp) const;
+  Boolean operator!=(const Pointer<T> &tp) const;
 
-        Boolean operator!=(const Pointer<T> &tp) const;
+  T &operator*() const;
 
-        T &operator*() const;
+  T *operator->() const;
 
-        T *operator->() const;
+  T &operator[](int i) const;
 
-        T &operator[](int i) const;
+  operator T *() { return ptr; }
 
-        operator T *() { return ptr; }
+  ~Pointer();
 
-        ~Pointer();
-
-    private:
-
-        T *ptr;
-    };
+private:
+  T *ptr;
+};
 
 /////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "templist.h"
 
-#ifdef  TEMPLATEINCLUDE
+#ifdef TEMPLATEINCLUDE
 
 #include "cubpackpp/pointer.tpp"
 

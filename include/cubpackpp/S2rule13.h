@@ -69,17 +69,16 @@
 namespace cubpackpp {
 //////////////////////////////////////////
 
-    class Circle_Rule13 : public Rule<Circle> {
-    public:
+class Circle_Rule13 : public Rule<Circle> {
+public:
+  Circle_Rule13();
 
-        Circle_Rule13();
+  void Apply(Integrand &, Circle &, real &Result, real &Error);
 
-        void Apply(Integrand &, Circle &, real &Result, real &Error);
+  int NumberOfPoints() const { return 36; };
 
-        int NumberOfPoints() const { return 36; };
-
-        int Degree() const { return 13; };
-    };
+  int Degree() const { return 13; };
+};
 ////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

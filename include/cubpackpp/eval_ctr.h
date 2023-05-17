@@ -74,38 +74,35 @@
 //     None
 ///////////////////////////////////////////////////////////
 
-
 #ifndef EVAL_CTR_H
 #define EVAL_CTR_H
 /////////////////////////////////
-#include "cubpackpp/counter.h"
 #include "cubpackpp/boolean.h"
+#include "cubpackpp/counter.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////////
-    class EvaluationCounter : public Counter {
-    public:
+class EvaluationCounter : public Counter {
+public:
+  EvaluationCounter();
 
-        EvaluationCounter();
+  void Start();
 
-        void Start();
+  void Stop();
 
-        void Stop();
+  void Reset();
 
-        void Reset();
+  void Reset(unsigned long);
 
-        void Reset(unsigned long);
+  unsigned long Read();
 
-        unsigned long Read();
-
-    private:
-
-        long Strt;
-        long End;
-        unsigned long Bias;
-        Boolean Running;
-    };
+private:
+  long Strt;
+  long End;
+  unsigned long Bias;
+  Boolean Running;
+};
 
 ////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

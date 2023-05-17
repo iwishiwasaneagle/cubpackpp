@@ -61,40 +61,36 @@
 #ifndef C2PRC_H
 #define C2PRC_H
 //////////////////////////////////////////////
+#include "cubpackpp/C2.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/regproc.h"
 #include "cubpackpp/rule.h"
 #include "cubpackpp/samediv.h"
-#include "cubpackpp/C2.h"
-#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
 
-    class Parallelogram_Processor :
-            public Processor<Parallelogram> {
-    public:
-        typedef Rule<Parallelogram> RuleParallelogram;
-        typedef SameShapeDivisor<Parallelogram> SameShapeDivisorParallelogram;
+class Parallelogram_Processor : public Processor<Parallelogram> {
+public:
+  typedef Rule<Parallelogram> RuleParallelogram;
+  typedef SameShapeDivisor<Parallelogram> SameShapeDivisorParallelogram;
 
-        Parallelogram_Processor();
+  Parallelogram_Processor();
 
-        void Process(Stack<AtomicRegion> &);
+  void Process(Stack<AtomicRegion> &);
 
-        Processor<Parallelogram> *NewCopy() const;
+  Processor<Parallelogram> *NewCopy() const;
 
-    protected:
+protected:
+  static Pointer<RuleParallelogram> TheRule;
+  static Pointer<SameShapeDivisorParallelogram> TheDivisor4;
+  static Pointer<SameShapeDivisorParallelogram> TheDivisor2;
+  unsigned int TimesCalled;
 
-        static Pointer<RuleParallelogram> TheRule;
-        static Pointer<SameShapeDivisorParallelogram> TheDivisor4;
-        static Pointer<SameShapeDivisorParallelogram> TheDivisor2;
-        unsigned int TimesCalled;
+  Parallelogram_Processor *Descendant() const;
 
-        Parallelogram_Processor *Descendant() const;
-
-        Vector<real> Diffs;
-
-
-    };
+  Vector<real> Diffs;
+};
 /////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

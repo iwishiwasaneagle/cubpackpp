@@ -51,26 +51,24 @@
 //
 /////////////////////////////////////////////////////////
 #ifndef C2TOGR_H
-#define  C2TOGR_H
+#define C2TOGR_H
 /////////////////////////////////////////////////////////
-#include "cubpackpp/trnsfrm.h"
-#include "cubpackpp/gr.h"
 #include "cubpackpp/C2.h"
+#include "cubpackpp/gr.h"
 #include "cubpackpp/pointer.h"
+#include "cubpackpp/trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////
-    class C2toGR : public Transformation {
-    public:
+class C2toGR : public Transformation {
+public:
+  C2toGR(GeneralizedRectangle *);
 
-        C2toGR(GeneralizedRectangle *);
+  void Transform(real &w, Point &p);
 
-        void Transform(real &w, Point &p);
-
-    private:
-
-        Pointer<GeneralizedRectangle> GR_ptr;
-    };
+private:
+  Pointer<GeneralizedRectangle> GR_ptr;
+};
 //////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

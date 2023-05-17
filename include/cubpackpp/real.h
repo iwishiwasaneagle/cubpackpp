@@ -25,24 +25,24 @@
 
 namespace cubpackpp {
 #ifdef FLOAT
-    typedef float real;
+typedef float real;
 
-#define REAL_MAX  FLT_MAX
-#define REAL_MIN  FLT_MIN
-#define REAL_EPSILON  FLT_EPSILON
-#define REAL_MAX_EXP  FLT_MAX_EPS
-#define DEFAULT_REL_ERR_REQ  (1.0e-4)
+#define REAL_MAX FLT_MAX
+#define REAL_MIN FLT_MIN
+#define REAL_EPSILON FLT_EPSILON
+#define REAL_MAX_EXP FLT_MAX_EPS
+#define DEFAULT_REL_ERR_REQ (1.0e-4)
 
 #else
-    typedef double real;
+typedef double real;
 
-#define REAL_MAX  DBL_MAX
-#define REAL_MIN  DBL_MIN
-#define REAL_EPSILON  DBL_EPSILON
-#define REAL_MAX_EXP  DBL_MAX_EXP
-#define DEFAULT_REL_ERR_REQ  (1.0e-6)
+#define REAL_MAX DBL_MAX
+#define REAL_MIN DBL_MIN
+#define REAL_EPSILON DBL_EPSILON
+#define REAL_MAX_EXP DBL_MAX_EXP
+#define DEFAULT_REL_ERR_REQ (1.0e-6)
 
 #endif
 /////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

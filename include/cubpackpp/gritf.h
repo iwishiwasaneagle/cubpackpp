@@ -54,16 +54,15 @@
 #ifndef GRITF_H
 #define GRITF_H
 ////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/gr.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////
-    class GENERALIZED_RECTANGLE : public USERINTERFACE<GeneralizedRectangle> {
-    public:
-
-        GENERALIZED_RECTANGLE(Function, const Point &, const Point &);
-    };
+class GENERALIZED_RECTANGLE : public USERINTERFACE<GeneralizedRectangle> {
+public:
+  GENERALIZED_RECTANGLE(Function, const Point &, const Point &);
+};
 ////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

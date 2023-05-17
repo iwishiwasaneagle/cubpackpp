@@ -86,7 +86,6 @@
 //     None
 ///////////////////////////////////////////////////////////
 
-
 #ifndef VECTOR_H
 #define VECTOR_H
 /////////////////////////////////////////////////
@@ -96,42 +95,37 @@
 namespace cubpackpp {
 /////////////////////////////////////////////////
 
+template <class T> class Vector {
 
-    template<class T>
-    class Vector {
+public:
+  Vector();
 
-    public:
+  Vector(unsigned int length);
 
-        Vector();
+  Vector(unsigned int, T *);
 
-        Vector(unsigned int length);
+  Vector(const Vector<T> &);
 
-        Vector(unsigned int, T *);
+  T &operator[](unsigned int);
 
-        Vector(const Vector<T> &);
+  const T &operator[](unsigned int) const;
 
-        T &operator[](unsigned int);
+  Vector<T> &operator=(const Vector<T> &);
 
-        const T &operator[](unsigned int) const;
+  Boolean operator==(const Vector<T> &) const;
 
-        Vector<T> &operator=(const Vector<T> &);
+  Boolean operator!=(const Vector<T> &) const;
 
-        Boolean operator==(const Vector<T> &) const;
+  ~Vector();
 
-        Boolean operator!=(const Vector<T> &) const;
+  unsigned int Size() const;
 
-        ~Vector();
-
-        unsigned int Size() const;
-
-
-    protected:
-
-        unsigned int TheSize;
-        T *Contents;
-    };
+protected:
+  unsigned int TheSize;
+  T *Contents;
+};
 ///////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

@@ -127,48 +127,32 @@
 //                 integral.
 ///////////////////////////////////////////////////////
 
-
 #include "cubpackpp/boolean.h"
 
 #ifndef INTEGRAT_H
 #define INTEGRAT_H
 
 namespace cubpackpp {
-    const unsigned long DefaultMaxEval = 100000;
-    const real DefaultAbsErrReq = 0.0;
-    const real DefaultRelErrReq = DEFAULT_REL_ERR_REQ;
+const unsigned long DefaultMaxEval = 100000;
+const real DefaultAbsErrReq = 0.0;
+const real DefaultRelErrReq = DEFAULT_REL_ERR_REQ;
 
-    extern
-    real Integrate(Function f,
-                   COMPOUND_REGION &R,
-                   real AbsErrReq = DefaultAbsErrReq,
-                   real RelErrReq = DefaultRelErrReq,
-                   unsigned long MaxEval = DefaultMaxEval);
+extern real Integrate(Function f, COMPOUND_REGION &R,
+                      real AbsErrReq = DefaultAbsErrReq,
+                      real RelErrReq = DefaultRelErrReq,
+                      unsigned long MaxEval = DefaultMaxEval);
 
-    extern
-    real Integrate(COMPOUND_REGION &R,
-                   real AbsErrReq = DefaultAbsErrReq,
-                   real RelErrReq = DefaultRelErrReq,
-                   unsigned long MaxEval = DefaultMaxEval);
+extern real Integrate(COMPOUND_REGION &R, real AbsErrReq = DefaultAbsErrReq,
+                      real RelErrReq = DefaultRelErrReq,
+                      unsigned long MaxEval = DefaultMaxEval);
 
-    extern
-    void Integrate(Function f,
-                   COMPOUND_REGION &R,
-                   real &Integral,
-                   real &AbsError,
-                   Boolean &Success,
-                   real AbsErrReq,
-                   real RelErrReq,
-                   unsigned long MaxEval);
+extern void Integrate(Function f, COMPOUND_REGION &R, real &Integral,
+                      real &AbsError, Boolean &Success, real AbsErrReq,
+                      real RelErrReq, unsigned long MaxEval);
 
-    extern
-    void Integrate(COMPOUND_REGION &R,
-                   real &Integral,
-                   real &AbsError,
-                   Boolean &Success,
-                   real AbsErrReq,
-                   real RelErrReq,
-                   unsigned long MaxEval);
+extern void Integrate(COMPOUND_REGION &R, real &Integral, real &AbsError,
+                      Boolean &Success, real AbsErrReq, real RelErrReq,
+                      unsigned long MaxEval);
 
-} // cubpackpp
+} // namespace cubpackpp
 #endif

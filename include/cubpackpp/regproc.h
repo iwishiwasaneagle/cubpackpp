@@ -78,56 +78,49 @@
 #ifndef REGPROC_H
 #define REGPROC_H
 ////////////////////////////////////////////
-#include "cubpackpp/refcount.h"
-#include "cubpackpp/pointer.h"
 #include "cubpackpp/atomreg.h"
-#include "cubpackpp/stack.h"
-#include "cubpackpp/real.h"
 #include "cubpackpp/integran.h"
+#include "cubpackpp/pointer.h"
+#include "cubpackpp/real.h"
+#include "cubpackpp/refcount.h"
+#include "cubpackpp/stack.h"
 
 namespace cubpackpp {
 /////////////////////////////////////////////
 
-    template<class GEOMETRY>
-    class Atomic;
+template <class GEOMETRY> class Atomic;
 
-    template<class GEOMETRY>
-    class Processor : public ReferenceCounting {
-    public:
+template <class GEOMETRY> class Processor : public ReferenceCounting {
+public:
+  Processor();
 
-        Processor();
+  void LocalAtomic(Atomic<GEOMETRY> *);
 
-        void LocalAtomic(Atomic<GEOMETRY> *);
+  virtual Processor<GEOMETRY> *NewCopy() const = 0;
 
-        virtual Processor<GEOMETRY> *NewCopy() const = 0;
+  virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
 
-        virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
+  virtual ~Processor();
 
-        virtual ~Processor();
+protected:
+  Integrand &LocalIntegrand() const;
 
-    protected:
+  GEOMETRY &Geometry() const;
 
-        Integrand &LocalIntegrand() const;
+  real &Integral();
 
-        GEOMETRY &Geometry() const;
+  real &AbsoluteError();
 
-        real &Integral();
+  Atomic<GEOMETRY> &LocalAtomic() const;
 
-        real &AbsoluteError();
+  RegionInfo &LocalRegionInfo() const;
 
-        Atomic<GEOMETRY> &LocalAtomic() const;
-
-        RegionInfo &LocalRegionInfo() const;
-
-
-    private:
-
-        Atomic<GEOMETRY> *A_ptr;
-    };
-
+private:
+  Atomic<GEOMETRY> *A_ptr;
+};
 
 /////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

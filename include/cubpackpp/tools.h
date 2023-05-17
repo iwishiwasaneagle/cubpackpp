@@ -28,22 +28,12 @@
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////////
-    inline real
-    min(real a, real b) {
-        return (a < b) ? a : b;
-    }
+inline real min(real a, real b) { return (a < b) ? a : b; }
 
+inline real max(real a, real b) { return (a > b) ? a : b; }
 
-    inline real
-    max(real a, real b) {
-        return (a > b) ? a : b;
-    }
-
-    inline real
-    sign(real x) {
-        return (x > 0) ? 1.0 : -1.0;
-    }
+inline real sign(real x) { return (x > 0) ? 1.0 : -1.0; }
 
 ///////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

@@ -53,18 +53,17 @@
 #define C2TOS2_H
 ////////////////////////////////////////////////////////
 
-#include "cubpackpp/trnsfrm.h"
 #include "cubpackpp/point.h"
+#include "cubpackpp/trnsfrm.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////////
-    class PolarToRectangular : public Transformation {
-    public:
+class PolarToRectangular : public Transformation {
+public:
+  PolarToRectangular();
 
-        PolarToRectangular();
-
-        void Transform(real &w, Point &p);
-    };
+  void Transform(real &w, Point &p);
+};
 ////////////////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif

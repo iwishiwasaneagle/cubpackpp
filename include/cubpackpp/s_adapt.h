@@ -62,47 +62,39 @@
 #ifndef S_ADAPT_H
 #define S_ADAPT_H
 ///////////////////////////////////////////
+#include "cubpackpp/regproc.h"
 #include "cubpackpp/rule.h"
 #include "cubpackpp/samediv.h"
-#include "cubpackpp/regproc.h"
 
 namespace cubpackpp {
 ///////////////////////////////////////////
 
-    template<class GEOMETRY>
-    class SimpleAdaptive : public Processor<GEOMETRY> {
-    public:
-        typedef Rule<GEOMETRY> RuleGEOMETRY;
-        typedef SameShapeDivisor<GEOMETRY> SameShapeDivisorGEOMETRY;
+template <class GEOMETRY> class SimpleAdaptive : public Processor<GEOMETRY> {
+public:
+  typedef Rule<GEOMETRY> RuleGEOMETRY;
+  typedef SameShapeDivisor<GEOMETRY> SameShapeDivisorGEOMETRY;
 
-        SimpleAdaptive(const Pointer<RuleGEOMETRY> &R,
-                       const Pointer<SameShapeDivisorGEOMETRY> &D)
-                : Processor<GEOMETRY>(),
-                  TimesCalled(0),
-                  Diffs(2),
-                  TheRule(R),
-                  TheDivisor(D) {
-        }
+  SimpleAdaptive(const Pointer<RuleGEOMETRY> &R,
+                 const Pointer<SameShapeDivisorGEOMETRY> &D)
+      : Processor<GEOMETRY>(), TimesCalled(0), Diffs(2), TheRule(R),
+        TheDivisor(D) {}
 
-        SimpleAdaptive(Rule<GEOMETRY> *,
-                       SameShapeDivisor<GEOMETRY> *);
+  SimpleAdaptive(Rule<GEOMETRY> *, SameShapeDivisor<GEOMETRY> *);
 
-        void Process(Stack<AtomicRegion> &Offspring);
+  void Process(Stack<AtomicRegion> &Offspring);
 
-        Processor<GEOMETRY> *NewCopy() const;
+  Processor<GEOMETRY> *NewCopy() const;
 
-    protected:
+protected:
+  SimpleAdaptive<GEOMETRY> *Descendant() const;
 
-        SimpleAdaptive<GEOMETRY> *Descendant() const;
-
-        unsigned int TimesCalled;
-        Vector<real> Diffs;
-        Pointer<RuleGEOMETRY> TheRule;
-        Pointer<SameShapeDivisorGEOMETRY> TheDivisor;
-
-    };
+  unsigned int TimesCalled;
+  Vector<real> Diffs;
+  Pointer<RuleGEOMETRY> TheRule;
+  Pointer<SameShapeDivisorGEOMETRY> TheDivisor;
+};
 /////////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE

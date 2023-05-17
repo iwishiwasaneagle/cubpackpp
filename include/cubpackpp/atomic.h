@@ -75,34 +75,31 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////
-    template<class GEOMETRY>
-    class Atomic : public AtomicRegion {
-        friend
+template <class GEOMETRY> class Atomic : public AtomicRegion {
+  friend
 
-        class Processor<GEOMETRY>;
+      class Processor<GEOMETRY>;
 
-    public:
-        typedef Processor<GEOMETRY> ProcessorGEOMETRY;
+public:
+  typedef Processor<GEOMETRY> ProcessorGEOMETRY;
 
-        Atomic(GEOMETRY *, Processor<GEOMETRY> *);
+  Atomic(GEOMETRY *, Processor<GEOMETRY> *);
 
-        void Use(Processor<GEOMETRY> *);
+  void Use(Processor<GEOMETRY> *);
 
-        void Process(Stack<AtomicRegion> &Offspring);
+  void Process(Stack<AtomicRegion> &Offspring);
 
-        void LocalIntegrand(Integrand *);
+  void LocalIntegrand(Integrand *);
 
-    private:
+private:
+  Pointer<GEOMETRY> G_ptr;
+  Pointer<ProcessorGEOMETRY> RP_ptr;
+  Pointer<Integrand> I_ptr;
 
-        Pointer<GEOMETRY> G_ptr;
-        Pointer<ProcessorGEOMETRY> RP_ptr;
-        Pointer<Integrand> I_ptr;
-
-        RegionInfo *LocalRegionInfo();
-
-    };
+  RegionInfo *LocalRegionInfo();
+};
 ///////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #include "cubpackpp/templist.h"
 
 #ifdef TEMPLATEINCLUDE
@@ -112,4 +109,3 @@ namespace cubpackpp {
 #endif
 ///////////////////////////////////////////////
 #endif
-

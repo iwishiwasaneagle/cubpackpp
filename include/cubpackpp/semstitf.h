@@ -51,16 +51,15 @@
 #ifndef SEMSTITF_H
 #define SEMSTITF_H
 ////////////////////////////////////////////
-#include "cubpackpp/userint.h"
 #include "cubpackpp/semistrp.h"
+#include "cubpackpp/userint.h"
 
 namespace cubpackpp {
 ////////////////////////////////////////////
-    class SEMI_INFINITE_STRIP : public USERINTERFACE<SemiInfiniteStrip> {
-    public:
-
-        SEMI_INFINITE_STRIP(const Point &, const Point &);
-    };
+class SEMI_INFINITE_STRIP : public USERINTERFACE<SemiInfiniteStrip> {
+public:
+  SEMI_INFINITE_STRIP(const Point &, const Point &);
+};
 ////////////////////////////////////////////
-} // cubpackpp
+} // namespace cubpackpp
 #endif
