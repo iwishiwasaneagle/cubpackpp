@@ -4,6 +4,8 @@ project(
         VERSION 0.1.0
         LANGUAGES CXX
 )
+string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWERCASE)
+string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPERCASE)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
@@ -29,7 +31,7 @@ if (${PROJECT_NAME}_VERBOSE_OUTPUT)
     endforeach ()
 endif ()
 
-add_library(${PROJECT_NAME} SHARED STATIC ${sources} ${headers} ${templates})
+add_library(${PROJECT_NAME} SHARED ${sources} ${headers} ${templates})
 target_include_directories(
         ${PROJECT_NAME}
         PUBLIC
