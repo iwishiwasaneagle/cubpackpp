@@ -20,27 +20,23 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////////////////
-Point_2D::Point_2D()
-  {
-  }
+    Point_2D::Point_2D() {
+    }
 //////////////////////////////////////////////////////
 
-Point_2D::Point_2D(const Point_2D& v)
-  :x(v.x),y(v.y)
-  {
-  }
+    Point_2D::Point_2D(const Point_2D &v)
+            : x(v.x), y(v.y) {
+    }
 
 //////////////////////////////////////////////////////
 
-Point_2D::Point_2D(const real X, const real Y)
- :x(X),y(Y)
-  {
-  }
+    Point_2D::Point_2D(const real X, const real Y)
+            : x(X), y(Y) {
+    }
 
 //////////////////////////////////////////////////////
-Point_2D::~Point_2D()
-  {
-  }
+    Point_2D::~Point_2D() {
+    }
 
 
 //////////////////////////////////////////////////

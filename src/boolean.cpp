@@ -20,16 +20,12 @@
 #include <iostream>
 
 namespace cubpackpp {
-std::ostream& operator << (std::ostream& os, const Boolean& b)
-  {
-  if (b==False)
-    {
-    os<< "False ";
+    std::ostream &operator<<(std::ostream &os, const Boolean &b) {
+        if (b == False) {
+            os << "False ";
+        } else {
+            os << "True ";
+        };
+        return os;
     }
-  else
-    {
-    os<< "True ";
-    };
-  return os;
-  }
 } // cubpackpp

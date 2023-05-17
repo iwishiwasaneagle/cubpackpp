@@ -22,16 +22,16 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////
-void
-PolarToRectangular::Transform(real& w, Point& p)
-  { Point P(p.R()*cos(p.Theta()),p.R()*sin(p.Theta()));
-    w *= p.R();
-    p = P;
-  }
+    void
+    PolarToRectangular::Transform(real &w, Point &p) {
+        Point P(p.R() * cos(p.Theta()), p.R() * sin(p.Theta()));
+        w *= p.R();
+        p = P;
+    }
+
 ///////////////////////////////////////////
-PolarToRectangular::PolarToRectangular()
-  : Transformation()
-  {
-  }
+    PolarToRectangular::PolarToRectangular()
+            : Transformation() {
+    }
 ///////////////////////////////////////////
 } // cubpackpp

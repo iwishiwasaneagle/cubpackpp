@@ -16,25 +16,25 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////
 #include "cubpackpp/semistrp.h"
+
 namespace cubpackpp {
 //////////////////////////////////////////////
-SemiInfiniteStrip::SemiInfiniteStrip(const Point& a,const Point& b)
-  :Geometry(2),TheA(a),TheB(b)
-  {
-  }
+    SemiInfiniteStrip::SemiInfiniteStrip(const Point &a, const Point &b)
+            : Geometry(2), TheA(a), TheB(b) {
+    }
+
 ////////////////////////////////////////////
-const Point&
-SemiInfiniteStrip::A()
-const
-  {
-  return TheA;
-  }
+    const Point &
+    SemiInfiniteStrip::A()
+    const {
+        return TheA;
+    }
+
 ///////////////////////////////////////////
-const Point&
-SemiInfiniteStrip::B()
-const
-  {
-  return TheB;
-  }
+    const Point &
+    SemiInfiniteStrip::B()
+    const {
+        return TheB;
+    }
 ///////////////////////////////////////////
 } // cubpackpp

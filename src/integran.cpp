@@ -26,75 +26,68 @@
 #include "cubpackpp/error.h"
 #include <math.h>
 #include <iostream>
+
 namespace cubpackpp {
 //////////////////////////////////////////////////
-long Integrand::Number = 0;
+    long Integrand::Number = 0;
 
 //////////////////////////////////////////////////////
-Integrand::Integrand (real (*f)(const Point&))
-  :TheFunction(f),AppliedTransformations()
-   ,ReferenceCounting()
-  {
-  }
+    Integrand::Integrand(real (*f)(const Point &))
+            : TheFunction(f), AppliedTransformations(), ReferenceCounting() {
+    }
+
 ////////////////////////////////////////////////
-Integrand::Integrand(const Integrand& I, Transformation* T)
-  : TheFunction(I.TheFunction),
-    AppliedTransformations(I.AppliedTransformations)
-   ,ReferenceCounting(I)
-  {
-  Pointer<Transformation> p=T;
-  AppliedTransformations += p;
-  }
+    Integrand::Integrand(const Integrand &I, Transformation *T)
+            : TheFunction(I.TheFunction),
+              AppliedTransformations(I.AppliedTransformations), ReferenceCounting(I) {
+        Pointer<Transformation> p = T;
+        AppliedTransformations += p;
+    }
+
 /////////////////////////////////////////////////////////
-Integrand::Integrand(const Integrand& I)
-  : TheFunction(I.TheFunction),
-    AppliedTransformations(I.AppliedTransformations)
-   ,ReferenceCounting(I)
-  {
-  }
+    Integrand::Integrand(const Integrand &I)
+            : TheFunction(I.TheFunction),
+              AppliedTransformations(I.AppliedTransformations), ReferenceCounting(I) {
+    }
+
 ////////////////////////////////////////////////
-long
-Integrand::NumberOfEvaluations()
-  {
-  return Number;
-  }
+    long
+    Integrand::NumberOfEvaluations() {
+        return Number;
+    }
+
 //////////////////////////////////////////////////////
-real
-Integrand::operator() (const Point& StartingPoint)
-  {
-  real JacProd =1;
-  Point p =StartingPoint;
-  for (unsigned int i=0; JacProd!=0 && i<AppliedTransformations.Size();
-       i++)
-    {
-      AppliedTransformations[i]->Transform(JacProd,p);
-    };
-  if (JacProd ==  0) return  0.0;
-  real R =  TheFunction(p)*fabs(JacProd);
-  Number++;
-  return R;
+    real
+    Integrand::operator()(const Point &StartingPoint) {
+        real JacProd = 1;
+        Point p = StartingPoint;
+        for (unsigned int i = 0; JacProd != 0 && i < AppliedTransformations.Size();
+             i++) {
+            AppliedTransformations[i]->Transform(JacProd, p);
+        };
+        if (JacProd == 0) return 0.0;
+        real R = TheFunction(p) * fabs(JacProd);
+        Number++;
+        return R;
 
-  }
+    }
+
 ////////////////////////////////////////////////
-real ErrorMessage(const Point&)
-  {
-  Error(True,"Error : Attempt to integrate without knowing integrand");
-  return 0;
-  }
+    real ErrorMessage(const Point &) {
+        Error(True, "Error : Attempt to integrate without knowing integrand");
+        return 0;
+    }
 
-Integrand::Integrand()
-  :TheFunction(ErrorMessage),AppliedTransformations()
-  ,ReferenceCounting()
-  {
-  }
+    Integrand::Integrand()
+            : TheFunction(ErrorMessage), AppliedTransformations(), ReferenceCounting() {
+    }
 
 ///////////////////////////////////////////////
-Boolean
-Integrand::operator==(const Integrand& i) const
-  {
-  if ((AppliedTransformations.Size() > 0 ) || (i.AppliedTransformations.Size() > 0 ))
-     return False;
-  return (Boolean)(TheFunction == i.TheFunction);
-  }
+    Boolean
+    Integrand::operator==(const Integrand &i) const {
+        if ((AppliedTransformations.Size() > 0) || (i.AppliedTransformations.Size() > 0))
+            return False;
+        return (Boolean) (TheFunction == i.TheFunction);
+    }
 ///////////////////////////////////////////////
 } // cubpackpp

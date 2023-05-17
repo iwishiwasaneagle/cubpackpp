@@ -18,16 +18,16 @@
 #include "cubpackpp/S2interf.h"
 #include "cubpackpp/S2adapt.h"
 #include "cubpackpp/S2rule13.h"
+
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
-CIRCLE::CIRCLE(const Point& c,const Point& b)
-  {
-        StoreAtomic(new Circle(c,b),new CircleAdaptive(new Circle_Rule13));
-  }
+    CIRCLE::CIRCLE(const Point &c, const Point &b) {
+        StoreAtomic(new Circle(c, b), new CircleAdaptive(new Circle_Rule13));
+    }
+
 /////////////////////////////////////////////////////////
-CIRCLE::CIRCLE(const Point& c, real Radius)
-  {
-        StoreAtomic(new Circle(c,Radius),new CircleAdaptive(new Circle_Rule13));
-  }
+    CIRCLE::CIRCLE(const Point &c, real Radius) {
+        StoreAtomic(new Circle(c, Radius), new CircleAdaptive(new Circle_Rule13));
+    }
 /////////////////////////////////////////////////////////
 } // cubpackpp

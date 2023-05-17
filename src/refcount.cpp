@@ -21,41 +21,40 @@
 
 namespace cubpackpp {
 //////////////////////////////////////////////
-ReferenceCounting::ReferenceCounting()
-  {
+    ReferenceCounting::ReferenceCounting() {
 
-  }
+    }
+
 //////////////////////////////////////////////
-ReferenceCounting::ReferenceCounting(const ReferenceCounting&)
-  {
-   //numref isn't copied!
-  numref = 0;
-  }
+    ReferenceCounting::ReferenceCounting(const ReferenceCounting &) {
+        //numref isn't copied!
+        numref = 0;
+    }
+
 /////////////////////////////////////////////
-ReferenceCounting&
-ReferenceCounting::operator= (const ReferenceCounting&)
-   {
-   //numref isn't copied!
-   return *this;
-   }
+    ReferenceCounting &
+    ReferenceCounting::operator=(const ReferenceCounting &) {
+        //numref isn't copied!
+        return *this;
+    }
+
 ////////////////////////////////////////////
-void
-ReferenceCounting::Refer ()
-  {
-  numref++;
-  }
+    void
+    ReferenceCounting::Refer() {
+        numref++;
+    }
+
 ////////////////////////////////////////////
-void
-ReferenceCounting::UnRefer()
-  {
-  numref--;
-  }
+    void
+    ReferenceCounting::UnRefer() {
+        numref--;
+    }
+
 ///////////////////////////////////////////////
-unsigned int
-ReferenceCounting::NumberOfReferences()
-const
-  {
-  return numref;
-  }
+    unsigned int
+    ReferenceCounting::NumberOfReferences()
+    const {
+        return numref;
+    }
 ///////////////////////////////////////////////
 } // cubpackpp

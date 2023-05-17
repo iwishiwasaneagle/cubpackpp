@@ -21,61 +21,60 @@
 #include "cubpackpp/E2adapt.h"
 #include "cubpackpp/invert.h"
 #include "cubpackpp/S2.h"
+
 namespace cubpackpp {
 /////////////////////////////////////////////////////////
 
-Plane::Plane ()
-  : Geometry(2),
-    xscale(1.0),
-    yscale(1.0),
-    TheCenter(0,0)
-  {
-  }
+    Plane::Plane()
+            : Geometry(2),
+              xscale(1.0),
+              yscale(1.0),
+              TheCenter(0, 0) {
+    }
 
 /////////////////////////////////////////////////////////
 
-Plane::Plane (const Point& center)
-  : Geometry(2),
-    xscale(1.0),
-    yscale(1.0),
-    TheCenter(center)
-  {
-  }
+    Plane::Plane(const Point &center)
+            : Geometry(2),
+              xscale(1.0),
+              yscale(1.0),
+              TheCenter(center) {
+    }
+
 /////////////////////////////////////////////////////////
-Plane::Plane(const Point& center, real x, real y)
-  : Geometry(2),
-    xscale(x),
-    yscale(y),
-    TheCenter(center)
-  {
-  }
+    Plane::Plane(const Point &center, real x, real y)
+            : Geometry(2),
+              xscale(x),
+              yscale(y),
+              TheCenter(center) {
+    }
+
 /////////////////////////////////////////////////////////
-real
-Plane::ScaleX()
-const
-   {
-    return xscale;
-   }
+    real
+    Plane::ScaleX()
+    const {
+        return xscale;
+    }
+
 /////////////////////////////////////////////////////////
-real
-Plane::ScaleY()
-const
-   {
-   return yscale;
-   }
+    real
+    Plane::ScaleY()
+    const {
+        return yscale;
+    }
+
 /////////////////////////////////////////////////////////
 //Processor<Plane>*
 //Plane::DefaultProcessor()
 //const
-  //{
-  //return new PlaneAdaptive;
-  //}
+    //{
+    //return new PlaneAdaptive;
+    //}
 /////////////////////////////////////////////////////////
-const Point&
-Plane::Center()
-const
-  {
-  return TheCenter;
-  }
+    const Point &
+    Plane::Center()
+    const {
+        return TheCenter;
+    }
 /////////////////////////////////////////////////////////
 } // cubpackpp

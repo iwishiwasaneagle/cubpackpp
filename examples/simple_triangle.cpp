@@ -5,6 +5,7 @@
 #include <cubpackpp/cubpackpp.h>
 
 using namespace cubpackpp;
+
 real f(const Point &p) {
     real x = p.X();
     return x * x;
@@ -12,9 +13,9 @@ real f(const Point &p) {
 
 int main() {
     Point a(0, 0), b(1, 1), c(2, 0);
-    TRIANGLE triangle(a,b,c);
+    TRIANGLE triangle(a, b, c);
     std::cout << "The integral is " << Integrate(f, triangle)
-            << " with absolute error " << triangle.AbsoluteError() << std::endl;
+              << " with absolute error " << triangle.AbsoluteError() << std::endl;
 
     return 0;
 }

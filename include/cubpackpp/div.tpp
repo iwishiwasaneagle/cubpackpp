@@ -19,6 +19,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////////
 #include "cubpackpp/div.h"
+
 namespace cubpackpp {
 /////////////////////////////////////////////////
     template<class GEOMETRY>

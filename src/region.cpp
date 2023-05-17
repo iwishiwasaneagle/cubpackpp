@@ -23,64 +23,61 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-real
-Region::AbsoluteError() const
-  {
-  return  RI_ptr->AbsoluteError();
-  }
+    real
+    Region::AbsoluteError() const {
+        return RI_ptr->AbsoluteError();
+    }
 
 ///////////////////////////////////////////////
-real
-Region::Integral() const
-  {
-  return RI_ptr->Integral();
-  }
+    real
+    Region::Integral() const {
+        return RI_ptr->Integral();
+    }
 
 ///////////////////////////////////////////////
-Boolean
-Region::operator< (const Region& r)
-const
-  {
-  return  (Boolean)(AbsoluteError() < r.AbsoluteError());
-  }
+    Boolean
+    Region::operator<(const Region &r)
+    const {
+        return (Boolean) (AbsoluteError() < r.AbsoluteError());
+    }
+
 ///////////////////////////////////////////////
-Boolean
-Region::operator<=(const Region& r)
-const
-  {
-  return  (Boolean)(AbsoluteError() <= r.AbsoluteError());
-  }
+    Boolean
+    Region::operator<=(const Region &r)
+    const {
+        return (Boolean) (AbsoluteError() <= r.AbsoluteError());
+    }
+
 ///////////////////////////////////////////////
-Boolean
-Region::operator>(const Region& r)
-const
-  {
-  return  (Boolean)(AbsoluteError() > r.AbsoluteError());
-  }
+    Boolean
+    Region::operator>(const Region &r)
+    const {
+        return (Boolean) (AbsoluteError() > r.AbsoluteError());
+    }
+
 ///////////////////////////////////////////////
-Boolean
-Region::operator>=(const Region& r)
-const
-  {
-  return  (Boolean)(AbsoluteError() >= r.AbsoluteError());
-  }
+    Boolean
+    Region::operator>=(const Region &r)
+    const {
+        return (Boolean) (AbsoluteError() >= r.AbsoluteError());
+    }
+
 ///////////////////////////////////////////////
-RegionInfo&
-Region::LocalInfo()
-  {
-  return *RI_ptr;
-  }
+    RegionInfo &
+    Region::LocalInfo() {
+        return *RI_ptr;
+    }
+
 ////////////////////////////////////////////////
-Region::Region()
-  :RI_ptr( new RegionInfo)
-  {
-  }
+    Region::Region()
+            : RI_ptr(new RegionInfo) {
+    }
+
 ////////////////////////////////////////////////
-Boolean
-Region::Hopeless()
-const
-  {
-  return RI_ptr->Hopeless();
-  }
+    Boolean
+    Region::Hopeless()
+    const {
+        return RI_ptr->Hopeless();
+    }
 ////////////////////////////////////////////////
 } // cubpackpp

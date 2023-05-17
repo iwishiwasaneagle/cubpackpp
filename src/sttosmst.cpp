@@ -19,31 +19,30 @@
 #include "cubpackpp/point.h"
 #include <math.h>
 #include <iostream>
+
 namespace cubpackpp {
 ////////////////////////////////////////////
-void
-IStoSIS::Transform(real& w, Point& p)
-      {
+    void
+    IStoSIS::Transform(real &w, Point &p) {
 //    cout << p;
-      SemiInfiniteStrip& s = *SIS_ptr;
-      Point D  = s.B()- s.A();
-      Point C(-D.Y(),D.X());
+        SemiInfiniteStrip &s = *SIS_ptr;
+        Point D = s.B() - s.A();
+        Point C(-D.Y(), D.X());
 //    if (p.Y() > 600)   // goed voor double
 //    if (p.Y() > 60)
-      if (p.Y() > log(REAL_MAX)*6.0/7.0)
-        {
-        w = 0;
-        return;
+        if (p.Y() > log(REAL_MAX) * 6.0 / 7.0) {
+            w = 0;
+            return;
         };
-      C = C/C.Length();
-      w *= D.Length()*exp(p.Y());
-      p = s.A() + exp(p.Y())*C + p.X()*D;
- //   cout << p << endl;
-      }
+        C = C / C.Length();
+        w *= D.Length() * exp(p.Y());
+        p = s.A() + exp(p.Y()) * C + p.X() * D;
+        //   cout << p << endl;
+    }
+
 ///////////////////////////////////////////////////
-IStoSIS::IStoSIS(SemiInfiniteStrip* g)
-  : Transformation(),SIS_ptr(g)
-  {
-  }
+    IStoSIS::IStoSIS(SemiInfiniteStrip *g)
+            : Transformation(), SIS_ptr(g) {
+    }
 //////////////////////////////////////////////////
 } // cubpackpp

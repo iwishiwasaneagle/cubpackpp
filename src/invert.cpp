@@ -19,21 +19,20 @@
 
 namespace cubpackpp {
 ///////////////////////////////////////////////////////
-Invert::Invert(Circle* C)
-  :Transformation(),
-   C_ptr(C),
-   RadiusSq(C->Radius()*C->Radius())
-   {
-   }
+    Invert::Invert(Circle *C)
+            : Transformation(),
+              C_ptr(C),
+              RadiusSq(C->Radius() * C->Radius()) {
+    }
+
 //////////////////////////////////////////
-void
-Invert::Transform (real &w, Point& p)
-  {
-  const Point diff = p-C_ptr->Center();
-  real r=diff.Length();
-  real ratio=RadiusSq/(r*r);
-  p = C_ptr->Center()+diff*ratio;
-  w *= ratio*ratio;
-  }
+    void
+    Invert::Transform(real &w, Point &p) {
+        const Point diff = p - C_ptr->Center();
+        real r = diff.Length();
+        real ratio = RadiusSq / (r * r);
+        p = C_ptr->Center() + diff * ratio;
+        w *= ratio * ratio;
+    }
 /////////////////////////////////////////////
 } // cubpackpp

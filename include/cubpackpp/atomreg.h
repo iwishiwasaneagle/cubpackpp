@@ -71,7 +71,7 @@ namespace cubpackpp {
 
         virtual void LocalIntegrand(Integrand *) = 0;
 
-        virtual void Process(Stack <AtomicRegion> &Offspring) = 0;
+        virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
 
         virtual ~AtomicRegion();
     };

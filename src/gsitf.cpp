@@ -18,14 +18,14 @@
 #include "cubpackpp/gsitf.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/gsprc.h"
+
 namespace cubpackpp {
 //////////////////////////////////////////////
-GENERALIZED_SECTOR::GENERALIZED_SECTOR(real (*F)(real),
-     real a, real b, const Point& Center)
-  :USERINTERFACE<GeneralizedSector>()
-  {
-  StoreAtomic(new GeneralizedSector(F,a,b,Center),
-  new GeneralizedSector_Processor);
-  }
+    GENERALIZED_SECTOR::GENERALIZED_SECTOR(real (*F)(real),
+                                           real a, real b, const Point &Center)
+            : USERINTERFACE<GeneralizedSector>() {
+        StoreAtomic(new GeneralizedSector(F, a, b, Center),
+                    new GeneralizedSector_Processor);
+    }
 ///////////////////////////////////////////////
 } // cubpackpp

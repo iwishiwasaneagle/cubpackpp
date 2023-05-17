@@ -15,6 +15,7 @@
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/s_adapt.h"
+
 namespace cubpackpp {
 #pragma define_template SimpleAdaptive<Parallelogram>
 #pragma define_template SimpleAdaptive<Triangle>
@@ -23,6 +24,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/set.h"
+
 namespace cubpackpp {
 #pragma define_template Set<AtomicRegion>
 
@@ -30,6 +32,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/stack.h"
+
 namespace cubpackpp {
 #pragma define_template Stack<Parallelogram>
 #pragma define_template Stack<AtomicRegion>
@@ -40,6 +43,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/vector.h"
+
 namespace cubpackpp {
 #pragma define_template Vector<Point>
 #pragma define_template Vector<unsigned int>
@@ -50,6 +54,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/vstack.h"
+
 namespace cubpackpp {
 #pragma define_template VectorStack< Pointer < Transformation > >
 
@@ -57,14 +62,16 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/heap.h"
+
 namespace cubpackpp {
-#pragma define_template SubHeap<AtomicRegion,255>
+#pragma define_template SubHeap<AtomicRegion, 255>
 #pragma define_template Heap<AtomicRegion>
 
 } // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/atomic.h"
+
 namespace cubpackpp {
 #pragma define_template Atomic<Circle>
 #pragma define_template Atomic<GeneralizedRectangle>
@@ -83,6 +90,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/div.h"
+
 namespace cubpackpp {
 #pragma define_template Divisor<Parallelogram>
 #pragma define_template Divisor<Triangle>
@@ -91,17 +99,19 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/passbuck.h"
+
 namespace cubpackpp {
-#pragma define_template PassTheBuck<Circle,OutCircle,Invert>
-#pragma define_template PassTheBuck<InfiniteStrip,SemiInfiniteStrip,IStoSIS>
-#pragma define_template PassTheBuck<Parallelogram,GeneralizedRectangle,C2toGR>
-#pragma define_template PassTheBuck<Plane ,InfiniteStrip,E2toIS>
-#pragma define_template PassTheBuck<Triangle,ParabolicSegment,T2toPS>
+#pragma define_template PassTheBuck<Circle, OutCircle, Invert>
+#pragma define_template PassTheBuck<InfiniteStrip, SemiInfiniteStrip, IStoSIS>
+#pragma define_template PassTheBuck<Parallelogram, GeneralizedRectangle, C2toGR>
+#pragma define_template PassTheBuck<Plane, InfiniteStrip, E2toIS>
+#pragma define_template PassTheBuck<Triangle, ParabolicSegment, T2toPS>
 
 } // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/pointer.h"
+
 namespace cubpackpp {
 #pragma define_template Pointer<Heap<AtomicRegion> >
 #pragma define_template Pointer<Integrand>
@@ -148,6 +158,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/regproc.h"
+
 namespace cubpackpp {
 #pragma define_template Processor<Circle>
 #pragma define_template Processor<GeneralizedRectangle>
@@ -166,6 +177,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/rule.h"
+
 namespace cubpackpp {
 #pragma define_template Rule<Circle>
 #pragma define_template Rule<Parallelogram>
@@ -175,6 +187,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/samediv.h"
+
 namespace cubpackpp {
 #pragma define_template SameShapeDivisor<Parallelogram>
 #pragma define_template SameShapeDivisor<Triangle>
@@ -183,6 +196,7 @@ namespace cubpackpp {
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/userint.h"
+
 namespace cubpackpp {
 #pragma define_template USERINTERFACE<Circle>
 #pragma define_template USERINTERFACE<GeneralizedRectangle>

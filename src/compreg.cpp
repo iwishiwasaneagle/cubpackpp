@@ -21,28 +21,24 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////////
-COMPOUND_REGION::COMPOUND_REGION()
-  : Region(),TheStatus(Virgin)
-  {
-  }
+    COMPOUND_REGION::COMPOUND_REGION()
+            : Region(), TheStatus(Virgin) {
+    }
+
 //////////////////////////////////////////////////
-void
-COMPOUND_REGION::Process()
-  {
-  Error(Hopeless(),"Processing a hopeless COMPOUND_REGION");
-  if (TheStatus==Virgin)
-   {
-   TheStatus= Active;
-   Preprocess();
-   }
-  else
-   {
-   Improve();
-   }
-  }
+    void
+    COMPOUND_REGION::Process() {
+        Error(Hopeless(), "Processing a hopeless COMPOUND_REGION");
+        if (TheStatus == Virgin) {
+            TheStatus = Active;
+            Preprocess();
+        } else {
+            Improve();
+        }
+    }
+
 ////////////////////////////////////////////////////
-COMPOUND_REGION::~COMPOUND_REGION()
-  {
-  }
+    COMPOUND_REGION::~COMPOUND_REGION() {
+    }
 /////////////////////////////////////////////////
 } // cubpackpp
