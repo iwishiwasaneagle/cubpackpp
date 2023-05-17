@@ -31,7 +31,7 @@ if (${PROJECT_NAME}_VERBOSE_OUTPUT)
     endforeach ()
 endif ()
 
-add_library(${PROJECT_NAME} SHARED ${sources} ${headers} ${templates})
+add_library(${PROJECT_NAME} STATIC SHARED ${sources} ${headers} ${templates})
 target_include_directories(
         ${PROJECT_NAME}
         PUBLIC
@@ -58,7 +58,7 @@ verbose_message("Applied compiler warnings. Using standard ${CMAKE_CXX_STANDARD}
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 verbose_message("Project is now aliased as ${PROJECT_NAME}::${PROJECT_NAME}.\n")
 
-if(${PROJECT_NAME}_EXAMPLES)
+if(${PROJECT_NAME}_EXAMPLES AND PROJECT_IS_TOP_LEVEL)
     add_subdirectory(examples)
 endif ()
 
