@@ -19,15 +19,16 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////////
 #include "cubpackpp/div.h"
+namespace cubpackpp {
 /////////////////////////////////////////////////
-template <class GEOMETRY>
-Divisor<GEOMETRY>::Divisor()
-  :ReferenceCounting()
-  {
-  }
+    template<class GEOMETRY>
+    Divisor<GEOMETRY>::Divisor()
+            :ReferenceCounting() {
+    }
+
 //////////////////////////////////////////////////
-template <class GEOMETRY>
-Divisor<GEOMETRY>::~Divisor()
-  {
-  }
+    template<class GEOMETRY>
+    Divisor<GEOMETRY>::~Divisor() {
+    }
 //////////////////////////////////////////////////
+} // cubpackpp

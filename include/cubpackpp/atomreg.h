@@ -61,15 +61,20 @@
 #include "region.h"
 #include "integran.h"
 #include "stack.h"
-///////////////////////////////////////////////
-class AtomicRegion : public Region
-  {
-  public:
 
-  AtomicRegion();
-  virtual void LocalIntegrand(Integrand*)=0;
-  virtual void Process(Stack<AtomicRegion>& Offspring)=0;
-  virtual ~AtomicRegion();
-  };
+namespace cubpackpp {
+///////////////////////////////////////////////
+    class AtomicRegion : public Region {
+    public:
+
+        AtomicRegion();
+
+        virtual void LocalIntegrand(Integrand *) = 0;
+
+        virtual void Process(Stack <AtomicRegion> &Offspring) = 0;
+
+        virtual ~AtomicRegion();
+    };
 /////////////////////////////////////////////////
+} // cubpackpp
 #endif

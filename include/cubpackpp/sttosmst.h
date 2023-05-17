@@ -56,17 +56,20 @@
 #include "cubpackpp/strip.h"
 #include "cubpackpp/semistrp.h"
 #include "cubpackpp/pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-class IStoSIS : public Transformation
-  {
-  public:
+    class IStoSIS : public Transformation {
+    public:
 
-  IStoSIS( SemiInfiniteStrip*);
-  void Transform(real& w, Point& p);
+        IStoSIS(SemiInfiniteStrip *);
 
-  private:
+        void Transform(real &w, Point &p);
 
-  Pointer<SemiInfiniteStrip> SIS_ptr;
-  };
+    private:
+
+        Pointer<SemiInfiniteStrip> SIS_ptr;
+    };
 //////////////////////////////////////////////////////
+} // cubpackpp
 #endif

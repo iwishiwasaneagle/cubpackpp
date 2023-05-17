@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cubpackpp/cubpackpp.h>
 
+using namespace cubpackpp;
 real f(const Point &p) {
     real x = p.X();
     return x*x;

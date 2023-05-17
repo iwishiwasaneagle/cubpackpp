@@ -89,21 +89,23 @@
 ///////////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/C2.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-class PARALLELOGRAM : public USERINTERFACE<Parallelogram>
-  {
-  public:
+    class PARALLELOGRAM : public USERINTERFACE<Parallelogram> {
+    public:
 
-  PARALLELOGRAM(const Point&,const Point&,const Point&);
-  };
-
-//////////////////////////////////////////////////
-class RECTANGLE : public USERINTERFACE<Parallelogram>
-  {
-  public:
-
-  RECTANGLE(const Point&,const Point&,const Point&);
-  };
+        PARALLELOGRAM(const Point &, const Point &, const Point &);
+    };
 
 //////////////////////////////////////////////////
+    class RECTANGLE : public USERINTERFACE<Parallelogram> {
+    public:
+
+        RECTANGLE(const Point &, const Point &, const Point &);
+    };
+
+//////////////////////////////////////////////////
+
+} // cubpackpp
 #endif

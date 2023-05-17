@@ -21,6 +21,7 @@
 #include "cubpackpp/C2interf.h"
 #include "cubpackpp/C2togr.h"
 #include "cubpackpp/point.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 GENERALIZED_RECTANGLE::GENERALIZED_RECTANGLE(Function f,const Point& a,const Point& b)
   :USERINTERFACE<GeneralizedRectangle>()
@@ -32,3 +33,4 @@ GENERALIZED_RECTANGLE::GENERALIZED_RECTANGLE(Function f,const Point& a,const Poi
                C2toGR>((AtomicRegion*)R));
   }
 ///////////////////////////////////////////////
+} // cubpackpp

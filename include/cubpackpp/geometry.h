@@ -55,18 +55,21 @@
 /////////////////////////////////////////////////////////
 
 #include "cubpackpp/refcount.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////////////
 
-class Geometry : public ReferenceCounting
-  {
-  public:
+    class Geometry : public ReferenceCounting {
+    public:
 
-  explicit Geometry (unsigned int Dim);
-  [[nodiscard]] unsigned int Dimension()const;
+        explicit Geometry(unsigned int Dim);
 
-  private:
+        [[nodiscard]] unsigned int Dimension() const;
 
-  unsigned int TheDimension;
-  };
+    private:
+
+        unsigned int TheDimension;
+    };
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

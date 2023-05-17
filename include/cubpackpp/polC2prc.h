@@ -49,7 +49,7 @@
 //     -------------------------------------------------
 //     see Processor<>
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -60,15 +60,19 @@
 //////////////////////////////////////////////
 #include "cubpackpp/regproc.h"
 #include "cubpackpp/polC2.h"
-/////////////////////////////////////////////
-class PolarRectangle_Processor:
-       public Processor<PolarRectangle>
-  {
-  public:
 
-  PolarRectangle_Processor();
-  void Process(Stack<AtomicRegion>&);
-  Processor<PolarRectangle>* NewCopy() const;
-  };
+namespace cubpackpp {
 /////////////////////////////////////////////
+    class PolarRectangle_Processor :
+            public Processor<PolarRectangle> {
+    public:
+
+        PolarRectangle_Processor();
+
+        void Process(Stack<AtomicRegion> &);
+
+        Processor<PolarRectangle> *NewCopy() const;
+    };
+/////////////////////////////////////////////
+} // cubpackpp
 #endif

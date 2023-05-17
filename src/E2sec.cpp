@@ -20,6 +20,7 @@
 #include "cubpackpp/error.h"
 #include <math.h>
 #include "cubpackpp/E2sec.h"
+namespace cubpackpp {
 //////////////////////////////////////////
 PlaneSector::PlaneSector(
     const Point& A, const Point& B, const Point& C)
@@ -82,3 +83,4 @@ const
   return TheCenter;
   }
 ////////////////////////////////////////////////////
+} // cubpackpp

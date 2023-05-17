@@ -63,14 +63,19 @@
 #include "cubpackpp/E2.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
-////////////////////////////////////////////////
-class PLANE : public USERINTERFACE<Plane>
-  {
-  public:
 
-  PLANE();
-  PLANE(const Point&);
-  PLANE(const Point&, real, real);
-  };
+namespace cubpackpp {
 ////////////////////////////////////////////////
+    class PLANE : public USERINTERFACE<Plane> {
+    public:
+
+        PLANE();
+
+        PLANE(const Point &);
+
+        PLANE(const Point &, real, real);
+    };
+////////////////////////////////////////////////
+
+} // cubpackpp
 #endif

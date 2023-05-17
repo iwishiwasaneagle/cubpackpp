@@ -21,6 +21,7 @@
 #include "cubpackpp/outS2itf.h"
 #include "cubpackpp/S2.h"
 #include "cubpackpp/S2interf.h"
+namespace cubpackpp {
 ///////////////////////
 OUT_CIRCLE::OUT_CIRCLE(const Point& c,const Point& b)
   {
@@ -34,3 +35,4 @@ OUT_CIRCLE::OUT_CIRCLE(const Point& c, real Radius)
    new PassTheBuck<Circle,OutCircle,Invert>((AtomicRegion*)CIRCLE(c,Radius)));
   }
 //////////////////////////////////////////////
+} // cubpackpp

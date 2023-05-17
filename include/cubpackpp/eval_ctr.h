@@ -81,25 +81,31 @@
 #include "cubpackpp/counter.h"
 #include "cubpackpp/boolean.h"
 
+namespace cubpackpp {
 ////////////////////////////////////////////////
-class EvaluationCounter : public Counter
-  {
-  public:
+    class EvaluationCounter : public Counter {
+    public:
 
-  EvaluationCounter();
-  void Start();
-  void Stop();
-  void Reset();
-  void Reset(unsigned long);
-  unsigned long Read();
+        EvaluationCounter();
 
-  private:
+        void Start();
 
-  long Strt;
-  long End;
-  unsigned long Bias;
-  Boolean Running;
-  };
+        void Stop();
+
+        void Reset();
+
+        void Reset(unsigned long);
+
+        unsigned long Read();
+
+    private:
+
+        long Strt;
+        long End;
+        unsigned long Bias;
+        Boolean Running;
+    };
 
 ////////////////////////////////////////////////
+} // cubpackpp
 #endif

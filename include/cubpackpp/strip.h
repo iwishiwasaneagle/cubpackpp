@@ -57,19 +57,23 @@
 //////////////////////////////////////////////////
 #include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////////////
-class InfiniteStrip : public  Geometry
-  {
-  public:
+    class InfiniteStrip : public Geometry {
+    public:
 
-  InfiniteStrip ( const Point&,const Point&);
-  const Point& A() const;
-  const Point& B() const;
+        InfiniteStrip(const Point &, const Point &);
 
-  private:
+        const Point &A() const;
 
-  Point TheA;
-  Point TheB;
-  };
+        const Point &B() const;
+
+    private:
+
+        Point TheA;
+        Point TheB;
+    };
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

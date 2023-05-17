@@ -53,7 +53,7 @@
 //     -------------------------------------------------
 //     see Processor<T>
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -65,42 +65,50 @@
 #include "cubpackpp/rule.h"
 #include "cubpackpp/samediv.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////
 
-template <class GEOMETRY>
-class SimpleAdaptive : public Processor<GEOMETRY>
-  {
-  public:
-  typedef Rule<GEOMETRY> RuleGEOMETRY;
-  typedef SameShapeDivisor<GEOMETRY> SameShapeDivisorGEOMETRY;
+    template<class GEOMETRY>
+    class SimpleAdaptive : public Processor<GEOMETRY> {
+    public:
+        typedef Rule<GEOMETRY> RuleGEOMETRY;
+        typedef SameShapeDivisor<GEOMETRY> SameShapeDivisorGEOMETRY;
 
-  SimpleAdaptive(const Pointer<RuleGEOMETRY> &R,
-                 const Pointer<SameShapeDivisorGEOMETRY>& D)
-    :Processor<GEOMETRY>(),
-    TimesCalled(0),
-    Diffs(2),
-    TheRule(R),
-    TheDivisor(D)
-  {
-  }
-  SimpleAdaptive(Rule<GEOMETRY>*,
-                 SameShapeDivisor<GEOMETRY>*);
-  void Process( Stack<AtomicRegion>& Offspring);
-  Processor<GEOMETRY>* NewCopy() const;
+        SimpleAdaptive(const Pointer<RuleGEOMETRY> &R,
+                       const Pointer<SameShapeDivisorGEOMETRY> &D)
+                : Processor<GEOMETRY>(),
+                  TimesCalled(0),
+                  Diffs(2),
+                  TheRule(R),
+                  TheDivisor(D) {
+        }
 
-  protected:
+        SimpleAdaptive(Rule<GEOMETRY> *,
+                       SameShapeDivisor<GEOMETRY> *);
 
-  SimpleAdaptive<GEOMETRY>* Descendant() const;
-  unsigned int TimesCalled;
-  Vector<real> Diffs;
-  Pointer<RuleGEOMETRY> TheRule;
-  Pointer<SameShapeDivisorGEOMETRY > TheDivisor;
+        void Process(Stack<AtomicRegion> &Offspring);
 
-  };
+        Processor<GEOMETRY> *NewCopy() const;
+
+    protected:
+
+        SimpleAdaptive<GEOMETRY> *Descendant() const;
+
+        unsigned int TimesCalled;
+        Vector<real> Diffs;
+        Pointer<RuleGEOMETRY> TheRule;
+        Pointer<SameShapeDivisorGEOMETRY> TheDivisor;
+
+    };
 /////////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/s_adapt.tpp"
+
 #endif
 /////////////////////////////////////////////////
 #endif

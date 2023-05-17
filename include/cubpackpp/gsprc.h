@@ -49,7 +49,7 @@
 //     -------------------------------------------------
 //     see Processor<>
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -60,15 +60,19 @@
 //////////////////////////////////////////////
 #include "cubpackpp/gs.h"
 #include "cubpackpp/regproc.h"
-/////////////////////////////////////////////
-class GeneralizedSector_Processor :
-     public Processor<GeneralizedSector>
-  {
-  public:
 
-  GeneralizedSector_Processor();
-  void Process(Stack<AtomicRegion>&);
-  Processor<GeneralizedSector>* NewCopy() const ;
-  };
+namespace cubpackpp {
 /////////////////////////////////////////////
+    class GeneralizedSector_Processor :
+            public Processor<GeneralizedSector> {
+    public:
+
+        GeneralizedSector_Processor();
+
+        void Process(Stack<AtomicRegion> &);
+
+        Processor<GeneralizedSector> *NewCopy() const;
+    };
+/////////////////////////////////////////////
+} // cubpackpp
 #endif

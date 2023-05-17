@@ -22,6 +22,7 @@
 #include "cubpackpp/polC2.h"
 #include "cubpackpp/C2interf.h"
 #include "cubpackpp/atomic.h"
+namespace cubpackpp {
 
 ////////////////////////////////////////////////////////
 
@@ -50,3 +51,4 @@ const
   return new PolarRectangle_Processor(*this);
   }
 ////////////////////////////////////////////////
+} // cubpackpp

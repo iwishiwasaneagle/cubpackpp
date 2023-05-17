@@ -72,22 +72,27 @@
 #include "cubpackpp/geometry.h"
 #include "cubpackpp/function.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////////////
-class GeneralizedRectangle : public  Geometry
-  {
-  public:
+    class GeneralizedRectangle : public Geometry {
+    public:
 
-  GeneralizedRectangle (Function,
-       const Point&,const Point&);
-  const Point& A() const;
-  const Point& B() const;
-  real Boundary(const Point&) const;
+        GeneralizedRectangle(Function,
+                             const Point &, const Point &);
 
-  private:
+        const Point &A() const;
 
-  const Function TheBoundary;
-  Point TheA;
-  Point TheB;
-  };
+        const Point &B() const;
+
+        real Boundary(const Point &) const;
+
+    private:
+
+        const Function TheBoundary;
+        Point TheA;
+        Point TheB;
+    };
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

@@ -23,6 +23,7 @@
 #include "cubpackpp/C2prc.h"
 #include "cubpackpp/error.h"
 #include <math.h>
+namespace cubpackpp {
 ///////////////////////////////////////////////
 typedef Rule<Parallelogram> RuleParallelogram;
 typedef SameShapeDivisor<Parallelogram> SameShapeDivisorParallelogram;
@@ -51,3 +52,4 @@ RECTANGLE::RECTANGLE(const Point& p1,
   }
 ///////////////////////////////////////////////
 
+} // cubpackpp

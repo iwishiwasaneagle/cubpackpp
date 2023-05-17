@@ -52,7 +52,7 @@
 //     --------------------------------------------------
 //     see class Processor
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -66,29 +66,35 @@
 #include "cubpackpp/samediv.h"
 #include "cubpackpp/C2.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////
 
-class Parallelogram_Processor :
-     public Processor<Parallelogram>
-  {
-  public:
-  typedef Rule<Parallelogram> RuleParallelogram;
-  typedef SameShapeDivisor<Parallelogram> SameShapeDivisorParallelogram;
+    class Parallelogram_Processor :
+            public Processor<Parallelogram> {
+    public:
+        typedef Rule<Parallelogram> RuleParallelogram;
+        typedef SameShapeDivisor<Parallelogram> SameShapeDivisorParallelogram;
 
-  Parallelogram_Processor();
-  void Process(Stack<AtomicRegion>&);
-  Processor<Parallelogram>* NewCopy() const;
+        Parallelogram_Processor();
 
-  protected:
+        void Process(Stack<AtomicRegion> &);
 
-  static Pointer<RuleParallelogram> TheRule;
-  static Pointer<SameShapeDivisorParallelogram> TheDivisor4;
-  static Pointer<SameShapeDivisorParallelogram> TheDivisor2;
-  unsigned int TimesCalled;
-  Parallelogram_Processor* Descendant() const;
-  Vector<real> Diffs;
+        Processor<Parallelogram> *NewCopy() const;
+
+    protected:
+
+        static Pointer<RuleParallelogram> TheRule;
+        static Pointer<SameShapeDivisorParallelogram> TheDivisor4;
+        static Pointer<SameShapeDivisorParallelogram> TheDivisor2;
+        unsigned int TimesCalled;
+
+        Parallelogram_Processor *Descendant() const;
+
+        Vector<real> Diffs;
 
 
-  };
+    };
 /////////////////////////////////////////////
+} // cubpackpp
 #endif

@@ -20,6 +20,7 @@
 #include "cubpackpp/s_adapt.h"
 #include "cubpackpp/T2rule13.h"
 #include "cubpackpp/T2dv4.h"
+namespace cubpackpp {
 ///////////////////////////////////////////////
 typedef Rule<Triangle> RuleTriangle;
 typedef SameShapeDivisor<Triangle> SameShapeDivisorTriangle;
@@ -31,3 +32,4 @@ TRIANGLE::TRIANGLE(const Point& p1,const  Point&  p2,
        new SimpleAdaptive<Triangle>(R13,D4) );
   }
 ///////////////////////////////////////////////
+} // cubpackpp

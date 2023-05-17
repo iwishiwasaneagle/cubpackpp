@@ -17,6 +17,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////////////////
 #include "cubpackpp/gs.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////////////
 GeneralizedSector::GeneralizedSector(real (*f)(real) ,real a,real b,const Point& C)
   :Geometry(2),TheCenter(C),TheAlpha(a),TheBeta(b),TheBoundary(f)
@@ -58,3 +59,4 @@ const
   return TheBoundary;
   }
 /////////////////////////////////////////////////////////////
+} // cubpackpp

@@ -23,6 +23,7 @@
 #include "cubpackpp/atomic.h"
 #include "cubpackpp/S2interf.h"
 #include "cubpackpp/outS2itf.h"
+namespace cubpackpp {
 ///////////////////////////////////////////////
 #define sqr(x) ((x)*(x))
 static int K[]={0,3,2,2};
@@ -313,3 +314,4 @@ const
   return new PlaneAdaptive(*this);
   }
 //////////////////////////////////////////////////////
+} // cubpackpp

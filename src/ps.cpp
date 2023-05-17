@@ -17,6 +17,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////////////////
 #include "cubpackpp/ps.h"
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
 ParabolicSegment::ParabolicSegment(const Point& a,
                                    const Point& b,
@@ -46,3 +47,4 @@ const
   return TheP;
   }
 //////////////////////////////////////////////////////////
+} // cubpackpp

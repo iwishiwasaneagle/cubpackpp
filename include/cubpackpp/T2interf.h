@@ -50,13 +50,15 @@
 ///////////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/T2.h"
-///////////////////////////////////////////////////
-class TRIANGLE : public USERINTERFACE<Triangle>
-  {
-  public:
 
-  TRIANGLE(const Point&,const Point&,const Point&);
-  };
+namespace cubpackpp {
+///////////////////////////////////////////////////
+    class TRIANGLE : public USERINTERFACE<Triangle> {
+    public:
+
+        TRIANGLE(const Point &, const Point &, const Point &);
+    };
 
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

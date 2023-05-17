@@ -22,6 +22,7 @@
 #include "cubpackpp/polC2.h"
 #include "cubpackpp/semstitf.h"
 #include "cubpackpp/atomic.h"
+namespace cubpackpp {
 
 ////////////////////////////////////////////////////////
 
@@ -49,3 +50,4 @@ const
   return new PlaneSector_Processor(*this);
   }
 ////////////////////////////////////////////////
+} // cubpackpp

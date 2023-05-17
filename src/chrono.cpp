@@ -23,6 +23,7 @@
 #include <sys/resource.h>
 #endif
 
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
 Chrono::Chrono()
   {
@@ -87,3 +88,4 @@ Chrono::times_ ()
 return t;
    }
 /////////////////////////////////////////////////////////
+} // cubpackpp

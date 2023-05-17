@@ -76,22 +76,28 @@
 #include "cubpackpp/real.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////////////
-class Plane : public  Geometry
-  {
-  public:
+    class Plane : public Geometry {
+    public:
 
-  Plane ();
-  Plane (const Point&);
-  Plane (const Point&, real, real);
-  real ScaleX() const ;
-  real ScaleY() const ;
-  const Point& Center()const;
+        Plane();
 
-  private:
-  real xscale,yscale;
-  Point TheCenter;
-  };
+        Plane(const Point &);
+
+        Plane(const Point &, real, real);
+
+        real ScaleX() const;
+
+        real ScaleY() const;
+
+        const Point &Center() const;
+
+    private:
+        real xscale, yscale;
+        Point TheCenter;
+    };
 //////////////////////////////////////////////////
-
+} // cubpackpp
 #endif

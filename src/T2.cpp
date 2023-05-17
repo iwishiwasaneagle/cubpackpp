@@ -19,6 +19,7 @@
 #include "cubpackpp/T2.h"
 #include <math.h>
 
+namespace cubpackpp {
 //////////////////////////////////////////////
 
 Triangle::Triangle (const Point& p1,const Point& p2,const Point& p3)
@@ -77,3 +78,4 @@ Triangle::Volume(real v)
                //new Triangle_Divide4);
   //}
 ////////////////////////////////////////////////
+} // cubpackpp

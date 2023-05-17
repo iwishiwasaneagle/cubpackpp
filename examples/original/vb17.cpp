@@ -4,8 +4,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f(const Point& p)
  {
    real x=p.X() , y=p.Y();
@@ -25,10 +24,10 @@ int main ()
    do
      {
       Integrate(f,parabola,Integral_est,Error_est,Success,0,0.5e-1,10000);
-      cout <<"The integral is " << Integral_est <<endl;
-      cout <<" with estimated absolute error "
-           << Error_est << endl;
-      cout << "-------------------------------------------------"<<endl;
+      std::cout <<"The integral is " << Integral_est <<std::endl;
+      std::cout <<" with estimated absolute error "
+           << Error_est << std::endl;
+      std::cout << "-------------------------------------------------"<<std::endl;
      }
    while ( ! Success );
 

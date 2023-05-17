@@ -28,17 +28,17 @@
 #define ERROR_H
 ////////////////////////////////////////
 #include "cubpackpp/boolean.h"
-#include <stdlib.h>
 #include <iostream>
+
+namespace cubpackpp {
 ////////////////////////////////////////
-inline void Error(int b,const char* message)
-  {
-  if (b)
-    {
-    std::cerr << message <<std::endl;
-    std::cerr.flush();
-    abort();
-    };
-  }
+    inline void Error(int b, const char *message) {
+        if (b) {
+            ::std::cerr << message << ::std::endl;
+            ::std::cerr.flush();
+            abort();
+        };
+    }
 ////////////////////////////////////////
+} // cubpackpp
 #endif

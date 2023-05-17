@@ -58,14 +58,15 @@
 ////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/gs.h"
-////////////////////////////////////////////
-class GENERALIZED_SECTOR : public
-   USERINTERFACE<GeneralizedSector>
-   {
-   public:
 
-   GENERALIZED_SECTOR( real(*)(real), real,real,const Point&);
-   };
+namespace cubpackpp {
+////////////////////////////////////////////
+    class GENERALIZED_SECTOR : public USERINTERFACE<GeneralizedSector> {
+    public:
+
+        GENERALIZED_SECTOR(real(*)(real), real, real, const Point &);
+    };
 ///////////////////////////////////////
 
+} // cubpackpp
 #endif

@@ -53,13 +53,14 @@
 ////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/semistrp.h"
-////////////////////////////////////////////
-class SEMI_INFINITE_STRIP : public
-   USERINTERFACE<SemiInfiniteStrip>
-   {
-   public:
 
-   SEMI_INFINITE_STRIP(const Point&,const Point&);
-   };
+namespace cubpackpp {
 ////////////////////////////////////////////
+    class SEMI_INFINITE_STRIP : public USERINTERFACE<SemiInfiniteStrip> {
+    public:
+
+        SEMI_INFINITE_STRIP(const Point &, const Point &);
+    };
+////////////////////////////////////////////
+} // cubpackpp
 #endif

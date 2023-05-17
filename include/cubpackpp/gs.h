@@ -72,26 +72,35 @@
 
 #include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
-//////////////////////////////////////////////////
-typedef real (*RealFunction)(real);
-//////////////////////////////////////////////////
-class GeneralizedSector : public  Geometry
-  {
-  public:
 
-  GeneralizedSector (real(*)(real),
-       real,real,const Point&);
-  real Alpha() const;
-  real Beta() const;
-  real Boundary(real) const;
-  RealFunction Boundary() const;
-  const Point& Center() const;
-
-  private:
-
-  Point TheCenter;
-  real TheAlpha,TheBeta;
-  real(*TheBoundary)(real);
-  };
+namespace cubpackpp {
 //////////////////////////////////////////////////
+    typedef real (*RealFunction)(real);
+
+//////////////////////////////////////////////////
+    class GeneralizedSector : public Geometry {
+    public:
+
+        GeneralizedSector(real(*)(real),
+                          real, real, const Point &);
+
+        real Alpha() const;
+
+        real Beta() const;
+
+        real Boundary(real) const;
+
+        RealFunction Boundary() const;
+
+        const Point &Center() const;
+
+    private:
+
+        Point TheCenter;
+        real TheAlpha, TheBeta;
+
+        real (*TheBoundary)(real);
+    };
+//////////////////////////////////////////////////
+} // cubpackpp
 #endif

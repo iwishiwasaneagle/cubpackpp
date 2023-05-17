@@ -76,6 +76,7 @@
 
 #ifndef INTEGRAN_H
 #define INTEGRAN_H
+
 #include "cubpackpp/point.h"
 #include "cubpackpp/trnsfrm.h"
 #include "cubpackpp/vstack.h"
@@ -83,26 +84,34 @@
 #include "cubpackpp/function.h"
 #include "cubpackpp/refcount.h"
 #include "cubpackpp/pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////////
-class Integrand : public ReferenceCounting
-  {
-  public:
-  typedef Pointer< Transformation > PointerTransformation;
+    class Integrand : public ReferenceCounting {
+    public:
+        typedef Pointer<Transformation> PointerTransformation;
 
-  Integrand();
-  Integrand(Function);
-  Integrand(const Integrand&,Transformation* );
-  Integrand(const Integrand&);
-  real operator()(const Point&);
-  Boolean operator==(const Integrand&) const;
-  static long    NumberOfEvaluations();
+        Integrand();
+
+        Integrand(Function);
+
+        Integrand(const Integrand &, Transformation *);
+
+        Integrand(const Integrand &);
+
+        real operator()(const Point &);
+
+        Boolean operator==(const Integrand &) const;
+
+        static long NumberOfEvaluations();
 
 
-  private:
+    private:
 
-  static long    Number;
-  Function TheFunction;
-  VectorStack< PointerTransformation >  AppliedTransformations;
-  };
+        static long Number;
+        Function TheFunction;
+        VectorStack<PointerTransformation> AppliedTransformations;
+    };
 
+} // cubpackpp
 #endif

@@ -58,13 +58,16 @@
 /////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/E2sec.h"
-/////////////////////////////////////////
-class PLANE_SECTOR : public USERINTERFACE<PlaneSector>
-  {
-  public:
 
-  PLANE_SECTOR(const Point&,const Point&, const Point&);
-  PLANE_SECTOR(const Point&,real,real,real);
-  };
+namespace cubpackpp {
 /////////////////////////////////////////
+    class PLANE_SECTOR : public USERINTERFACE<PlaneSector> {
+    public:
+
+        PLANE_SECTOR(const Point &, const Point &, const Point &);
+
+        PLANE_SECTOR(const Point &, real, real, real);
+    };
+/////////////////////////////////////////
+} // cubpackpp
 #endif

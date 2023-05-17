@@ -16,6 +16,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 ////////////////////////////////////////////////////////
 #include "cubpackpp/trnsfrm.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////////////
 Transformation::Transformation()
   :ReferenceCounting()
@@ -26,3 +27,4 @@ Transformation::~Transformation()
   {
   }
 ////////////////////////////////////////////////////////
+} // cubpackpp

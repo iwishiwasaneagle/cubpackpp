@@ -70,25 +70,33 @@
 #include "cubpackpp/refcount.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/boolean.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////
 
-class RegionInfo : public ReferenceCounting
-  {
-  public :
+    class RegionInfo : public ReferenceCounting {
+    public :
 
-  RegionInfo();
-  real Integral()const;
-  real& Integral();
-  real AbsoluteError()const;
-  real& AbsoluteError();
-  Boolean Hopeless() const;
-  Boolean& Hopeless() ;
+        RegionInfo();
 
-  private:
+        real Integral() const;
 
-  real TheIntegral;
-  real TheAbsoluteError;
-  Boolean IsHopeless;
-  };
+        real &Integral();
+
+        real AbsoluteError() const;
+
+        real &AbsoluteError();
+
+        Boolean Hopeless() const;
+
+        Boolean &Hopeless();
+
+    private:
+
+        real TheIntegral;
+        real TheAbsoluteError;
+        Boolean IsHopeless;
+    };
 /////////////////////////////////////////
+} // cubpackpp
 #endif

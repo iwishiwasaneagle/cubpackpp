@@ -54,7 +54,7 @@
 //     -------------------------------------------------
 //     see Processor<>
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -65,26 +65,33 @@
 ///////////////////////////////////////////
 #include "cubpackpp/regproc.h"
 #include "cubpackpp/pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////
-template <class FROM,class TO,class VIA>
-class PassTheBuck : public Processor<TO>
-  {
-  public:
+    template<class FROM, class TO, class VIA>
+    class PassTheBuck : public Processor<TO> {
+    public:
 
-  PassTheBuck(AtomicRegion*);
-  void Process(Stack<AtomicRegion>&);
-  Processor<TO>* NewCopy() const;
+        PassTheBuck(AtomicRegion *);
+
+        void Process(Stack<AtomicRegion> &);
+
+        Processor<TO> *NewCopy() const;
 
 
-  private:
+    private:
 
-  AtomicRegion* AR_ptr;
+        AtomicRegion *AR_ptr;
 
-  };
+    };
 //////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/passbuck.tpp"
+
 #endif
 //////////////////////////////////////////
 #endif

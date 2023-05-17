@@ -57,12 +57,14 @@
 /////////////////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/ps.h"
-/////////////////////////////////////////////////////////
-class PARABOLIC_SEGMENT :  public USERINTERFACE<ParabolicSegment>
-  {
-  public:
 
-  PARABOLIC_SEGMENT(const Point& A,const Point& B,const Point& p);
-  };
+namespace cubpackpp {
+/////////////////////////////////////////////////////////
+    class PARABOLIC_SEGMENT : public USERINTERFACE<ParabolicSegment> {
+    public:
+
+        PARABOLIC_SEGMENT(const Point &A, const Point &B, const Point &p);
+    };
 ////////////////////////////////////////////////////////////
+} // cubpackpp
 #endif

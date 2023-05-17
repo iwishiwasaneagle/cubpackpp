@@ -71,29 +71,41 @@
 
 #ifndef SET_H
 #define SET_H
+
 #include "cubpackpp/templist.h"
 #include "cubpackpp/refcount.h"
 #include "cubpackpp/boolean.h"
-template <class T>
-class Set: public ReferenceCounting
-  {
-  public:
 
-  Set();
-  virtual ~Set();
-  virtual void Clear()=0;
-  virtual T* Get () =0;
-  virtual T* Look() =0;
-  virtual void operator+=( T*) =0;
-  unsigned int Size() const;
-  Boolean Empty() const;
+namespace cubpackpp {
+    template<class T>
+    class Set : public ReferenceCounting {
+    public:
 
-  protected:
+        Set();
 
-  int Number;
-  };
+        virtual ~Set();
+
+        virtual void Clear() = 0;
+
+        virtual T *Get() = 0;
+
+        virtual T *Look() = 0;
+
+        virtual void operator+=(T *) = 0;
+
+        unsigned int Size() const;
+
+        Boolean Empty() const;
+
+    protected:
+
+        int Number;
+    };
+} // cubpackpp
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/set.tpp"
+
 #endif
 
 #endif

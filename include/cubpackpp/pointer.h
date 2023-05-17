@@ -46,34 +46,50 @@
 
 /////////////////////////////////////////////////////
 #include "boolean.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////////////
-template  <class T>
-class Pointer
-  {
-  public:
+    template<class T>
+    class Pointer {
+    public:
 
-  Pointer();
-  Pointer(const Pointer<T>&);
-  Pointer(T* tp);
-  Pointer<T>& operator=(const Pointer<T>& tp);
-  Pointer<T>& operator=(T* tp);
-  Boolean operator==(const Pointer<T>& tp) const;
-  Boolean operator!=(const Pointer<T>& tp) const;
-  T& operator* () const;
-  T* operator->() const;
-  T& operator [](int i) const;
-  operator T*(){return ptr;}
-  ~Pointer();
+        Pointer();
 
-  private:
+        Pointer(const Pointer<T> &);
 
-  T* ptr;
-  };
+        Pointer(T *tp);
+
+        Pointer<T> &operator=(const Pointer<T> &tp);
+
+        Pointer<T> &operator=(T *tp);
+
+        Boolean operator==(const Pointer<T> &tp) const;
+
+        Boolean operator!=(const Pointer<T> &tp) const;
+
+        T &operator*() const;
+
+        T *operator->() const;
+
+        T &operator[](int i) const;
+
+        operator T *() { return ptr; }
+
+        ~Pointer();
+
+    private:
+
+        T *ptr;
+    };
 
 /////////////////////////////////////////////////////
+} // cubpackpp
 #include "templist.h"
+
 #ifdef  TEMPLATEINCLUDE
+
 #include "cubpackpp/pointer.tpp"
+
 #endif
 /////////////////////////////////////////////////////
 #endif

@@ -19,6 +19,7 @@
 #include "cubpackpp/regcoll.h"
 #include "cubpackpp/error.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////////
 void
 REGION_COLLECTION::LocalIntegrand(Integrand* ip)
@@ -147,3 +148,4 @@ const
   return new REGION_COLLECTION(*this);
   }
 ///////////////////////////////////////////////////////
+} // cubpackpp

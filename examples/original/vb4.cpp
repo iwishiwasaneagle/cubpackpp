@@ -4,8 +4,8 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
 
+using namespace cubpackpp;
 
 real f(const Point& p)
  {
@@ -23,10 +23,10 @@ int main ()
    Chrono TikTak;
 
    TikTak.Start();
-   cout <<"The integral is " << Integrate(f,parabola,0,0.5e-4);
+   std::cout <<"The integral is " << Integrate(f,parabola,0,0.5e-4);
    TikTak.Stop();
-   cout <<" with absolute error " << parabola.AbsoluteError() << endl;
-   cout <<"Elapsed Time: " << TikTak.Read()/1000<<" seconds" << endl;
+   std::cout <<" with absolute error " << parabola.AbsoluteError() << std::endl;
+   std::cout <<"Elapsed Time: " << TikTak.Read()/1000<<" seconds" << std::endl;
 
    return 0;
  }

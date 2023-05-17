@@ -4,6 +4,11 @@ project(
         VERSION 0.1.0
         LANGUAGES CXX
 )
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+endif ()
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 message(STATUS "Started CMake for ${PROJECT_NAME} v${PROJECT_VERSION}...")
 
 include(cmake/StandardSettings.cmake)
@@ -40,6 +45,10 @@ set_target_properties(
         VERSION ${PROJECT_VERSION}
 )
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+
+include(cmake/CompilerWarnings.cmake)
+set_project_warnings(${PROJECT_NAME})
+verbose_message("Applied compiler warnings. Using standard ${CMAKE_CXX_STANDARD}.\n")
 
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 verbose_message("Project is now aliased as ${PROJECT_NAME}::${PROJECT_NAME}.\n")

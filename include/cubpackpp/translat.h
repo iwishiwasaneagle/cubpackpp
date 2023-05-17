@@ -58,18 +58,20 @@
 #include "cubpackpp/trnsfrm.h"
 #include "cubpackpp/point.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////////////
-class Translation :public Transformation
-  {
-  public:
+    class Translation : public Transformation {
+    public:
 
-  Translation( const Point& Offset);
-  //Translation::T(p) ADDS Offset to p
-  void Transform(real& w, Point& p);
+        Translation(const Point &Offset);
 
-  private:
+        //Translation::T(p) ADDS Offset to p
+        void Transform(real &w, Point &p);
 
-  Point TheOffset;
-  };
+    private:
+
+        Point TheOffset;
+    };
 ////////////////////////////////////////////////////////////
+} // cubpackpp
 #endif

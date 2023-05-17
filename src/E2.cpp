@@ -21,6 +21,7 @@
 #include "cubpackpp/E2adapt.h"
 #include "cubpackpp/invert.h"
 #include "cubpackpp/S2.h"
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
 
 Plane::Plane ()
@@ -77,3 +78,4 @@ const
   return TheCenter;
   }
 /////////////////////////////////////////////////////////
+} // cubpackpp

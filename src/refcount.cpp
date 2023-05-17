@@ -19,6 +19,7 @@
 
 #include "cubpackpp/refcount.h"
 
+namespace cubpackpp {
 //////////////////////////////////////////////
 ReferenceCounting::ReferenceCounting()
   {
@@ -57,3 +58,4 @@ const
   return numref;
   }
 ///////////////////////////////////////////////
+} // cubpackpp

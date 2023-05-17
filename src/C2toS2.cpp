@@ -20,6 +20,7 @@
 #include "cubpackpp/C2toS2.h"
 #include <math.h>
 
+namespace cubpackpp {
 //////////////////////////////////////////
 void
 PolarToRectangular::Transform(real& w, Point& p)
@@ -33,3 +34,4 @@ PolarToRectangular::PolarToRectangular()
   {
   }
 ///////////////////////////////////////////
+} // cubpackpp

@@ -56,13 +56,14 @@
 ////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/gr.h"
-////////////////////////////////////////////
-class GENERALIZED_RECTANGLE : public
-   USERINTERFACE<GeneralizedRectangle>
-   {
-   public:
 
-   GENERALIZED_RECTANGLE(Function, const Point&,const Point&);
-   };
+namespace cubpackpp {
 ////////////////////////////////////////////
+    class GENERALIZED_RECTANGLE : public USERINTERFACE<GeneralizedRectangle> {
+    public:
+
+        GENERALIZED_RECTANGLE(Function, const Point &, const Point &);
+    };
+////////////////////////////////////////////
+} // cubpackpp
 #endif

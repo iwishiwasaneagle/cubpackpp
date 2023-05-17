@@ -22,6 +22,7 @@
 #include "cubpackpp/compreg.h"
 #include <iostream>
 #include <math.h>
+namespace cubpackpp {
 ////////////////////////////////////////////////
 
 
@@ -96,3 +97,4 @@ Integrate ( Function f,
   return Integral;
   }
 /////////////////////////////////////////////////////////
+} // cubpackpp

@@ -17,6 +17,7 @@
 //   25 Nov 1994     V0.1d(re-ordering of member initializers)
 /////////////////////////////////////////////////////////
 #include "cubpackpp/reginfo.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////////////
 RegionInfo::RegionInfo()
   :ReferenceCounting(),
@@ -65,3 +66,4 @@ RegionInfo::AbsoluteError()
   return TheAbsoluteError;
   }
 ////////////////////////////////////////////////////////////
+} // cubpackpp

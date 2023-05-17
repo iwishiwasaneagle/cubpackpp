@@ -17,6 +17,7 @@
 ////////////////
 #include "cubpackpp/E2interf.h"
 #include "cubpackpp/E2adapt.h"
+namespace cubpackpp {
 ///////////////////////
 PLANE::PLANE()
   {
@@ -33,3 +34,4 @@ PLANE::PLANE(const Point& Center, real ScaleX, real ScaleY)
   StoreAtomic(new Plane(Center,ScaleX, ScaleY),new PlaneAdaptive);
   }
 ///////////////////////////////////////////////
+} // cubpackpp

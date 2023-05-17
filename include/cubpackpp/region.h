@@ -79,29 +79,37 @@
 #include "cubpackpp/pointer.h"
 
 
+namespace cubpackpp {
 /////////////////////////////////////////////////
 
-class Region
-  {
-  public:
+    class Region {
+    public:
 
-  Region();
-  real Integral() const;
-  real AbsoluteError() const ;
-  Boolean Hopeless()const;
-  Boolean operator<(const Region&) const;
-  Boolean operator<=(const Region&) const;
-  Boolean operator>(const Region&) const;
-  Boolean operator>=(const Region&) const;
+        Region();
 
-  protected :
+        real Integral() const;
 
-  RegionInfo& LocalInfo();
+        real AbsoluteError() const;
 
-  private:
+        Boolean Hopeless() const;
 
-  Pointer<RegionInfo> RI_ptr;
+        Boolean operator<(const Region &) const;
 
-  };
+        Boolean operator<=(const Region &) const;
+
+        Boolean operator>(const Region &) const;
+
+        Boolean operator>=(const Region &) const;
+
+    protected :
+
+        RegionInfo &LocalInfo();
+
+    private:
+
+        Pointer<RegionInfo> RI_ptr;
+
+    };
 ///////////////////////////////////////////////
+} // cubpackpp
 #endif

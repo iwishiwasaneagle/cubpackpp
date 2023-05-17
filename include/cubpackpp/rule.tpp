@@ -17,32 +17,33 @@
 //   30 Jan 1996     V0.1g(no longer compare signed and unsigned)
 /////////////////////////////////////
 #include "cubpackpp/rule.h"
+
+namespace cubpackpp {
 ////////////////////////////////////
-template <class GEOMETRY>
-Rule<GEOMETRY>::Rule()
-  :ReferenceCounting()
-   {
-   }
-////////////////////////////////////////////////
-template <class GEOMETRY>
-Rule<GEOMETRY>::~Rule()
-  {
-  }
-/////////////////////////////////////////////////
-template <class GEOMETRY>
-void
-Rule<GEOMETRY>::Apply(Integrand& F,GEOMETRY& G, real& i, real&d)
-  {
-  }
-///////////////////////////////////////////////////
-template <class GEOMETRY>
-void
-Rule<GEOMETRY>::ApplyWithDiffs(Integrand& F,GEOMETRY& G, real& r, real&e, Vector<real>& D)
-  {
-  for (unsigned int i= 0; i<D.Size(); i++)
-    {
-    D[i] = 0.0;
+    template<class GEOMETRY>
+    Rule<GEOMETRY>::Rule()
+            :ReferenceCounting() {
     }
-  Apply(F,G,r,e);
-  }
+
+////////////////////////////////////////////////
+    template<class GEOMETRY>
+    Rule<GEOMETRY>::~Rule() {
+    }
+
+/////////////////////////////////////////////////
+    template<class GEOMETRY>
+    void
+    Rule<GEOMETRY>::Apply(Integrand &F, GEOMETRY &G, real &i, real &d) {
+    }
+
+///////////////////////////////////////////////////
+    template<class GEOMETRY>
+    void
+    Rule<GEOMETRY>::ApplyWithDiffs(Integrand &F, GEOMETRY &G, real &r, real &e, Vector<real> &D) {
+        for (unsigned int i = 0; i < D.Size(); i++) {
+            D[i] = 0.0;
+        }
+        Apply(F, G, r, e);
+    }
 /////////////////////////////////////////////////////
+} // cubpackpp

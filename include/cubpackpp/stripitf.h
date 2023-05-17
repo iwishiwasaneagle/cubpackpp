@@ -53,13 +53,14 @@
 ////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/strip.h"
-////////////////////////////////////////////
-class INFINITE_STRIP : public
-   USERINTERFACE<InfiniteStrip>
-   {
-   public:
 
-   INFINITE_STRIP(const Point&,const Point&);
-   };
+namespace cubpackpp {
 ////////////////////////////////////////////
+    class INFINITE_STRIP : public USERINTERFACE<InfiniteStrip> {
+    public:
+
+        INFINITE_STRIP(const Point &, const Point &);
+    };
+////////////////////////////////////////////
+} // cubpackpp
 #endif

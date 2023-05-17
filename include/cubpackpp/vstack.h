@@ -64,24 +64,31 @@
 #include "cubpackpp/boolean.h"
 #include "cubpackpp/vector.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////////
 
 
-template <class T>
-class VectorStack: public Vector<T>
-  {
+    template<class T>
+    class VectorStack : public Vector<T> {
 
-  public:
+    public:
 
-  VectorStack();
-  VectorStack(const VectorStack<T>&);
-  VectorStack<T>& operator=(const VectorStack<T>&);
-  void operator+=(const T&);
-  };
+        VectorStack();
+
+        VectorStack(const VectorStack<T> &);
+
+        VectorStack<T> &operator=(const VectorStack<T> &);
+
+        void operator+=(const T &);
+    };
 ///////////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/vstack.tpp"
+
 #endif
 ///////////////////////////////////////////////////////
 

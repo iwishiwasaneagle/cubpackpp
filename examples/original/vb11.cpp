@@ -10,8 +10,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f(const Point& p)
  { real x=p.X() , y=p.Y();
        return
@@ -27,10 +26,10 @@ int main ()
    EvaluationCounter count;
 
    count.Start();
-   cout <<"The estimated integral is " << Integrate(f,halfplane,0,0.5e-6)<<endl;
-   cout <<"The exact value is        "<< erfc(t)/2.0 <<endl;
+   std::cout <<"The estimated integral is " << Integrate(f,halfplane,0,0.5e-6)<<std::endl;
+   std::cout <<"The exact value is        "<< erfc(t)/2.0 <<std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

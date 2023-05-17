@@ -75,29 +75,36 @@
 #include "cubpackpp/point.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////
 
-class PolarRectangle : public Geometry
-  {
-  public:
+    class PolarRectangle : public Geometry {
+    public:
 
-  PolarRectangle(
-    const Point& A, const Point& B, const Point& C);
-  PolarRectangle( const Point& O, real r1, real r2, real theta1,real
-     theta2);
-  const Point& Center() const;
-  real InnerRadius() const;
-  real OuterRadius() const;
-  real SmallAngle () const;
-  real BigAngle   () const;
+        PolarRectangle(
+                const Point &A, const Point &B, const Point &C);
+
+        PolarRectangle(const Point &O, real r1, real r2, real theta1, real
+        theta2);
+
+        const Point &Center() const;
+
+        real InnerRadius() const;
+
+        real OuterRadius() const;
+
+        real SmallAngle() const;
+
+        real BigAngle() const;
 
 
+    private:
 
-  private:
+        Point TheCenter;
+        real TheInnerRadius, TheOuterRadius, TheSmallAngle, TheBigAngle;
 
-  Point TheCenter;
-  real TheInnerRadius, TheOuterRadius, TheSmallAngle, TheBigAngle;
-
-  };
+    };
 //////////////////////////////////////////////
+} // cubpackpp
 #endif

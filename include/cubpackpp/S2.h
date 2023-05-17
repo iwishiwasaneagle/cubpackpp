@@ -69,20 +69,25 @@
 #include "cubpackpp/real.h"
 /////////////////////////////////////////
 
-class Circle : public Geometry
-  {
-  public:
+namespace cubpackpp {
+    class Circle : public Geometry {
+    public:
 
-  Circle(const Point& Center,real Radius);
-  Circle(const Point& Center,const Point& Boundary);
-  real Volume()const ;
-  const Point& Center()const;
-  real Radius() const;
+        Circle(const Point &Center, real Radius);
 
-  private:
-  Point TheCenter;
-  real TheRadius;
+        Circle(const Point &Center, const Point &Boundary);
 
-  };
+        real Volume() const;
+
+        const Point &Center() const;
+
+        real Radius() const;
+
+    private:
+        Point TheCenter;
+        real TheRadius;
+
+    };
 //////////////////////////////////////////////
+} // cubpackpp
 #endif

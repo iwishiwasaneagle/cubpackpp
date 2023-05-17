@@ -51,7 +51,7 @@
 //       -------------------------------------------------
 //     see class Processor
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -64,22 +64,28 @@
 #include "cubpackpp/S2.h"
 #include "cubpackpp/pointer.h"
 #include "cubpackpp/rule.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////////
-class CircleAdaptive : public Processor<Circle>
-  {
-  public:
-  typedef Rule<Circle> RuleCircle;
+    class CircleAdaptive : public Processor<Circle> {
+    public:
+        typedef Rule<Circle> RuleCircle;
 
-  CircleAdaptive( Rule <Circle>* );
-  void Process(Stack<AtomicRegion>& );
-  Processor<Circle>* NewCopy() const;
+        CircleAdaptive(Rule<Circle> *);
 
-  private:
+        void Process(Stack<AtomicRegion> &);
 
-  Pointer< RuleCircle > TheRule;
-  CircleAdaptive* Descendant()const;
-  unsigned int TimesCalled;
-  unsigned int GenerationNumber;
-  };
+        Processor<Circle> *NewCopy() const;
+
+    private:
+
+        Pointer<RuleCircle> TheRule;
+
+        CircleAdaptive *Descendant() const;
+
+        unsigned int TimesCalled;
+        unsigned int GenerationNumber;
+    };
 ///////////////////////////////////////////////
+} // cubpackpp
 #endif

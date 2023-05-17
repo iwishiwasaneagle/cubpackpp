@@ -3,8 +3,8 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
 
+using namespace cubpackpp;
 
 real f(const Point& p)
  { 
@@ -16,14 +16,14 @@ int main ()
    SEMI_INFINITE_STRIP langelat(A,B);
 
    EvaluationCounter TikTak; TikTak.Start();
- //  cout.setf(ios::left,ios::adjustfield);
-   cout.setf(ios::scientific,ios::floatfield);
+ //  std::cout.setf(std::ios::left,std::ios::adjustfield);
+   std::cout.setf(std::ios::scientific,std::ios::floatfield);
 
-   cout <<"The integral is " << Integrate(f,langelat,0,0.5e-4,10000);
-   cout <<" with estimated absolute error "
-        << langelat.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(f,langelat,0,0.5e-4,10000);
+   std::cout <<" with estimated absolute error "
+        << langelat.AbsoluteError() << std::endl;
 
-   TikTak.Stop(); cout<<"Number of evaluations = "<<TikTak.Read()<<endl;
+   TikTak.Stop(); std::cout<<"Number of evaluations = "<<TikTak.Read()<<std::endl;
 
    return 0;
  }

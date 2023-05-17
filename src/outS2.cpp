@@ -18,6 +18,7 @@
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/invert.h"
 #include "cubpackpp/outS2.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////
 OutCircle::OutCircle(const Point& C,const Point& B)
   :Circle(C,B)
@@ -37,3 +38,4 @@ OutCircle::OutCircle(const Point& C,real r)
  // new Circle(*this));
   //}
 ////////////////////////////////////////////////
+} // cubpackpp

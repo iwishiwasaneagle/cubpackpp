@@ -6,7 +6,7 @@
 #include <chrono>
 #include <iomanip>
 
-using namespace std;
+using namespace cubpackpp;
 
 real f(const Point &p) {
     real x = p.X(), y = p.Y();
@@ -17,16 +17,16 @@ int main() {
     real innerradius = 0, alfa = 0, beta = atan(2.0), total;
     const real N = 1e4;
 
-    cout << "Number of runs per benchmark = " << N << endl << endl;
+    std::cout << "Number of runs per benchmark = " << N << std::endl << std::endl;
 
-    cout.setf(ios::scientific, ios::floatfield);
-    cout << "req. rel. error      evaluations         total time (s)     time per run (us)" << endl;
+    std::cout.setf(std::ios::scientific, std::ios::floatfield);
+    std::cout << "req. rel. error      evaluations         total time (s)     time per run (us)" << std::endl;
 
     for (real req_err = 0.05; req_err > 1e-12; req_err /= 10) {
 
         EvaluationCounter counter;
         counter.Start();
-        auto start = chrono::high_resolution_clock::now();
+        auto start = std::chrono::high_resolution_clock::now();
 
         for (real i = 0; i < N; i++) {
             Point origin(i, i);
@@ -37,13 +37,13 @@ int main() {
         counter.Stop();
         total = counter.Read();
 
-        auto stop = chrono::high_resolution_clock::now();
+        auto stop = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
 
-        cout << setprecision(2) << req_err << "              "
-             << setprecision(1) << total << "              ";
-        cout << setprecision(3) << elapsed * 1e-9 << "              "
-             << setprecision(3) << elapsed * 1e-3 / N << endl;
+        std::cout << std::setprecision(2) << req_err << "              "
+             << std::setprecision(1) << total << "              ";
+        std::cout << std::setprecision(3) << elapsed * 1e-9 << "              "
+             << std::setprecision(3) << elapsed * 1e-3 / N << std::endl;
     }
     return 0;
 }

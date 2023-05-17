@@ -22,9 +22,9 @@
 #include "cubpackpp/C2.h"
 #include <math.h>
 #include "cubpackpp/polC2.h"
-//////////////////////////////////////////
 #include "cubpackpp/polC2prc.h"
 
+namespace cubpackpp {
 ////////////////////////////////////////////
 PolarRectangle::PolarRectangle(
     const Point& A, const Point& B, const Point& C)
@@ -112,3 +112,4 @@ const
   //return new PolarRectangle_Processor;
   //}
 ////////////////////////////////////////////////////
+} // cubpackpp

@@ -55,16 +55,20 @@
 #include "cubpackpp/point.h"
 #include "cubpackpp/S2.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////////////
-class Invert :public Transformation
-  {
-  public:
-  Invert(Circle*);
-  void Transform (real &w, Point& p);
-  private:
+    class Invert : public Transformation {
+    public:
+        Invert(Circle *);
 
-  Pointer <Circle>  C_ptr;
-  real RadiusSq;
-  };
+        void Transform(real &w, Point &p);
+
+    private:
+
+        Pointer<Circle> C_ptr;
+        real RadiusSq;
+    };
 ////////////////////////////////////////////////////////////
+
+} // cubpackpp
 #endif

@@ -16,6 +16,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 ////////////////////////////////////////////////
 #include "cubpackpp/atomreg.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////
 AtomicRegion::AtomicRegion()
   :Region()
@@ -26,3 +27,4 @@ AtomicRegion::~AtomicRegion()
   {
   }
 //////////////////////////////////////////////////
+} // cubpackpp

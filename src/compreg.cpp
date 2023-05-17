@@ -19,6 +19,7 @@
 #include "cubpackpp/compreg.h"
 #include "cubpackpp/error.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////////
 COMPOUND_REGION::COMPOUND_REGION()
   : Region(),TheStatus(Virgin)
@@ -44,3 +45,4 @@ COMPOUND_REGION::~COMPOUND_REGION()
   {
   }
 /////////////////////////////////////////////////
+} // cubpackpp

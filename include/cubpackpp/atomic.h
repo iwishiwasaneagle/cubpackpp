@@ -32,14 +32,14 @@
 //   provides a method for processing them
 //
 // TEMPLATES:
-//   it should be instantiated with a class GEOMETRY
+//   it should be instantiated with a class Geometry
 //   derived from Geometry
-//   this GEOMETRY should have a member
-//     Processor<GEOMETRY>* DefaultProcessor() const.
+//   this Geometry should have a member
+//     Processor<Geometry>* DefaultProcessor() const.
 //
 // METHODS:
 //   CONSTRUCTORS:
-//     1) Atomic(GEOMETRY* G, Processor<GEOMETRY>* P )
+//     1) Atomic(Geometry* G, Processor<Geometry>* P )
 //     ------------------------------------------
 //     constructs an atomic region with *G as its geometry
 //     and *P as its processor
@@ -49,7 +49,7 @@
 //     None
 //
 //   MODIFIERS:
-//     1) Use(Processor<GEOMETRY>* P)
+//     1) Use(Processor<Geometry>* P)
 //     -----------------------------
 //     to change the processor to be used
 //
@@ -72,34 +72,43 @@
 ////////////////////////////////////////////
 #include "cubpackpp/atomreg.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////
-template <class GEOMETRY>
-class Atomic : public AtomicRegion
-  {
-  friend
+    template<class GEOMETRY>
+    class Atomic : public AtomicRegion {
+        friend
 
-  class Processor<GEOMETRY>;
+        class Processor<GEOMETRY>;
 
-  public:
-  typedef Processor<GEOMETRY> ProcessorGEOMETRY;
+    public:
+        typedef Processor<GEOMETRY> ProcessorGEOMETRY;
 
-  Atomic(GEOMETRY*, Processor<GEOMETRY>*);
-  void Use(Processor<GEOMETRY>*);
-  void Process(Stack<AtomicRegion>& Offspring);
-  void LocalIntegrand(Integrand*);
+        Atomic(GEOMETRY *, Processor<GEOMETRY> *);
 
-  private:
+        void Use(Processor<GEOMETRY> *);
 
-  Pointer <GEOMETRY> G_ptr;
-  Pointer< ProcessorGEOMETRY> RP_ptr;
-  Pointer <Integrand> I_ptr;
-  RegionInfo* LocalRegionInfo() ;
+        void Process(Stack<AtomicRegion> &Offspring);
 
-  };
+        void LocalIntegrand(Integrand *);
+
+    private:
+
+        Pointer<GEOMETRY> G_ptr;
+        Pointer<ProcessorGEOMETRY> RP_ptr;
+        Pointer<Integrand> I_ptr;
+
+        RegionInfo *LocalRegionInfo();
+
+    };
 ///////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/atomic.tpp"
+
 #endif
 ///////////////////////////////////////////////
 #endif

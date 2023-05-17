@@ -66,17 +66,21 @@
 #include "cubpackpp/rule.h"
 #include "cubpackpp/T2.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////
-class Triangle_Rule13 :public Rule<Triangle>
-  {
-  public:
+    class Triangle_Rule13 : public Rule<Triangle> {
+    public:
 
-  Triangle_Rule13();
-  void Apply(Integrand&,Triangle& ,real&,real& );
-  int Degree() const {return 13;};
-  int NumberOfPoints () const {return 37;};
+        Triangle_Rule13();
 
-  };
+        void Apply(Integrand &, Triangle &, real &, real &);
+
+        int Degree() const { return 13; };
+
+        int NumberOfPoints() const { return 37; };
+
+    };
 ///////////////////////////////////////////
 
+} // cubpackpp
 #endif

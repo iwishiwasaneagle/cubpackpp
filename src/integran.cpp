@@ -26,6 +26,7 @@
 #include "cubpackpp/error.h"
 #include <math.h>
 #include <iostream>
+namespace cubpackpp {
 //////////////////////////////////////////////////
 long Integrand::Number = 0;
 
@@ -96,3 +97,4 @@ Integrand::operator==(const Integrand& i) const
   return (Boolean)(TheFunction == i.TheFunction);
   }
 ///////////////////////////////////////////////
+} // cubpackpp

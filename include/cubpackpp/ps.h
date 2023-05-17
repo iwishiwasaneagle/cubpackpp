@@ -62,21 +62,27 @@
 /////////////////////////////////////////////////////////
 #include "cubpackpp/geometry.h"
 #include "cubpackpp/point.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
-class ParabolicSegment : public Geometry
-  {
-  public:
+    class ParabolicSegment : public Geometry {
+    public:
 
-  ParabolicSegment(const Point&,const Point&,const Point&);
-  const Point& A() const;
-  const Point& B() const;
-  const Point& P() const;
+        ParabolicSegment(const Point &, const Point &, const Point &);
 
-  private:
+        const Point &A() const;
 
-  Point TheA;
-  Point TheB;
-  Point TheP;
-  };
+        const Point &B() const;
+
+        const Point &P() const;
+
+    private:
+
+        Point TheA;
+        Point TheB;
+        Point TheP;
+    };
 /////////////////////////////////////////////////////////
+
+} // cubpackpp
 #endif

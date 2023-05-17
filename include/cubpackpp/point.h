@@ -22,8 +22,10 @@
 
 #include "cubpackpp/point2D.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////
-typedef Point_2D Point;
+    typedef Point_2D Point;
 /////////////////////////////////////////////
 
+} // cubpackpp
 #endif

@@ -27,12 +27,12 @@
 // PURPOSE:
 //   abstract base class for region processors. these
 //   either compute an integral or an error over a given
-//   GEOMETRY or convert it to another GEOMETRY.
-//   the processor has access to the GEOMETRY through
+//   Geometry or convert it to another Geometry.
+//   the processor has access to the Geometry through
 //   a pointer to an atomic region.
 //
 // TEMPLATES:
-//   the GEOMETRY that the Processor is meant to operate
+//   the Geometry that the Processor is meant to operate
 //   on must be specified as a template argument.
 //
 // METHODS:
@@ -44,7 +44,7 @@
 //     None
 //
 //   MODIFIERS:
-//     1) void LocalAtomic(Atomic<GEOMETRY>* G)
+//     1) void LocalAtomic(Atomic<Geometry>* G)
 //     -------------------------------------------
 //     specifies the AtomicRegion to process
 //     this should happen before the first call of Process()
@@ -69,7 +69,7 @@
 //           The region has produced
 //           offspring and can be deleted.
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -84,42 +84,56 @@
 #include "cubpackpp/stack.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/integran.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////
 
-template <class GEOMETRY>
-class Atomic;
+    template<class GEOMETRY>
+    class Atomic;
 
-template <class GEOMETRY>
-class Processor: public ReferenceCounting
-  {
-  public:
+    template<class GEOMETRY>
+    class Processor : public ReferenceCounting {
+    public:
 
-  Processor();
-  void LocalAtomic(Atomic<GEOMETRY>* );
-  virtual Processor<GEOMETRY>* NewCopy() const=0;
-  virtual void Process( Stack<AtomicRegion>& Offspring)=0;
-  virtual ~Processor();
+        Processor();
 
-  protected:
+        void LocalAtomic(Atomic<GEOMETRY> *);
 
-  Integrand& LocalIntegrand() const;
-  GEOMETRY& Geometry() const;
-  real& Integral();
-  real& AbsoluteError();
-  Atomic<GEOMETRY>& LocalAtomic() const;
-  RegionInfo& LocalRegionInfo() const;
+        virtual Processor<GEOMETRY> *NewCopy() const = 0;
+
+        virtual void Process(Stack<AtomicRegion> &Offspring) = 0;
+
+        virtual ~Processor();
+
+    protected:
+
+        Integrand &LocalIntegrand() const;
+
+        GEOMETRY &Geometry() const;
+
+        real &Integral();
+
+        real &AbsoluteError();
+
+        Atomic<GEOMETRY> &LocalAtomic() const;
+
+        RegionInfo &LocalRegionInfo() const;
 
 
-  private:
+    private:
 
-  Atomic<GEOMETRY>* A_ptr;
-  };
+        Atomic<GEOMETRY> *A_ptr;
+    };
 
 
 /////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/regproc.tpp"
+
 #endif
 /////////////////////////////////////////////
 #endif

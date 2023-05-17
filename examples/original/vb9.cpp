@@ -5,8 +5,7 @@
 #include <iostream>
 #include <math.h>
 
-using namespace std;
-
+using namespace cubpackpp;
 static real q;
 
 real A(const Point& p)
@@ -28,9 +27,9 @@ real B(const Point& p)
 int main ()
  { Point Origin(0,0), mu(1,0),phi(0,M_PI/2);
 
-   cout<<"q	A(q)		B(q)		A(q)/B(q)"<<endl;
-   cout.precision(7);
-   cout.setf(ios::fixed,ios::adjustfield);
+   std::cout<<"q	A(q)		B(q)		A(q)/B(q)"<<std::endl;
+   std::cout.precision(7);
+   std::cout.setf(std::ios::fixed,std::ios::adjustfield);
    for ( q=1; q<20 ; q++)
    {
      RECTANGLE Loper1(Origin,mu,phi);
@@ -38,10 +37,10 @@ int main ()
      real int1,int2;
      int1 = Integrate(A,Loper1, 0.0, 0.5e-7, 100000);
      int2 = Integrate(B,Loper2, 0.0, 0.5e-7, 100000);
-     cout << q<<"	";
-     cout << int1 << "	";
-     cout << int2 << "	";
-     cout << int1/int2 << endl;
+     std::cout << q<<"	";
+     std::cout << int1 << "	";
+     std::cout << int2 << "	";
+     std::cout << int1/int2 << std::endl;
    }
 
    return 0;

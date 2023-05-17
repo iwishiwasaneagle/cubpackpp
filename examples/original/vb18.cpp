@@ -4,8 +4,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 // The integral depends on the following 3 parameters:
 real rho, a, b;
 real N;                   // This is used to save work
@@ -21,8 +20,8 @@ int main ()
    real c;
 
    // Read the 3 parameters from standard input:
-   cout << "Give a,b and rho ( |rho| < 1 ): ";
-   cin >> a >> b >> rho;
+   std::cout << "Give a,b and rho ( |rho| < 1 ): ";
+   std::cin >> a >> b >> rho;
 
    // Define the region of integration:
    Point Center(a,b);
@@ -31,10 +30,10 @@ int main ()
    c = 1.0/(2.0*M_PI*sqrt(1.0 - rho*rho));
    N = 1.0/(2.0 - 2.0*rho*rho);
    count.Start();
-   cout <<"The integral is " << Integrate(f,quadrant,0,0.5e-6)*c;
-   cout <<" with absolute error " << quadrant.AbsoluteError()*c << endl;
+   std::cout <<"The integral is " << Integrate(f,quadrant,0,0.5e-6)*c;
+   std::cout <<" with absolute error " << quadrant.AbsoluteError()*c << std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

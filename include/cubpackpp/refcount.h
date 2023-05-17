@@ -70,21 +70,27 @@
 #define  REFCOUNT_H
 ///////////////////////////////////////////////////
 
-class ReferenceCounting
-  {
-  public:
+namespace cubpackpp {
+    class ReferenceCounting {
+    public:
 
-  ReferenceCounting();
-  ReferenceCounting(const ReferenceCounting&);
-  void Refer();
-  void UnRefer();
-  ReferenceCounting& operator=(const ReferenceCounting&);
-  unsigned int  NumberOfReferences()const;
+        ReferenceCounting();
 
-  private:
+        ReferenceCounting(const ReferenceCounting &);
 
-  unsigned int numref{0};
-  };
+        void Refer();
+
+        void UnRefer();
+
+        ReferenceCounting &operator=(const ReferenceCounting &);
+
+        unsigned int NumberOfReferences() const;
+
+    private:
+
+        unsigned int numref{0};
+    };
 
 ////////////////////////////////////////////////
+} // cubpackpp
 #endif

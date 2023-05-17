@@ -21,6 +21,7 @@
 #include "cubpackpp/C2dv4.h"
 #include "cubpackpp/error.h"
 #include "cubpackpp/atomic.h"
+namespace cubpackpp {
 ////////////////////////////////////////////////////////
 Pointer < Parallelogram_Processor::RuleParallelogram > 
   Parallelogram_Processor::TheRule = new Parallelogram_Rule13;
@@ -104,3 +105,4 @@ const
   return new Parallelogram_Processor(*this);
   }
 ///////////////////////////////////////////////
+} // cubpackpp

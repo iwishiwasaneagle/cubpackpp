@@ -56,13 +56,16 @@
 ////////////////////////////////////////////////
 #include "cubpackpp/userint.h"
 #include "cubpackpp/S2.h"
-////////////////////////////////////////////////
-class CIRCLE : public USERINTERFACE<Circle>
-  {
-  public:
 
-  CIRCLE(const Point&,const Point&);
-  CIRCLE(const Point&, real);
-  };
+namespace cubpackpp {
 ////////////////////////////////////////////////
+    class CIRCLE : public USERINTERFACE<Circle> {
+    public:
+
+        CIRCLE(const Point &, const Point &);
+
+        CIRCLE(const Point &, real);
+    };
+////////////////////////////////////////////////
+} // cubpackpp
 #endif

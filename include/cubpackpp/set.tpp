@@ -19,33 +19,32 @@
 #include <iostream>
 #include "cubpackpp/set.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////////////
-template <class T>
-Set<T>::Set()
-  :ReferenceCounting()
-  {
-  Number = 0;
-  }
+    template<class T>
+    Set<T>::Set()
+            :ReferenceCounting() {
+        Number = 0;
+    }
 
 ////////////////////////////////////////////////////////////
-template <class T>
-Set<T>::~Set()
-  {
-  }
+    template<class T>
+    Set<T>::~Set() {
+    }
+
 ///////////////////////////////////////////////////////
-template <class T>
-unsigned int
-Set<T>::Size() const
-  {
-  return(Number);
-  }
+    template<class T>
+    unsigned int
+    Set<T>::Size() const {
+        return (Number);
+    }
 
 ////////////////////////////////////////////////////////////
-template <class T>
-Boolean
-Set<T>::Empty()
-const
-  {
-  return (Number == 0)? True : False ;
-  }
+    template<class T>
+    Boolean
+    Set<T>::Empty()
+    const {
+        return (Number == 0) ? True : False;
+    }
 /////////////////////////////////////////////////////////
+} // cubpackpp

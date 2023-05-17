@@ -57,17 +57,20 @@
 #include "cubpackpp/gr.h"
 #include "cubpackpp/C2.h"
 #include "cubpackpp/pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-class C2toGR : public Transformation
-  {
-  public:
+    class C2toGR : public Transformation {
+    public:
 
-  C2toGR( GeneralizedRectangle*);
-  void Transform(real& w, Point& p);
+        C2toGR(GeneralizedRectangle *);
 
-  private:
+        void Transform(real &w, Point &p);
 
-  Pointer<GeneralizedRectangle> GR_ptr;
-  };
+    private:
+
+        Pointer<GeneralizedRectangle> GR_ptr;
+    };
 //////////////////////////////////////////////////////
+} // cubpackpp
 #endif

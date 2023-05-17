@@ -22,6 +22,7 @@
 #include "cubpackpp/stack.h"
 #include "cubpackpp/C2dv2.h"
 
+namespace cubpackpp {
 //////////////////////////////////////////////////
 void
 Parallelogram_Divide2::Apply (const Parallelogram& t,
@@ -44,3 +45,4 @@ Parallelogram_Divide2::Parallelogram_Divide2()
   {
   }
 //////////////////////////////////////////////////
+} // cubpackpp

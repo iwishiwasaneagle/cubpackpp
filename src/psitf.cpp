@@ -20,6 +20,7 @@
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/T2interf.h"
 #include "cubpackpp/T2tops.h"
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
 PARABOLIC_SEGMENT::PARABOLIC_SEGMENT(const Point& A,
                                      const Point& B,
@@ -38,3 +39,4 @@ PARABOLIC_SEGMENT::PARABOLIC_SEGMENT(const Point& A,
     );
   }
 //////////////////////////////////////////////////////////
+} // cubpackpp

@@ -57,18 +57,21 @@
 #include "cubpackpp/ps.h"
 #include "cubpackpp/T2.h"
 #include "cubpackpp/pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-class T2toPS : public Transformation
-  {
-  public:
+    class T2toPS : public Transformation {
+    public:
 
-  T2toPS( ParabolicSegment*);
-  void Transform(real& w, Point& p);
+        T2toPS(ParabolicSegment *);
 
-  private:
+        void Transform(real &w, Point &p);
 
-  Point P,M,H;
-  real a,k;
-  };
+    private:
+
+        Point P, M, H;
+        real a, k;
+    };
 //////////////////////////////////////////////////////
+} // cubpackpp
 #endif

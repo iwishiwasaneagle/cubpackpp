@@ -19,6 +19,7 @@
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/C2.h"
 #include "cubpackpp/C2togr.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 GeneralizedRectangle::GeneralizedRectangle(Function f,const Point& a,const Point& b)
   :Geometry(2),TheBoundary(f),TheA(a),TheB(b)
@@ -57,3 +58,4 @@ const
                //C2toGR>(R);
   //}
 ////////////////////////////////////////////
+} // cubpackpp

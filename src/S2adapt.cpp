@@ -22,6 +22,7 @@
 #include "cubpackpp/polC2itf.h"
 #include "cubpackpp/atomic.h"
 
+namespace cubpackpp {
 ////////////////////////////////////////////////
 void
 CircleAdaptive::Process(Stack<AtomicRegion>& Offspring)
@@ -108,3 +109,4 @@ const
   return new CircleAdaptive(*this);
   }
 //////////////////////////////////////////////////
+} // cubpackpp

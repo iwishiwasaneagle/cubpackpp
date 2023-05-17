@@ -18,6 +18,13 @@
 // null rules (Cools & Haegemans).
 //
 #include "cubpackpp/real.h"
+#include "cubpackpp/S2rule13.h"
+#include "cubpackpp/error.h"
+#include "cubpackpp/tools.h"
+#include <math.h>
+
+#define sqr(x) ((x)*(x))
+namespace cubpackpp {
 static real facmed  = 1.5;
 static real crival  = 0.3;
 static int K[]={0,3,2,2};
@@ -96,13 +103,7 @@ static real Weight[7][7]=
 // The error estimator constants
 //
 
-#include "cubpackpp/S2rule13.h"
-#include "cubpackpp/error.h"
-#include "cubpackpp/tools.h"
-#include <math.h>
-//#include <iostream.h>
 
-#define sqr(x) ((x)*(x))
 
 void Circle_Rule13::Apply(Integrand& F,Circle& R,real& TheResult,real& TheError)
   {
@@ -237,3 +238,4 @@ Circle_Rule13::Circle_Rule13()
   {
   }
 ///////////////////////////////////////////
+} // cubpackpp

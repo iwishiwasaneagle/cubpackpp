@@ -49,7 +49,7 @@
 //     -------------------------------------------------------
 //     see Processor<>
 //
-//     2) virtual Processor<GEOMETRY>* NewCopy() const=0
+//     2) virtual Processor<Geometry>* NewCopy() const=0
 //     -------------------------------------------------
 //
 //     makes a new copy (using the copy constructor) and
@@ -61,21 +61,25 @@
 #include "cubpackpp/regproc.h"
 #include "cubpackpp/E2.h"
 #include "cubpackpp/integran.h"
+
+namespace cubpackpp {
 ////////////////////////////////////////////////////
-class PlaneAdaptive: public Processor<Plane>
-  {
-  public:
+    class PlaneAdaptive : public Processor<Plane> {
+    public:
 
-  PlaneAdaptive();
-  void Process(Stack<AtomicRegion>&);
-  Processor<Plane>* NewCopy() const;
+        PlaneAdaptive();
 
-  private:
+        void Process(Stack<AtomicRegion> &);
 
-  static void Rule(Integrand&,Plane&,real&,real&,real&);
-  unsigned int TimesCalled;
-  real HalfValueRadius;
-  }
-  ;
+        Processor<Plane> *NewCopy() const;
+
+    private:
+
+        static void Rule(Integrand &, Plane &, real &, real &, real &);
+
+        unsigned int TimesCalled;
+        real HalfValueRadius;
+    };
 /////////////////////////////////////////////////
+} // cubpackpp
 #endif

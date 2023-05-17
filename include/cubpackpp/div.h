@@ -56,24 +56,30 @@
 /////////////////////////////////////////
 #include "cubpackpp/refcount.h"
 
+namespace cubpackpp {
 //////////////////////////////////////////
-template <class GEOMETRY>
-class Divisor: public ReferenceCounting
-  {
+    template<class GEOMETRY>
+    class Divisor : public ReferenceCounting {
 
-  public:
+    public:
 
-  Divisor();
-  virtual int NumberOfParts() const =0;
-  virtual ~Divisor();
+        Divisor();
+
+        virtual int NumberOfParts() const = 0;
+
+        virtual ~Divisor();
 
 
-  };
+    };
 ///////////////////////////////////////////
+} // cubpackpp
+
 #include "templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/div.tpp"
+
 #endif
 //////////////////////////////////////////
-
 #endif

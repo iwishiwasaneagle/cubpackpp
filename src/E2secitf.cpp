@@ -17,6 +17,7 @@
 //////////////////////////////////////////////
 #include "cubpackpp/E2secitf.h"
 #include "cubpackpp/E2secprc.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 PLANE_SECTOR::PLANE_SECTOR
   (const Point& A, const Point& B,const Point& C)
@@ -31,3 +32,4 @@ PLANE_SECTOR::PLANE_SECTOR
               new PlaneSector_Processor);
   }
 ///////////////////////////////////////////////////
+} // cubpackpp

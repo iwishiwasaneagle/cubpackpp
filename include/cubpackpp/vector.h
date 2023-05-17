@@ -93,38 +93,51 @@
 
 #include "cubpackpp/boolean.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////////
 
 
-template <class T>
-class Vector
-  {
+    template<class T>
+    class Vector {
 
-  public:
+    public:
 
-  Vector();
-  Vector(unsigned int length);
-  Vector(unsigned  int,T*);
-  Vector(const Vector<T>&);
-  T& operator[](unsigned int) ;
-  const T& operator[](unsigned int) const;
-  Vector<T>& operator=(const Vector<T>&);
-  Boolean operator == (const Vector<T>&) const;
-  Boolean operator != (const Vector<T>&) const;
-  ~Vector();
-  unsigned int Size() const;
+        Vector();
+
+        Vector(unsigned int length);
+
+        Vector(unsigned int, T *);
+
+        Vector(const Vector<T> &);
+
+        T &operator[](unsigned int);
+
+        const T &operator[](unsigned int) const;
+
+        Vector<T> &operator=(const Vector<T> &);
+
+        Boolean operator==(const Vector<T> &) const;
+
+        Boolean operator!=(const Vector<T> &) const;
+
+        ~Vector();
+
+        unsigned int Size() const;
 
 
+    protected:
 
-  protected:
-
-  unsigned int TheSize;
-  T* Contents;
-  };
+        unsigned int TheSize;
+        T *Contents;
+    };
 ///////////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/vector.tpp"
+
 #endif
 
 #endif

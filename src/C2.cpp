@@ -19,6 +19,7 @@
 #include "cubpackpp/C2.h"
 #include <math.h>
 
+namespace cubpackpp {
 //////////////////////////////////////////////
 
 Parallelogram::Parallelogram (const Point& p1,const Point& p2,const Point& p3)
@@ -77,3 +78,4 @@ Parallelogram::Volume(real v)
                  //new Parallelogram_Divide4);
   //}
 ///////////////////////////////////////////////////
+} // cubpackpp

@@ -65,18 +65,21 @@
 #include "cubpackpp/samediv.h"
 #include "cubpackpp/C2.h"
 
+namespace cubpackpp {
 ////////////////////////////////////////
 
-class Parallelogram_Divide2 :public SameShapeDivisor<Parallelogram>
-  {
+    class Parallelogram_Divide2 : public SameShapeDivisor<Parallelogram> {
 
-  public:
+    public:
 
-  Parallelogram_Divide2();
-  void Apply(const Parallelogram&, Stack<Parallelogram>&, 
-    const Vector<unsigned int>&);
-  int NumberOfParts() const {return 2;};
+        Parallelogram_Divide2();
 
-  };
+        void Apply(const Parallelogram &, Stack<Parallelogram> &,
+                   const Vector<unsigned int> &);
+
+        int NumberOfParts() const { return 2; };
+
+    };
 //////////////////////////////////////////
+} // cubpackpp
 #endif

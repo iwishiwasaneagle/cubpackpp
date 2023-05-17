@@ -56,21 +56,29 @@
 #include "cubpackpp/div.h"
 #include "cubpackpp/stack.h"
 #include "cubpackpp/vector.h"
-////////////////////////////////////////////
-template <class GEOMETRY>
-class SameShapeDivisor : public Divisor<GEOMETRY>
-  {
-  public:
 
-  SameShapeDivisor();
-  virtual int NumberOfParts() const =0;
-  virtual void Apply( const  GEOMETRY&,Stack<GEOMETRY>&,const Vector<unsigned int>&)=0;
-  virtual ~SameShapeDivisor();
-  };
+namespace cubpackpp {
+////////////////////////////////////////////
+    template<class GEOMETRY>
+    class SameShapeDivisor : public Divisor<GEOMETRY> {
+    public:
+
+        SameShapeDivisor();
+
+        virtual int NumberOfParts() const = 0;
+
+        virtual void Apply(const GEOMETRY &, Stack<GEOMETRY> &, const Vector<unsigned int> &) = 0;
+
+        virtual ~SameShapeDivisor();
+    };
 /////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/samediv.tpp"
+
 #endif
 /////////////////////////////////////////////
 #endif

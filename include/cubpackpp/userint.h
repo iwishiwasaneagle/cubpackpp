@@ -27,7 +27,7 @@
 //   base class for end-user interfaces to geometries
 //
 // TEMPLATES:
-//   a specific GEOMETRY (derived from Geometry)
+//   a specific Geometry (derived from Geometry)
 //   must be provided
 //
 // METHODS:
@@ -35,14 +35,14 @@
 //     1) USERINTERFACE()
 //     ------------------
 //
-//     2) USERINTERFACE(const USERINTERFACE<GEOMETRY>&)
+//     2) USERINTERFACE(const USERINTERFACE<Geometry>&)
 //     ------------------------------------------------
 //
 //   SELECTORS:
 //     None
 //
 //   MODIFIERS:
-//     1) void Use(Processor<GEOMETRY>* P)
+//     1) void Use(Processor<Geometry>* P)
 //     -----------------------------------
 //     forces P to be used for Process()ing.
 //
@@ -82,45 +82,60 @@
 #include "cubpackpp/heap.h"
 /////////////////////////////////////////////////
 
-template <class GEOMETRY>
-class USERINTERFACE : public COMPOUND_REGION
-  {
-  public:
-  typedef Stack<AtomicRegion> StackAtomicRegion;
-  typedef Heap <AtomicRegion> HeapAtomicRegion;
+namespace cubpackpp {
+    template<class GEOMETRY>
+    class USERINTERFACE : public COMPOUND_REGION {
+    public:
+        typedef Stack<AtomicRegion> StackAtomicRegion;
+        typedef Heap<AtomicRegion> HeapAtomicRegion;
 
-  USERINTERFACE();
-  USERINTERFACE(const USERINTERFACE<GEOMETRY>&);
-  ~USERINTERFACE();
-  void Use( Processor<GEOMETRY>*);
-  REGION_COLLECTION operator+(const COMPOUND_REGION&);
-  void LocalIntegrand(Integrand*);
-  void LocalIntegrand(Function);
-  operator AtomicRegion* ()
-  {
-  Error (SAR_ptr->Empty(),
-    "converting empty compound region to atomic.");
-  return SAR_ptr->Pop();
-  }
+        USERINTERFACE();
 
-  protected:
+        USERINTERFACE(const USERINTERFACE<GEOMETRY> &);
 
-  Pointer< StackAtomicRegion> HopelessAR_ptr;
-  Pointer< StackAtomicRegion> SAR_ptr;
-  Pointer< HeapAtomicRegion > HAR_ptr;
-  Pointer< Integrand > Int_ptr;
-  void StoreAtomic(GEOMETRY*,Processor<GEOMETRY>*);
-  //void StoreAtomic(GEOMETRY*);
-  void Preprocess();
-  void Improve();
-  real MaxAtomicError() const;
-  COMPOUND_REGION* NewCopy() const;
+        ~USERINTERFACE();
 
-  };
+        void Use(Processor<GEOMETRY> *);
+
+        REGION_COLLECTION operator+(const COMPOUND_REGION &);
+
+        void LocalIntegrand(Integrand *);
+
+        void LocalIntegrand(Function);
+
+        operator AtomicRegion *() {
+            Error(SAR_ptr->Empty(),
+                  "converting empty compound region to atomic.");
+            return SAR_ptr->Pop();
+        }
+
+    protected:
+
+        Pointer<StackAtomicRegion> HopelessAR_ptr;
+        Pointer<StackAtomicRegion> SAR_ptr;
+        Pointer<HeapAtomicRegion> HAR_ptr;
+        Pointer<Integrand> Int_ptr;
+
+        void StoreAtomic(GEOMETRY *, Processor<GEOMETRY> *);
+
+        //void StoreAtomic(Geometry*);
+        void Preprocess();
+
+        void Improve();
+
+        real MaxAtomicError() const;
+
+        COMPOUND_REGION *NewCopy() const;
+
+    };
 //////////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/userint.tpp"
+
 #endif
 ///////////////////////////////////////////////////
 

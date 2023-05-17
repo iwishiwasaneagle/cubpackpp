@@ -18,6 +18,7 @@
 #include "cubpackpp/strip.h"
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/C2.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 InfiniteStrip::InfiniteStrip(const Point& a,const Point& b)
   :Geometry(2),TheA(a),TheB(b)
@@ -38,3 +39,4 @@ const
   return TheB;
   }
 ///////////////////////////////////////////
+} // cubpackpp

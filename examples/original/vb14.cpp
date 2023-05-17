@@ -3,8 +3,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f(const Point& p)
  { real y=p.Y();
    return 1/(y*y);
@@ -17,22 +16,22 @@ int main ()
    Boolean Success;
 
    EvaluationCounter TikTak; TikTak.Start();
-   cout.setf(ios::scientific,ios::floatfield);
+   std::cout.setf(std::ios::scientific,std::ios::floatfield);
 
    do
      {
       Integrate(f,langelat,Integral_est,Error_est,Success,0,0.5e-7,10000);
-      cout <<"The integral is " << Integral_est;
-      cout <<" with estimated absolute error "
-           << Error_est << endl;
-      cout <<"The real error is "
-           << Integral_est - 1 <<endl;
-      cout << "-------------------------------------------------"<<endl;
+      std::cout <<"The integral is " << Integral_est;
+      std::cout <<" with estimated absolute error "
+           << Error_est << std::endl;
+      std::cout <<"The real error is "
+           << Integral_est - 1 <<std::endl;
+      std::cout << "-------------------------------------------------"<<std::endl;
      }
    while ( ! Success );
 
-   TikTak.Stop(); cout<<"Total number of evaluations = "
-                      <<TikTak.Read()<<endl;
+   TikTak.Stop(); std::cout<<"Total number of evaluations = "
+                      <<TikTak.Read()<<std::endl;
 
    return 0;
  }

@@ -97,12 +97,13 @@
 
 #ifndef SELEMENT
 #define SELEMENT
-template< class T>
-struct SElement
-    {
-    SElement<T>* Next;
-    T* Contents;
+namespace cubpackpp {
+    template<class T>
+    struct SElement {
+        SElement<T> *Next;
+        T *Contents;
     };
+} // cubpackpp
 #endif
 
 ///////////////////////////////////////////////////
@@ -114,38 +115,54 @@ struct SElement
 #include "cubpackpp/refcount.h"
 #include "cubpackpp/boolean.h"
 #include <iostream>
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-template <class T>
-class Stack :public ReferenceCounting
-  {
-  public:
+    template<class T>
+    class Stack : public ReferenceCounting {
+    public:
 
-  Stack();
-  ~Stack();
-  void MakeEmpty();
-  Boolean Empty () const;
-  void Push (T*);
-  T* Pop();
-  T* Top()const;
-  void Merge (Stack<T>& Source);
-  void IteratorReset();
-  Boolean IteratorAtEnd() const;
-  T* IteratorNext();
-  unsigned int Size() const;
+        Stack();
+
+        ~Stack();
+
+        void MakeEmpty();
+
+        Boolean Empty() const;
+
+        void Push(T *);
+
+        T *Pop();
+
+        T *Top() const;
+
+        void Merge(Stack<T> &Source);
+
+        void IteratorReset();
+
+        Boolean IteratorAtEnd() const;
+
+        T *IteratorNext();
+
+        unsigned int Size() const;
 
 
-  private:
+    private:
 
-  SElement<T>* TheTop;
-  SElement<T>* Current;
-  unsigned int Number;
+        SElement<T> *TheTop;
+        SElement<T> *Current;
+        unsigned int Number;
 
 
-  };
+    };
 /////////////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/stack.tpp"
+
 #endif
 
 #endif

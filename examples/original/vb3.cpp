@@ -6,8 +6,7 @@
 #include <iostream>
 #include <iomanip>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f(const Point& p)
  {
    real x=p.X() , y=p.Y();
@@ -21,17 +20,17 @@ int main ()
    PLANE_SECTOR wedge(origin,innerradius,alfa,beta);
    EvaluationCounter count;
 
-   cout.setf(ios::scientific,ios::floatfield);
-   cout<<"req. rel. error    est integral    est error   abs error  evaluations" <<endl;
+   std::cout.setf(std::ios::scientific,std::ios::floatfield);
+   std::cout<<"req. rel. error    est integral    est error   abs error  evaluations" <<std::endl;
 
    count.Start();
    for (real req_err=0.05; req_err>1e-12; req_err/=10)
    {
-     cout << setprecision(1) << "   <" << req_err <<"      " 
-          << setprecision(10) << Integrate(f,wedge,0,req_err) << "   ";
-     cout << setprecision(1) << wedge.AbsoluteError() << "     "
+     std::cout << std::setprecision(1) << "   <" << req_err <<"      "
+          << std::setprecision(10) << Integrate(f,wedge,0,req_err) << "   ";
+     std::cout << std::setprecision(1) << wedge.AbsoluteError() << "     "
           << fabs(wedge.Integral() - atan(2.0)) << "     "
-          << count.Read() << endl;
+          << count.Read() << std::endl;
    }
    count.Stop();
 

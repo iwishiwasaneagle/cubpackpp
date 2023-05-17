@@ -23,10 +23,16 @@
 
 /////////////////////////////////////////////////
 #include <iostream>
-/////////////////////////////////////////////////
-enum Boolean {False, True};
 
-extern std::ostream& operator<<(std::ostream&,const Boolean&);
+namespace cubpackpp {
+/////////////////////////////////////////////////
+
+    enum Boolean {
+        False, True
+    };
+
+    extern std::ostream &operator<<(std::ostream &, const Boolean &);
 
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

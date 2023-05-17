@@ -18,6 +18,7 @@
 #include "cubpackpp/gsitf.h"
 #include "cubpackpp/point.h"
 #include "cubpackpp/gsprc.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 GENERALIZED_SECTOR::GENERALIZED_SECTOR(real (*F)(real),
      real a, real b, const Point& Center)
@@ -27,3 +28,4 @@ GENERALIZED_SECTOR::GENERALIZED_SECTOR(real (*F)(real),
   new GeneralizedSector_Processor);
   }
 ///////////////////////////////////////////////
+} // cubpackpp

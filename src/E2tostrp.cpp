@@ -18,6 +18,7 @@
 #include "cubpackpp/E2tostrp.h"
 #include "cubpackpp/point.h"
 #include <math.h>
+namespace cubpackpp {
 ////////////////////////////////////////////
 void
 E2toIS::Transform(real& w, Point& p)
@@ -35,3 +36,4 @@ E2toIS::E2toIS(InfiniteStrip* g)
   {
   }
 //////////////////////////////////////////////////
+} // cubpackpp

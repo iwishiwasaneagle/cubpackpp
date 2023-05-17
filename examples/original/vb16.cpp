@@ -9,10 +9,9 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
 #define sqr(x) ((x)*(x))
 
+using namespace cubpackpp;
 static const real sqrt_PI = sqrt(M_PI),
                   p35_PI  = pow(M_PI,0.35e0);
 
@@ -41,25 +40,25 @@ int main ()
    EvaluationCounter count;
 
    count.Start();
-   cout <<"The integral is " << Integrate(f,House1,0,0.5e-1,1000000);
-   cout <<" with absolute error " << House1.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(f,House1,0,0.5e-1,1000000);
+   std::cout <<" with absolute error " << House1.AbsoluteError() << std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
-   cout << "Contribution of the different parts:" << endl;
-   cout << "R1: integral and error are " << R1.Integral() << " and "
-                                        << R1.AbsoluteError() <<endl;
-   cout << "T1: integral and error are " << T1.Integral() << " and "
-                                        << T1.AbsoluteError() <<endl;
-   cout << "T2: integral and error are " << T2.Integral() << " and "
-                                        << T2.AbsoluteError() <<endl;
-   cout << "T3: integral and error are " << T3.Integral() << " and "
-                                        << T3.AbsoluteError() <<endl;
-   cout << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
+   std::cout << "Contribution of the different parts:" << std::endl;
+   std::cout << "R1: integral and error are " << R1.Integral() << " and "
+                                        << R1.AbsoluteError() <<std::endl;
+   std::cout << "T1: integral and error are " << T1.Integral() << " and "
+                                        << T1.AbsoluteError() <<std::endl;
+   std::cout << "T2: integral and error are " << T2.Integral() << " and "
+                                        << T2.AbsoluteError() <<std::endl;
+   std::cout << "T3: integral and error are " << T3.Integral() << " and "
+                                        << T3.AbsoluteError() <<std::endl;
+   std::cout << std::endl;
    count.Start();
-   cout <<"The integral is " << Integrate(f,House2,0,0.5e-1,1000000);
-   cout <<" with absolute error " << House2.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(f,House2,0,0.5e-1,1000000);
+   std::cout <<" with absolute error " << House2.AbsoluteError() << std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

@@ -19,6 +19,7 @@
 
 #include "cubpackpp/translat.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////
 Translation::Translation( const Point& Offset)
   :Transformation(),TheOffset(Offset)
@@ -29,3 +30,4 @@ void
 Translation::Transform (real &, Point& p)
   { p += TheOffset; }
 /////////////////////////////////////////////
+} // cubpackpp

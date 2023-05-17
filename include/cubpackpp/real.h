@@ -23,8 +23,9 @@
 /////////////////////////////////////////////////////////
 #include <cfloat>
 
+namespace cubpackpp {
 #ifdef FLOAT
-  typedef float real;
+    typedef float real;
 
 #define REAL_MAX  FLT_MAX
 #define REAL_MIN  FLT_MIN
@@ -33,7 +34,7 @@
 #define DEFAULT_REL_ERR_REQ  (1.0e-4)
 
 #else
-  typedef double real;
+    typedef double real;
 
 #define REAL_MAX  DBL_MAX
 #define REAL_MIN  DBL_MIN
@@ -43,4 +44,5 @@
 
 #endif
 /////////////////////////////////////////////////////////
+} // cubpackpp
 #endif

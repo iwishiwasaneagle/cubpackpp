@@ -20,6 +20,7 @@
 #include "cubpackpp/stack.h"
 #include "cubpackpp/T2dv4.h"
 
+namespace cubpackpp {
 //////////////////////////////////////////////////
 void
 Triangle_Divide4::Apply (const Triangle& t,Stack<Triangle>& Offspring,
@@ -46,3 +47,4 @@ Triangle_Divide4::Triangle_Divide4()
   {
   }
 //////////////////////////////////////////////////
+} // cubpackpp

@@ -58,17 +58,20 @@
 #include "cubpackpp/samediv.h"
 #include "cubpackpp/T2.h"
 
+namespace cubpackpp {
 ////////////////////////////////////////
 
-class Triangle_Divide4 :public SameShapeDivisor<Triangle>
-  {
+    class Triangle_Divide4 : public SameShapeDivisor<Triangle> {
 
-  public:
+    public:
 
-  Triangle_Divide4();
-  void Apply(const Triangle&, Stack<Triangle>&, const Vector<unsigned int>&);
-  int NumberOfParts() const {return 4;};
+        Triangle_Divide4();
 
-  };
+        void Apply(const Triangle &, Stack<Triangle> &, const Vector<unsigned int> &);
+
+        int NumberOfParts() const { return 4; };
+
+    };
 //////////////////////////////////////////
+} // cubpackpp
 #endif

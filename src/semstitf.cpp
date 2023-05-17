@@ -16,6 +16,7 @@
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/stripitf.h"
 #include "cubpackpp/sttosmst.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 SEMI_INFINITE_STRIP::SEMI_INFINITE_STRIP(const Point& a,const Point& b)
   :USERINTERFACE<SemiInfiniteStrip>()
@@ -27,3 +28,4 @@ SEMI_INFINITE_STRIP::SEMI_INFINITE_STRIP(const Point& a,const Point& b)
                IStoSIS>((AtomicRegion*)I));
   }
 ///////////////////////////////////////////////
+} // cubpackpp

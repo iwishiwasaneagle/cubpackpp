@@ -57,19 +57,23 @@
 //////////////////////////////////////////////////
 #include "cubpackpp/point.h"
 #include "cubpackpp/geometry.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////////////
-class SemiInfiniteStrip : public  Geometry
-  {
-  public:
+    class SemiInfiniteStrip : public Geometry {
+    public:
 
-  SemiInfiniteStrip ( const Point&,const Point&);
-  const Point& A() const;
-  const Point& B() const;
+        SemiInfiniteStrip(const Point &, const Point &);
 
-  private:
+        const Point &A() const;
 
-  Point TheA;
-  Point TheB;
-  };
+        const Point &B() const;
+
+    private:
+
+        Point TheA;
+        Point TheB;
+    };
 //////////////////////////////////////////////////
+} // cubpackpp
 #endif

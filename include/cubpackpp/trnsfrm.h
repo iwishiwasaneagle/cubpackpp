@@ -49,16 +49,20 @@
 ///////////////////////////////////////////////////////////
 #ifndef TRNSFRM_H
 #define TRNSFRM_H
+
 #include "cubpackpp/point.h"
 #include "cubpackpp/refcount.h"
 
-class Transformation: public ReferenceCounting
-  {
-  public:
+namespace cubpackpp {
+    class Transformation : public ReferenceCounting {
+    public:
 
-  Transformation();
-  virtual void Transform (real& w, Point& p) =0;
-  virtual ~Transformation();
-  };
+        Transformation();
 
+        virtual void Transform(real &w, Point &p) = 0;
+
+        virtual ~Transformation();
+    };
+
+} // cubpackpp
 #endif

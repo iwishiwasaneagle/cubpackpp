@@ -17,6 +17,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 /////////////////////////////////////////////////////////
 #include "cubpackpp/T2tops.h"
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
 T2toPS::T2toPS(ParabolicSegment* p)
   : Transformation(),
@@ -48,3 +49,4 @@ T2toPS::Transform(real & w, Point& p)
     };
   }
 /////////////////////////////////////////////////////////
+} // cubpackpp

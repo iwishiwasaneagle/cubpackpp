@@ -56,17 +56,20 @@
 #include "strip.h"
 #include "E2.h"
 #include "pointer.h"
+
+namespace cubpackpp {
 ///////////////////////////////////////////////////
-class E2toIS : public Transformation
-  {
-  public:
+    class E2toIS : public Transformation {
+    public:
 
-  E2toIS( InfiniteStrip*);
-  void Transform(real& w, Point& p);
+        E2toIS(InfiniteStrip *);
 
-  private:
+        void Transform(real &w, Point &p);
 
-  Pointer<InfiniteStrip> IS_ptr;
-  };
+    private:
+
+        Pointer<InfiniteStrip> IS_ptr;
+    };
 //////////////////////////////////////////////////////
+} // cubpackpp
 #endif

@@ -16,44 +16,57 @@
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/s_adapt.h"
+namespace cubpackpp {
 template class SimpleAdaptive<Parallelogram>;
 template class SimpleAdaptive<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/set.h"
+namespace cubpackpp {
 template class Set<AtomicRegion>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/stack.h"
+namespace cubpackpp {
 template class Stack<Parallelogram>;
 template class Stack<AtomicRegion>;
 template class Stack<Triangle>;
 template class Stack<COMPOUND_REGION>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/vector.h"
+namespace cubpackpp {
 template class Vector<Point>;
 template class Vector<unsigned int>;
 template class Vector<real>;
 template class Vector< Pointer<Transformation> >;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/vstack.h"
+namespace cubpackpp {
 template class VectorStack< Pointer < Transformation > >;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/heap.h"
+namespace cubpackpp {
 template class SubHeap<AtomicRegion,255>;
 template class Heap<AtomicRegion>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/atomic.h"
+namespace cubpackpp {
 template class Atomic<Circle>;
 template class Atomic<GeneralizedRectangle>;
 template class Atomic<GeneralizedSector>;
@@ -67,24 +80,30 @@ template class Atomic<PolarRectangle>;
 template class Atomic<SemiInfiniteStrip>;
 template class Atomic<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/div.h"
+namespace cubpackpp {
 template class Divisor<Parallelogram>;
 template class Divisor<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/passbuck.h"
+namespace cubpackpp {
 template class PassTheBuck<Circle,OutCircle,Invert>;
 template class PassTheBuck<InfiniteStrip,SemiInfiniteStrip,IStoSIS>;
 template class PassTheBuck<Parallelogram,GeneralizedRectangle,C2toGR>;
 template class PassTheBuck<Plane ,InfiniteStrip,E2toIS>;
 template class PassTheBuck<Triangle,ParabolicSegment,T2toPS>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/pointer.h"
+namespace cubpackpp {
 template class Pointer<Heap<AtomicRegion> >;
 template class Pointer<Integrand>;
 template class Pointer<RegionInfo>;
@@ -126,9 +145,11 @@ template class Pointer<Stack<AtomicRegion> >;
 template class Pointer<Stack<COMPOUND_REGION> >;
 template class Pointer<Transformation >;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/regproc.h"
+namespace cubpackpp {
 template class Processor<Circle>;
 template class Processor<GeneralizedRectangle>;
 template class Processor<GeneralizedSector>;
@@ -142,22 +163,28 @@ template class Processor<PolarRectangle>;
 template class Processor<SemiInfiniteStrip>;
 template class Processor<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/rule.h"
+namespace cubpackpp {
 template class Rule<Circle>;
 template class Rule<Parallelogram>;
 template class Rule<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/samediv.h"
+namespace cubpackpp {
 template class SameShapeDivisor<Parallelogram>;
 template class SameShapeDivisor<Triangle>;
 
+} // cubpackpp
 ///////////////////////////////////////////////////////////////
 
 #include "cubpackpp/userint.h"
+                                                    namespace cubpackpp {
 template class USERINTERFACE<Circle>;
 template class USERINTERFACE<GeneralizedRectangle>;
 template class USERINTERFACE<GeneralizedSector>;
@@ -171,4 +198,5 @@ template class USERINTERFACE<PolarRectangle>;
 template class USERINTERFACE<SemiInfiniteStrip>;
 template class USERINTERFACE<Triangle>;
 
+                                                    } // cubpackpp
 ///////////////////////////////////////////////////////////////

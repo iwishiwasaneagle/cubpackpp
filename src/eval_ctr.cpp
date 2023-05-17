@@ -20,6 +20,7 @@
 #include "cubpackpp/eval_ctr.h"
 #include "cubpackpp/integran.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////
 EvaluationCounter::EvaluationCounter()
   {
@@ -78,3 +79,4 @@ EvaluationCounter::Read()
     };
   }
 /////////////////////////////////////////////
+} // cubpackpp

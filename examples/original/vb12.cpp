@@ -4,8 +4,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f(const Point& p)
  { real x=p.X() , y=p.Y(),z , a=1.0/3.0 , b=2.0/3.0 ;
    if (x*y < 1e-15) return 0.0;
@@ -29,10 +28,10 @@ int main ()
    EvaluationCounter count;
 
    count.Start();
-   cout <<"The integral is " << Integrate(f,quadrant,0,0.5e-4);
-   cout <<" with absolute error " << quadrant.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(f,quadrant,0,0.5e-4);
+   std::cout <<" with absolute error " << quadrant.AbsoluteError() << std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

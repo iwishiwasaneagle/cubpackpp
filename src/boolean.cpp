@@ -19,6 +19,7 @@
 #include "cubpackpp/boolean.h"
 #include <iostream>
 
+namespace cubpackpp {
 std::ostream& operator << (std::ostream& os, const Boolean& b)
   {
   if (b==False)
@@ -31,3 +32,4 @@ std::ostream& operator << (std::ostream& os, const Boolean& b)
     };
   return os;
   }
+} // cubpackpp

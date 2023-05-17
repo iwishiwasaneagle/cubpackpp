@@ -56,13 +56,15 @@
 #include "cubpackpp/trnsfrm.h"
 #include "cubpackpp/point.h"
 
+namespace cubpackpp {
 ///////////////////////////////////////////////////////
-class PolarToRectangular :public Transformation
-  {
-  public:
+    class PolarToRectangular : public Transformation {
+    public:
 
-  PolarToRectangular();
-  void Transform (real &w, Point& p);
-  };
+        PolarToRectangular();
+
+        void Transform(real &w, Point &p);
+    };
 ////////////////////////////////////////////////////////////
+} // cubpackpp
 #endif

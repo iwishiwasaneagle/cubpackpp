@@ -16,6 +16,7 @@
 //   19 Aug 1994     V0.1 (first limited distribution)
 ///////////////////////////////////////////////////
 #include "cubpackpp/geometry.h"
+namespace cubpackpp {
 ///////////////////////////////////////////////////
 Geometry::Geometry(unsigned int Dim)
   :TheDimension(Dim)
@@ -29,3 +30,4 @@ const
   return TheDimension;
   }
 //////////////////////////////////////////////////
+} // cubpackpp

@@ -57,13 +57,17 @@
 #define OUTS2_H
 ////////////////////////////////////////////////
 #include "cubpackpp/S2.h"
-///////////////////////////////////////////////
-class OutCircle : public Circle
-  {
-  public:
 
-  OutCircle(const Point&,const Point&);
-  OutCircle(const Point&,real);
-  };
+namespace cubpackpp {
+///////////////////////////////////////////////
+    class OutCircle : public Circle {
+    public:
+
+        OutCircle(const Point &, const Point &);
+
+        OutCircle(const Point &, real);
+    };
 ////////////////////////////////////////////////
+
+} // cubpackpp
 #endif

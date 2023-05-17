@@ -26,6 +26,7 @@
 #include "cubpackpp/pointer.h"
 #include <math.h>
 
+namespace cubpackpp {
 ////////////////////////////////////////////
 Circle::Circle(const Point& Center, real Radius)
   : Geometry(2),
@@ -68,3 +69,4 @@ const
   //return new CircleAdaptive(new Circle_Rule13);
   //}
 /////////////////////////////////////////////////
+} // cubpackpp

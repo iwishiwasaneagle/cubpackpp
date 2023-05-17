@@ -67,25 +67,30 @@
 #include "cubpackpp/boolean.h"
 #include "cubpackpp/regproc.h"
 
+namespace cubpackpp {
 //////////////////////////////////////////////////
 
-class Triangle : public Geometry
-  {
-  public :      
+    class Triangle : public Geometry {
+    public :
 
-  Triangle(const Point&,const Point&,const Point&);
-  const Point& Vertex (int) const;
-  real Volume() const;
-  void Volume(real);
+        Triangle(const Point &, const Point &, const Point &);
 
-  private:
+        const Point &Vertex(int) const;
 
-  Vector<Point> Vertices;
-  real TheVolume;
-  Boolean TheVolumeKnown;
-  void ComputeVolume();
-  };
+        real Volume() const;
+
+        void Volume(real);
+
+    private:
+
+        Vector<Point> Vertices;
+        real TheVolume;
+        Boolean TheVolumeKnown;
+
+        void ComputeVolume();
+    };
 
 ////////////////////////////////////////////////////
 
+} // cubpackpp
 #endif

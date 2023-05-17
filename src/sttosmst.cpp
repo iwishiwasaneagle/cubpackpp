@@ -19,6 +19,7 @@
 #include "cubpackpp/point.h"
 #include <math.h>
 #include <iostream>
+namespace cubpackpp {
 ////////////////////////////////////////////
 void
 IStoSIS::Transform(real& w, Point& p)
@@ -45,3 +46,4 @@ IStoSIS::IStoSIS(SemiInfiniteStrip* g)
   {
   }
 //////////////////////////////////////////////////
+} // cubpackpp

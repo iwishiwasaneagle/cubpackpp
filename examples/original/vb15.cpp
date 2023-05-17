@@ -3,8 +3,7 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
+using namespace cubpackpp;
 real f1(const Point& p)
  { 
      return ( p.X()*p.X() );
@@ -25,17 +24,17 @@ int main ()
    EvaluationCounter count;
 
    count.Start();
-   cout <<"The integral is " << Integrate(House);
-   cout <<" with estimated absolute error " << House.AbsoluteError()
-        << endl;
-   cout <<"The contributions of the subregions are:"<<endl;
-   cout <<"  Walls: integral = "<<Walls.Integral()
-        <<", error = " << Walls.AbsoluteError() << endl;
-   cout <<"  Roof:  integral = "<<Roof.Integral()
-        <<" , error = " << Roof.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(House);
+   std::cout <<" with estimated absolute error " << House.AbsoluteError()
+        << std::endl;
+   std::cout <<"The contributions of the subregions are:"<<std::endl;
+   std::cout <<"  Walls: integral = "<<Walls.Integral()
+        <<", error = " << Walls.AbsoluteError() << std::endl;
+   std::cout <<"  Roof:  integral = "<<Roof.Integral()
+        <<" , error = " << Roof.AbsoluteError() << std::endl;
    count.Stop();
-   cout <<"The exact value is 2/3 + 7/6 = 11/6" << endl;
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout <<"The exact value is 2/3 + 7/6 = 11/6" << std::endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

@@ -21,6 +21,7 @@
 #include "cubpackpp/region.h"
 #include "cubpackpp/error.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////
 real
 Region::AbsoluteError() const
@@ -82,3 +83,4 @@ const
   return RI_ptr->Hopeless();
   }
 ////////////////////////////////////////////////
+} // cubpackpp

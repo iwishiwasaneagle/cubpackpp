@@ -24,6 +24,7 @@
 #include "cubpackpp/tools.h"
 #define sqr(x) ((x)*(x))
 
+namespace cubpackpp {
 // coordinates of the quadrature rule
 
 static real G1[] = { 0.333333333333333333333333333333e0,
@@ -341,3 +342,4 @@ Triangle_Rule13::Triangle_Rule13()
     {
     }
 /////////////////////////////////////////////////////////
+} // cubpackpp

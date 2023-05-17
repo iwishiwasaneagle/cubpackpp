@@ -72,28 +72,38 @@
 #include "cubpackpp/stack.h"
 #include "cubpackpp/atomreg.h"
 
+namespace cubpackpp {
 /////////////////////////////////////////////
 
-class REGION_COLLECTION : public COMPOUND_REGION
-  {
-  public:
-  typedef Stack < COMPOUND_REGION> StackCOMPOUND_REGION;
+    class REGION_COLLECTION : public COMPOUND_REGION {
+    public:
+        typedef Stack<COMPOUND_REGION> StackCOMPOUND_REGION;
 
-  void LocalIntegrand(Integrand*);
-  void LocalIntegrand(Function);
-  REGION_COLLECTION& operator+=(const COMPOUND_REGION&) ;
-  REGION_COLLECTION operator+(const COMPOUND_REGION&) ;
-  REGION_COLLECTION();
-  REGION_COLLECTION(const REGION_COLLECTION&);
+        void LocalIntegrand(Integrand *);
 
-  protected:
+        void LocalIntegrand(Function);
 
-  Pointer < StackCOMPOUND_REGION > SCR_ptr;
-  void Preprocess();
-  void Improve();
-  real MaxAtomicError()const;
-  COMPOUND_REGION* NewCopy()const;
+        REGION_COLLECTION &operator+=(const COMPOUND_REGION &);
 
-  };
+        REGION_COLLECTION operator+(const COMPOUND_REGION &);
+
+        REGION_COLLECTION();
+
+        REGION_COLLECTION(const REGION_COLLECTION &);
+
+    protected:
+
+        Pointer<StackCOMPOUND_REGION> SCR_ptr;
+
+        void Preprocess();
+
+        void Improve();
+
+        real MaxAtomicError() const;
+
+        COMPOUND_REGION *NewCopy() const;
+
+    };
 ///////////////////////////////////////////////
+} // cubpackpp
 #endif

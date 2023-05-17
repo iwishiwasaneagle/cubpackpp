@@ -19,6 +19,7 @@
 #include "cubpackpp/passbuck.h"
 #include "cubpackpp/E2interf.h"
 #include "cubpackpp/E2tostrp.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 INFINITE_STRIP::INFINITE_STRIP(const Point& a,const Point& b)
   :USERINTERFACE<InfiniteStrip>()
@@ -29,3 +30,4 @@ INFINITE_STRIP::INFINITE_STRIP(const Point& a,const Point& b)
                E2toIS>((AtomicRegion*)P));
   }
 ///////////////////////////////////////////////
+} // cubpackpp

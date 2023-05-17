@@ -77,24 +77,29 @@
 #include "cubpackpp/geometry.h"
 #include "cubpackpp/real.h"
 #include "cubpackpp/regproc.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////////////////
-class Parallelogram : public  Geometry
-  {
-  public:
+    class Parallelogram : public ::cubpackpp::Geometry {
+    public:
 
-  Parallelogram (const Point&,const Point&, const Point&);
-  const Point& Vertex(int)const ;
-  real Volume ()const ;
-  void Volume(real);
+        Parallelogram(const Point &, const Point &, const Point &);
+
+        const Point &Vertex(int) const;
+
+        real Volume() const;
+
+        void Volume(real);
 
 
-  private:
+    private:
 
-  Vector<Point> Vertices;
-  real TheVolume;
-  Boolean TheVolumeKnown;
-  void ComputeVolume();
-  };
+        Vector<Point> Vertices;
+        real TheVolume;
+        Boolean TheVolumeKnown;
+
+        void ComputeVolume();
+    };
 /////////////////////////////////////////////////////////
-
+} // cubpackpp
 #endif

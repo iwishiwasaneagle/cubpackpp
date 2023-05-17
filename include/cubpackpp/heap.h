@@ -76,69 +76,92 @@
 ///////////////////////////////////////////////////////////
 #ifndef HEAP_H
 #define HEAP_H
+
 #include "templist.h"
 //////////////////////////////////////////////
 #include "cubpackpp/set.h"
 #include <iostream>
 #include "boolean.h"
+
+namespace cubpackpp {
 /////////////////////////////////////////////
-template <class T,int CAPACITY>
-class SubHeap : public Set<T>
-  {
-  public:
+    template<class T, int CAPACITY>
+    class SubHeap : public Set<T> {
+    public:
 
-  SubHeap();
-  ~SubHeap();
-  T* Get();
-  T* Look() ;
-  T* Swap( T*);
-  T* Bottom() ;
-  void Clear();
-  void operator +=( T*);
-  Boolean Saturated() const;
-  void Print() const  ;
-  int LeftChild(int) const;
-  int RightChild(int) const;
-  int FatherOfChild(int) const;
+        SubHeap();
 
-  private:
+        ~SubHeap();
+
+        T *Get();
+
+        T *Look();
+
+        T *Swap(T *);
+
+        T *Bottom();
+
+        void Clear();
+
+        void operator+=(T *);
+
+        Boolean Saturated() const;
+
+        void Print() const;
+
+        int LeftChild(int) const;
+
+        int RightChild(int) const;
+
+        int FatherOfChild(int) const;
+
+    private:
 
 #ifdef SOLARIS
-  T* Contents[256];
-  SubHeap<T,255>* Children[256];
+        T* Contents[256];
+        SubHeap<T,255>* Children[256];
 #else
-  T* Contents[CAPACITY+1];
-  SubHeap<T,CAPACITY>* Children[CAPACITY+1];
+        T *Contents[CAPACITY + 1];
+        SubHeap<T, CAPACITY> *Children[CAPACITY + 1];
 #endif
-  int ActiveChild;
-  int LastChild;
-  };
+        int ActiveChild;
+        int LastChild;
+    };
 
 ////////////////////////////////////////////
 
 
-template <class T>
-class Heap : public Set<T>
-  {
-  public:
+    template<class T>
+    class Heap : public Set<T> {
+    public:
 
-  Heap();
-  ~Heap();
-  T* Get();
-  T* Look() ;
-  void Clear();
-  void operator+= ( T*);
-  void operator+= (Heap<T>&);
-  void Print() const;
+        Heap();
+
+        ~Heap();
+
+        T *Get();
+
+        T *Look();
+
+        void Clear();
+
+        void operator+=(T *);
+
+        void operator+=(Heap<T> &);
+
+        void Print() const;
 
 
-  private:
+    private:
 
-  SubHeap<T,255> TheSubHeap;
-  };
+        SubHeap<T, 255> TheSubHeap;
+    };
 ////////////////////////////////////////////
+} // cubpackpp
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/heap.tpp"
+
 #endif
 
 #endif

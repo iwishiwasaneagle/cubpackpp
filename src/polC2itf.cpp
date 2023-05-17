@@ -17,6 +17,7 @@
 //////////////////////////////////////////////
 #include "cubpackpp/polC2itf.h"
 #include "cubpackpp/polC2prc.h"
+namespace cubpackpp {
 //////////////////////////////////////////////
 POLAR_RECTANGLE::POLAR_RECTANGLE
   (const Point& A, const Point& B,const Point& C)
@@ -30,3 +31,4 @@ POLAR_RECTANGLE::POLAR_RECTANGLE
   StoreAtomic(new PolarRectangle(O,r1,r2,t1,t2),new PolarRectangle_Processor);
   }
 //////////////////////////////////////////////
+} // cubpackpp

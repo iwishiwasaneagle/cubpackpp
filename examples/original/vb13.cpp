@@ -9,10 +9,9 @@
 #include <cubpackpp/cubpackpp.h>
 #include <iostream>
 
-using namespace std;
-
 #define sqr(x) ((x)*(x))
 
+using namespace cubpackpp;
 static const real sqrt_PI = sqrt(M_PI),
                   p35_PI  = pow(M_PI,0.35e0);
 
@@ -31,10 +30,10 @@ int main ()
    EvaluationCounter count;
 
    count.Start();
-   cout <<"The integral is " << Integrate(f,House,0,0.5e-1,1000000);
-   cout <<" with absolute error " << House.AbsoluteError() << endl;
+   std::cout <<"The integral is " << Integrate(f,House,0,0.5e-1,1000000);
+   std::cout <<" with absolute error " << House.AbsoluteError() << std::endl;
    count.Stop();
-   cout << count.Read() << " function evaluations were used." << endl;
+   std::cout << count.Read() << " function evaluations were used." << std::endl;
 
    return 0;
  }

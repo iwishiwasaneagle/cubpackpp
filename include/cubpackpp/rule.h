@@ -80,25 +80,35 @@
 #include "cubpackpp/refcount.h"
 #include "cubpackpp/integran.h"
 #include "cubpackpp/real.h"
+
+namespace cubpackpp {
 //////////////////////////////////////////
 
-template <class GEOMETRY>
-class Rule : public ReferenceCounting
-  {
-  public:
+    template<class GEOMETRY>
+    class Rule : public ReferenceCounting {
+    public:
 
-  Rule();
-  virtual void ApplyWithDiffs(Integrand&,GEOMETRY&,real&,real&,Vector<real>&) ;
-  virtual void Apply(Integrand&,GEOMETRY&,real&,real&);
-  virtual int Degree() const =0;
-  virtual int NumberOfPoints () const =0;
-  virtual ~Rule();
+        Rule();
 
-  };
+        virtual void ApplyWithDiffs(Integrand &, GEOMETRY &, real &, real &, Vector<real> &);
+
+        virtual void Apply(Integrand &, GEOMETRY &, real &, real &);
+
+        virtual int Degree() const = 0;
+
+        virtual int NumberOfPoints() const = 0;
+
+        virtual ~Rule();
+
+    };
 //////////////////////////////////////////
+} // cubpackpp
 #include "cubpackpp/templist.h"
+
 #ifdef TEMPLATEINCLUDE
+
 #include "cubpackpp/rule.tpp"
+
 #endif
 //////////////////////////////////////////
 
