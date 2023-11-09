@@ -40,7 +40,7 @@ void Triangle::ComputeVolume() {
 }
 
 ///////////////////////////////////////////////
-const Point &Triangle::Vertex(int i) const { return Vertices[i]; }
+const Point &Triangle::Vertex(unsigned int i) const { return Vertices[i]; }
 
 //////////////////////////////////////////////////
 real Triangle::Volume() const {

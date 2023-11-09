@@ -35,15 +35,15 @@ int main() {
         }
 
         counter.Stop();
-        total = counter.Read();
+        total = static_cast<real>(counter.Read());
 
         auto stop = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
 
         std::cout << std::setprecision(2) << req_err << "              "
                   << std::setprecision(1) << total << "              ";
-        std::cout << std::setprecision(3) << elapsed * 1e-9 << "              "
-                  << std::setprecision(3) << elapsed * 1e-3 / N << std::endl;
+        std::cout << std::setprecision(3) << static_cast<double>(elapsed) * 1e-9 << "              "
+                  << std::setprecision(3) << static_cast<double>(elapsed) * 1e-3 / N << std::endl;
     }
     return 0;
 }

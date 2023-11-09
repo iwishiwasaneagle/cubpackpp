@@ -74,7 +74,7 @@ class Triangle : public Geometry {
 public:
   Triangle(const Point &, const Point &, const Point &);
 
-  const Point &Vertex(int) const;
+  const Point &Vertex(unsigned int) const;
 
   real Volume() const;
 
