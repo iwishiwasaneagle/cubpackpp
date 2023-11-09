@@ -113,7 +113,6 @@ set(sources
         src/C2toS2.cpp
         src/chrono.cpp
         src/compreg.cpp
-        src/deccxxtp.cpp
         src/E2adapt.cpp
         src/E2.cpp
         src/E2interf.cpp
@@ -123,7 +122,6 @@ set(sources
         src/E2tostrp.cpp
         src/eval_ctr.cpp
         src/geometry.cpp
-        src/gnu262tp.cpp
         src/gr.cpp
         src/gritf.cpp
         src/gs.cpp

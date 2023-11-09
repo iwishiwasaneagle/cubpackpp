@@ -26,12 +26,4 @@
 #define TEMPLATEINCLUDE
 #endif
 
-#ifdef __TCPLUSPLUS__
-#define TEMPLATEINCLUDE
-#endif
-
-#ifdef __DECCXX
-#define TEMPLATEINCLUDE
-#endif
-
 #endif
