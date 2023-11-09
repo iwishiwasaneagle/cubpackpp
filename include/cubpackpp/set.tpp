@@ -36,7 +36,7 @@ namespace cubpackpp {
     template<class T>
     unsigned int
     Set<T>::Size() const {
-        return (Number);
+        return static_cast<unsigned int>(Number);
     }
 
 ////////////////////////////////////////////////////////////

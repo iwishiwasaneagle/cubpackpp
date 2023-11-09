@@ -85,7 +85,7 @@
 
 namespace cubpackpp {
 /////////////////////////////////////////////
-template <class T, int CAPACITY> class SubHeap : public Set<T> {
+template <class T, unsigned int CAPACITY> class SubHeap : public Set<T> {
 public:
   SubHeap();
 

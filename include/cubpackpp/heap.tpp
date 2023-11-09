@@ -25,7 +25,7 @@
 namespace cubpackpp {
 //////////////////////////////////////////////
 
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     SubHeap<T, CAPACITY>::SubHeap()
             :Set<T>() {
         ActiveChild = -1;
@@ -33,13 +33,13 @@ namespace cubpackpp {
     }
 
 ////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     SubHeap<T, CAPACITY>::~SubHeap() {
         Clear();
     }
 
 ///////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     T *
     SubHeap<T, CAPACITY>::Get() {
         Error(this->Number == 0, "error:get from empty heap");
@@ -48,9 +48,9 @@ namespace cubpackpp {
             return Contents[1];
         };
         T *B = Bottom();
-        if (LastChild == CAPACITY && Children[ActiveChild]->Saturated()) {
+        if (LastChild == static_cast<int>(CAPACITY) && Children[ActiveChild]->Saturated()) {
             ActiveChild--;
-            if (ActiveChild < 0) ActiveChild = CAPACITY;
+            if (ActiveChild < 0) ActiveChild = static_cast<int>(CAPACITY);
         };
         T *Result = Contents[1];
         int Hole = 1;
@@ -84,7 +84,7 @@ namespace cubpackpp {
         };
         putinhole:
         Contents[Hole] = B;
-        if ((CAPACITY + 1) / 2 <= Hole && Hole <= CAPACITY) {
+        if ((static_cast<int>(CAPACITY) + 1) / 2 <= Hole && Hole <= static_cast<int>(CAPACITY)) {
             First = LeftChild(Hole);
             Second = RightChild(Hole);
             if (LastChild >= Second) {
@@ -111,7 +111,7 @@ namespace cubpackpp {
     }
 
 ///////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     T *
     SubHeap<T, CAPACITY>::Look() {
         Error(this->Number == 0, "Looking at empty heap");
@@ -119,7 +119,7 @@ namespace cubpackpp {
     }
 ///////////////////////////////////////////////////
 
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     T *
     SubHeap<T, CAPACITY>::Swap(T *B) {
         T *Result = Contents[1];
@@ -154,7 +154,7 @@ namespace cubpackpp {
         };
         putinhole:
         Contents[Hole] = B;
-        if ((CAPACITY + 1) / 2 <= Hole && Hole <= CAPACITY) {
+        if ((static_cast<int>(CAPACITY) + 1) / 2 <= Hole && Hole <= static_cast<int>(CAPACITY)) {
             First = LeftChild(Hole);
             Second = RightChild(Hole);
             if (LastChild >= Second) {
@@ -181,22 +181,22 @@ namespace cubpackpp {
     }
 
 ///////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     Boolean
     SubHeap<T, CAPACITY>::Saturated()
     const {
-        if (this->Number != CAPACITY) return False;
+        if (this->Number != static_cast<int>(CAPACITY)) return False;
         if (LastChild < 0) return True;
-        if (LastChild != CAPACITY) return False;
+        if (LastChild != static_cast<int>(CAPACITY)) return False;
         Boolean Return = True;
-        for (int i = 0; i < CAPACITY + 1; i++) {
+        for (int i = 0; i < static_cast<int>(CAPACITY) + 1; i++) {
             Return = static_cast<Boolean>( (Return & Children[i]->Saturated()));
         };
         return Return;
     }
 
 ////////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     T *
     SubHeap<T, CAPACITY>::Bottom() {
         Error(this->Number == 0, "error:Bottom of empty subheap");
@@ -217,7 +217,7 @@ namespace cubpackpp {
 ////////////////////////////////////////////////////
 
 
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     void
     SubHeap<T, CAPACITY>::operator+=(T *t) {
         T *NewT;
@@ -225,7 +225,7 @@ namespace cubpackpp {
         if (ActiveChild >= 0) {
             if (Children[ActiveChild]->Saturated()) {
                 ActiveChild++;
-                ActiveChild %= (CAPACITY + 1);
+                ActiveChild %= (static_cast<int>(CAPACITY) + 1);
                 if (ActiveChild > LastChild) {
                     LastChild = ActiveChild;
                     Children[ActiveChild] = new SubHeap<T, CAPACITY>;
@@ -240,7 +240,7 @@ namespace cubpackpp {
                 return;
             };
         } else {
-            if (this->Number == CAPACITY) {
+            if (this->Number == static_cast<int>(CAPACITY)) {
                 ActiveChild = LastChild = 0;
                 Children[ActiveChild] = new SubHeap<T, CAPACITY>;
                 Error(!Children[ActiveChild], "heap:allocation failed");
@@ -271,7 +271,7 @@ namespace cubpackpp {
     }
 
 ////////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     void
     SubHeap<T, CAPACITY>::Clear() {
         int i;
@@ -288,7 +288,7 @@ namespace cubpackpp {
     }
 
 ////////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     void
     SubHeap<T, CAPACITY>::Print()
     const {
@@ -305,25 +305,25 @@ namespace cubpackpp {
     }
 
 ///////////////////////////////////////////////////
-    template<class T, int CAPACITY>
+    template<class T, unsigned int CAPACITY>
     int
-    SubHeap<T, CAPACITY>::FatherOfChild(int i)
+    SubHeap<T, CAPACITY>::FatherOfChild( int i)
     const {
-        return i / 2 + (CAPACITY + 1) / 2;
+        return i / 2 + (static_cast<int>(CAPACITY) + 1) / 2;
     }
 
 ///////////////////////////////////////////////////
-    template<class T, int CAPACITY>
-    int
-    SubHeap<T, CAPACITY>::LeftChild(int i)
+    template<class T, unsigned int CAPACITY>
+     int
+    SubHeap<T, CAPACITY>::LeftChild( int i)
     const {
-        return 2 * (i - (CAPACITY + 1) / 2);
+        return 2 * (i - (static_cast<int>(CAPACITY) + 1) / 2);
     }
 
 //////////////////////////////////////////////////
-    template<class T, int CAPACITY>
-    int
-    SubHeap<T, CAPACITY>::RightChild(int i)
+    template<class T, unsigned int CAPACITY>
+     int
+    SubHeap<T, CAPACITY>::RightChild( int i)
     const {
         return LeftChild(i) + 1;
     }
