@@ -33,20 +33,20 @@ long Integrand::Number = 0;
 
 //////////////////////////////////////////////////////
 Integrand::Integrand(Function f)
-    : TheFunction(f), AppliedTransformations(), ReferenceCounting() {}
+    : ReferenceCounting(), TheFunction(f), AppliedTransformations() {}
 
 ////////////////////////////////////////////////
 Integrand::Integrand(const Integrand &I, Transformation *T)
-    : TheFunction(I.TheFunction),
-      AppliedTransformations(I.AppliedTransformations), ReferenceCounting(I) {
+    : ReferenceCounting(I),
+      TheFunction(I.TheFunction), AppliedTransformations(I.AppliedTransformations) {
   Pointer<Transformation> p = T;
   AppliedTransformations += p;
 }
 
 /////////////////////////////////////////////////////////
 Integrand::Integrand(const Integrand &I)
-    : TheFunction(I.TheFunction),
-      AppliedTransformations(I.AppliedTransformations), ReferenceCounting(I) {}
+    : ReferenceCounting(I),
+      TheFunction(I.TheFunction), AppliedTransformations(I.AppliedTransformations) {}
 
 ////////////////////////////////////////////////
 long Integrand::NumberOfEvaluations() { return Number; }
@@ -73,7 +73,7 @@ real ErrorMessage(const Point &) {
 }
 
 Integrand::Integrand()
-    : TheFunction(ErrorMessage), AppliedTransformations(), ReferenceCounting() {
+    : ReferenceCounting(), TheFunction(ErrorMessage), AppliedTransformations() {
 }
 
 ///////////////////////////////////////////////
