@@ -31,7 +31,7 @@ GENERALIZED_RECTANGLE::GENERALIZED_RECTANGLE(Function f, const Point &a,
   PARALLELOGRAM R(A, B, C);
   StoreAtomic(new GeneralizedRectangle(f, a, b),
               new PassTheBuck<Parallelogram, GeneralizedRectangle, C2toGR>(
-                  (AtomicRegion *)R));
+                  static_cast<AtomicRegion *>(R)));
 }
 ///////////////////////////////////////////////
 } // namespace cubpackpp

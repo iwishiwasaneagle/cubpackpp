@@ -84,7 +84,7 @@ class Parallelogram : public ::cubpackpp::Geometry {
 public:
   Parallelogram(const Point &, const Point &, const Point &);
 
-  const Point &Vertex(int) const;
+  const Point &Vertex(unsigned int) const;
 
   real Volume() const;
 

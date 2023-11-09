@@ -31,7 +31,7 @@ void PlaneSector_Processor::Process(Stack<AtomicRegion> &Offspring) {
   PlaneSector &G = Geometry();
   Point P1(G.InnerRadius(), G.BigAngle()), P2(G.InnerRadius(), G.SmallAngle());
   AtomicRegion *A;
-  A = (AtomicRegion *)SEMI_INFINITE_STRIP(P1, P2);
+  A = static_cast<AtomicRegion *>(SEMI_INFINITE_STRIP(P1, P2));
   Integrand I1(LocalIntegrand(), new Translation(G.Center()));
   A->LocalIntegrand(new Integrand(I1, new PolarToRectangular));
   Offspring.Push(A);

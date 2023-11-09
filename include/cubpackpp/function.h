@@ -34,7 +34,7 @@ template<typename T, typename... U>
 inline size_t getAddress(std::function<T(U...)> f) {
     typedef T(fnType)(U...);
     fnType ** fnPointer = f.template target<fnType*>();
-    return (size_t) *fnPointer;
+    return reinterpret_cast<size_t>( *fnPointer );
 }
 /////////////////////////////////////////////////////////
 

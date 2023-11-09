@@ -190,7 +190,7 @@ namespace cubpackpp {
         if (LastChild != CAPACITY) return False;
         Boolean Return = True;
         for (int i = 0; i < CAPACITY + 1; i++) {
-            Return = (Boolean) (Return & Children[i]->Saturated());
+            Return = static_cast<Boolean>( (Return & Children[i]->Saturated()));
         };
         return Return;
     }

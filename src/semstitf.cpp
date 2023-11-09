@@ -25,7 +25,7 @@ SEMI_INFINITE_STRIP::SEMI_INFINITE_STRIP(const Point &a, const Point &b)
   INFINITE_STRIP I(orig, one);
   StoreAtomic(new SemiInfiniteStrip(a, b),
               new PassTheBuck<InfiniteStrip, SemiInfiniteStrip, IStoSIS>(
-                  (AtomicRegion *)I));
+                  static_cast<AtomicRegion *>(I)));
 }
 ///////////////////////////////////////////////
 } // namespace cubpackpp

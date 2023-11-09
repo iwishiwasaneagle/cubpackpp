@@ -118,7 +118,7 @@ namespace cubpackpp {
         } else {
             Boolean b = True;
             for (unsigned int i = 0; i < TheSize; i++) {
-                b = (Boolean) (b && (Contents[i] == v.Contents[i]));
+                b = static_cast<Boolean>((b && (Contents[i] == v.Contents[i])));
             };
             return b;
         };
@@ -129,7 +129,7 @@ namespace cubpackpp {
     Boolean
     Vector<T>::operator!=(const Vector<T> &v)
     const {
-        return (Boolean) !((*this) == v);
+        return static_cast<Boolean>(!((*this) == v));
     }
 
 ///////////////////////////////////////////////////

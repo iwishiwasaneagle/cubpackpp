@@ -228,8 +228,8 @@ void PlaneAdaptive::Process(Stack<AtomicRegion> &Offspring) {
          HalfValueRadius);
   } else {
     const Point &C = Geometry().Center();
-    Offspring.Push((AtomicRegion *)CIRCLE(C, HalfValueRadius));
-    Offspring.Push((AtomicRegion *)OUT_CIRCLE(C, HalfValueRadius));
+    Offspring.Push(static_cast<AtomicRegion *>(CIRCLE(C, HalfValueRadius)));
+    Offspring.Push(static_cast<AtomicRegion *>(OUT_CIRCLE(C, HalfValueRadius)));
     Offspring.IteratorReset();
     while (!Offspring.IteratorAtEnd()) {
       Offspring.IteratorNext()->LocalIntegrand(&LocalIntegrand());

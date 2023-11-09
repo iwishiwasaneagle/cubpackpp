@@ -44,7 +44,7 @@ const Point &Triangle::Vertex(int i) const { return Vertices[i]; }
 
 //////////////////////////////////////////////////
 real Triangle::Volume() const {
-  Triangle *T = (Triangle *)this;
+  Triangle *T = const_cast<Triangle*>(this);
   if (!TheVolumeKnown) {
     T->ComputeVolume();
   };

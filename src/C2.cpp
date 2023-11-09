@@ -39,11 +39,11 @@ void Parallelogram::ComputeVolume() {
 }
 
 ///////////////////////////////////////////////
-const Point &Parallelogram::Vertex(int i) const { return Vertices[i]; }
+const Point &Parallelogram::Vertex(unsigned int i) const { return Vertices[i]; }
 
 //////////////////////////////////////////////////
 real Parallelogram::Volume() const {
-  Parallelogram *P = (Parallelogram *)this;
+  Parallelogram *P = const_cast<Parallelogram *>(this);
   if (!TheVolumeKnown) {
     P->ComputeVolume();
   };

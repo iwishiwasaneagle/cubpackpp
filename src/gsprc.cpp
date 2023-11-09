@@ -45,7 +45,7 @@ void GeneralizedSector_Processor::Process(Stack<AtomicRegion> &Offspring) {
   GeneralizedSector &G = Geometry();
   Point P1(0, G.Alpha()), P2(0, G.Beta()), P3(1, G.Alpha());
   AtomicRegion *A;
-  A = (AtomicRegion *)PARALLELOGRAM(P1, P2, P3);
+  A = static_cast<AtomicRegion *>(PARALLELOGRAM(P1, P2, P3));
   Integrand I1(LocalIntegrand(), new Translation(G.Center()));
   Integrand I2(I1, new PolarToRectangular);
   A->LocalIntegrand(new Integrand(I2, new VariableScaling(G.Boundary())));

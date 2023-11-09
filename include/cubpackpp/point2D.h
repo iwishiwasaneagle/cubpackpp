@@ -436,13 +436,13 @@ inline real &Point_2D::operator[](int i) { return i ? y : x; }
 ///////////////////////////////////////////////
 inline Boolean Point_2D::operator==(const Point_2D &v) const {
   int b = (x == v.x) && (y == v.y);
-  return (Boolean)b;
+  return static_cast<Boolean>(b);
 }
 
 ////////////////////////////////////////////////////
 inline Boolean Point_2D::operator!=(const Point_2D &v) const {
   int b = (x != v.x) || (y != v.y);
-  return (Boolean)b;
+  return static_cast<Boolean>(b);
 }
 
 ////////////////////////////////////////////////////

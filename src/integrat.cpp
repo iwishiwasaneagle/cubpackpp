@@ -38,8 +38,8 @@ void Integrate(COMPOUND_REGION &R, real &Integral, real &AbsError,
   } while (R.AbsoluteError() > AbsErrReq &&
            R.AbsoluteError() > fabs(R.Integral()) * RelErrReq &&
            E.Read() < MaxEval);
-  Success = (Boolean)(R.AbsoluteError() <= AbsErrReq ||
-                      R.AbsoluteError() <= fabs(R.Integral() * RelErrReq));
+  Success = static_cast<Boolean>(R.AbsoluteError() <= AbsErrReq ||
+                                 R.AbsoluteError() <= fabs(R.Integral() * RelErrReq));
   Integral = R.Integral();
   AbsError = R.AbsoluteError();
 }

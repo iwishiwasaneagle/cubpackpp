@@ -32,7 +32,7 @@ void PolarRectangle_Processor::Process(Stack<AtomicRegion> &Offspring) {
   Point P1(G.InnerRadius(), G.SmallAngle()),
       P2(G.OuterRadius(), G.SmallAngle()), P3(G.OuterRadius(), G.BigAngle());
   AtomicRegion *A;
-  A = (AtomicRegion *)PARALLELOGRAM(P2, P1, P3);
+  A = static_cast<AtomicRegion *>(PARALLELOGRAM(P2, P1, P3));
   Integrand I1(LocalIntegrand(), new Translation(G.Center()));
   A->LocalIntegrand(new Integrand(I1, new PolarToRectangular));
   Offspring.Push(A);

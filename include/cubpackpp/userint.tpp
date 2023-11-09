@@ -29,7 +29,7 @@ namespace cubpackpp {
         SAR_ptr = new Stack<AtomicRegion>;
         HAR_ptr = new Heap<AtomicRegion>;
         HopelessAR_ptr = new Stack<AtomicRegion>;
-        Int_ptr = (Pointer<Integrand>) (0);
+        Int_ptr = static_cast<Pointer<Integrand>>(0);
     }
 
 //////////////////////////////////////////////////
@@ -54,7 +54,7 @@ namespace cubpackpp {
         Error(SAR_ptr->Size() != 1,
               "Attempt to specify region processor for multiple regions"
         );
-        Atomic<GEOMETRY> *A = (Atomic<GEOMETRY> *) (SAR_ptr->Top());
+        Atomic<GEOMETRY> *A = static_cast<Atomic<GEOMETRY> *>( (SAR_ptr->Top()));
         A->Use(rp);
     }
 
@@ -136,7 +136,7 @@ namespace cubpackpp {
     template<class GEOMETRY>
     void
     USERINTERFACE<GEOMETRY>::LocalIntegrand(Integrand *ip) {
-        if (Int_ptr == (Pointer<Integrand>) (0)) Int_ptr = ip;
+        if (Int_ptr == static_cast<Pointer<Integrand>>(0)) Int_ptr = ip;
         else {
             Error(!(*Int_ptr == *ip),
                   "Attempt to modify integrand during integration");

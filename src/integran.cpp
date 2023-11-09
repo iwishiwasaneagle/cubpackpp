@@ -81,7 +81,7 @@ Boolean Integrand::operator==(const Integrand &i) const {
   if ((AppliedTransformations.Size() > 0) ||
       (i.AppliedTransformations.Size() > 0))
     return False;
-  return (Boolean)(getAddress(TheFunction) == getAddress( i.TheFunction));
+  return static_cast<Boolean>((getAddress(TheFunction) == getAddress( i.TheFunction)));
 }
 ///////////////////////////////////////////////
 } // namespace cubpackpp

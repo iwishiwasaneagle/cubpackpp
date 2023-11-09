@@ -26,14 +26,14 @@ namespace cubpackpp {
 ///////////////////////
 OUT_CIRCLE::OUT_CIRCLE(const Point &c, const Point &b) {
   StoreAtomic(new OutCircle(c, b), new PassTheBuck<Circle, OutCircle, Invert>(
-                                       (AtomicRegion *)CIRCLE(c, b)));
+                                       static_cast<AtomicRegion *>(CIRCLE(c, b))));
 }
 
 //////////////////////////////////////////////
 OUT_CIRCLE::OUT_CIRCLE(const Point &c, real Radius) {
   StoreAtomic(new OutCircle(c, Radius),
               new PassTheBuck<Circle, OutCircle, Invert>(
-                  (AtomicRegion *)CIRCLE(c, Radius)));
+                  static_cast<AtomicRegion *>(CIRCLE(c, Radius))));
 }
 //////////////////////////////////////////////
 } // namespace cubpackpp

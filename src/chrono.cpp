@@ -54,9 +54,9 @@ void Chrono::Reset() {
 /////////////////////////////////////////////////////////
 unsigned long Chrono::Read() {
   if (Running) {
-    return (times_() - OldTime);
+    return (static_cast<unsigned long>(times_() - OldTime));
   } else {
-    return (Time - OldTime);
+    return (static_cast<unsigned long>(Time - OldTime));
   };
 }
 

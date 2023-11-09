@@ -30,7 +30,7 @@ PARABOLIC_SEGMENT::PARABOLIC_SEGMENT(const Point &A, const Point &B,
   TRIANGLE T(p, q, r);
   StoreAtomic(
       new ParabolicSegment(A, B, P),
-      new PassTheBuck<Triangle, ParabolicSegment, T2toPS>((AtomicRegion *)T));
+      new PassTheBuck<Triangle, ParabolicSegment, T2toPS>(static_cast<AtomicRegion *>(T)));
 }
 //////////////////////////////////////////////////////////
 } // namespace cubpackpp

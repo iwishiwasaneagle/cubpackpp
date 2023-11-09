@@ -60,9 +60,9 @@ void EvaluationCounter::Reset(unsigned long v) {
 /////////////////////////////////////////////
 unsigned long EvaluationCounter::Read() {
   if (Running) {
-    return Integrand::NumberOfEvaluations() - Strt + Bias;
+    return static_cast<unsigned long>(Integrand::NumberOfEvaluations() - Strt) + Bias;
   } else {
-    return End - Strt + Bias;
+    return static_cast<unsigned long>(End - Strt) + Bias;
   };
 }
 /////////////////////////////////////////////

@@ -40,7 +40,7 @@ void CircleAdaptive::Process(Stack<AtomicRegion> &Offspring) {
       Point rv(C.Radius(), 0);
       Point bp = C.Center() + rv;
       AtomicRegion *A;
-      A = (AtomicRegion *)POLAR_RECTANGLE(C.Center(), bp, bp);
+      A = static_cast<AtomicRegion *>(POLAR_RECTANGLE(C.Center(), bp, bp));
       A->LocalIntegrand(&(LocalIntegrand()));
       Offspring.Push(A);
     };
@@ -53,13 +53,13 @@ void CircleAdaptive::Process(Stack<AtomicRegion> &Offspring) {
     Point origin = C.Center();
 
     AtomicRegion *t1 =
-        (AtomicRegion *)POLAR_RECTANGLE(origin + m1, origin + m2, origin + m3);
+            static_cast<AtomicRegion *>(POLAR_RECTANGLE(origin + m1, origin + m2, origin + m3));
     AtomicRegion *t2 =
-        (AtomicRegion *)POLAR_RECTANGLE(origin + m4, origin + m3, origin - m2);
+            static_cast<AtomicRegion *>(POLAR_RECTANGLE(origin + m4, origin + m3, origin - m2));
     AtomicRegion *t3 =
-        (AtomicRegion *)POLAR_RECTANGLE(origin - m1, origin - m2, origin - m3);
+            static_cast<AtomicRegion *>(POLAR_RECTANGLE(origin - m1, origin - m2, origin - m3));
     AtomicRegion *t4 =
-        (AtomicRegion *)POLAR_RECTANGLE(origin - m4, origin - m3, origin + m2);
+            static_cast<AtomicRegion *>(POLAR_RECTANGLE(origin - m4, origin - m3, origin + m2));
 
     Offspring.Push(t1);
     Offspring.Push(t2);

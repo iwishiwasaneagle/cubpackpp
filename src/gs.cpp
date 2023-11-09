@@ -35,7 +35,7 @@ const Point &GeneralizedSector::Center() const { return TheCenter; }
 
 //////////////////////////////////////////////////////////
 real GeneralizedSector::Boundary(real p) const {
-  GeneralizedSector *G = (GeneralizedSector *)this;
+  GeneralizedSector *G = const_cast<GeneralizedSector *>(this);
   return G->TheBoundary(p);
 }
 

@@ -30,22 +30,22 @@ real Region::Integral() const { return RI_ptr->Integral(); }
 
 ///////////////////////////////////////////////
 Boolean Region::operator<(const Region &r) const {
-  return (Boolean)(AbsoluteError() < r.AbsoluteError());
+  return static_cast<Boolean>(AbsoluteError() < r.AbsoluteError());
 }
 
 ///////////////////////////////////////////////
 Boolean Region::operator<=(const Region &r) const {
-  return (Boolean)(AbsoluteError() <= r.AbsoluteError());
+  return static_cast<Boolean>(AbsoluteError() <= r.AbsoluteError());
 }
 
 ///////////////////////////////////////////////
 Boolean Region::operator>(const Region &r) const {
-  return (Boolean)(AbsoluteError() > r.AbsoluteError());
+  return static_cast<Boolean>(AbsoluteError() > r.AbsoluteError());
 }
 
 ///////////////////////////////////////////////
 Boolean Region::operator>=(const Region &r) const {
-  return (Boolean)(AbsoluteError() >= r.AbsoluteError());
+  return static_cast<Boolean>(AbsoluteError() >= r.AbsoluteError());
 }
 
 ///////////////////////////////////////////////

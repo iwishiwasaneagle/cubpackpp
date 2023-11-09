@@ -26,7 +26,8 @@ INFINITE_STRIP::INFINITE_STRIP(const Point &a, const Point &b)
     : USERINTERFACE<InfiniteStrip>() {
   PLANE P;
   StoreAtomic(new InfiniteStrip(a, b),
-              new PassTheBuck<Plane, InfiniteStrip, E2toIS>((AtomicRegion *)P));
+              new PassTheBuck<Plane, InfiniteStrip, E2toIS>(static_cast<AtomicRegion *>(P)));
+
 }
 ///////////////////////////////////////////////
 } // namespace cubpackpp

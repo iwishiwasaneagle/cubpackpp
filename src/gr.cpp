@@ -34,7 +34,7 @@ const Point &GeneralizedRectangle::B() const { return TheB; }
 
 /////////////////////////////////////////////
 real GeneralizedRectangle::Boundary(const Point &p) const {
-  return ((GeneralizedRectangle *)this)->TheBoundary(p);
+  return (const_cast<GeneralizedRectangle *>(this))->TheBoundary(p);
 }
 //////////////////////////////////////////
 // Processor<GeneralizedRectangle>*
