@@ -90,6 +90,8 @@ public:
 
   unsigned long Read();
 
+  ~Chrono() = default;
+
 private:
   long Time;
   long OldTime;

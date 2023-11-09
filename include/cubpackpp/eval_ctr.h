@@ -96,6 +96,8 @@ public:
 
   unsigned long Read();
 
+  ~EvaluationCounter() = default;
+
 private:
   long Strt;
   long End;

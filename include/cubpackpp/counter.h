@@ -74,6 +74,8 @@ public:
   virtual void Reset() = 0;
 
   virtual unsigned long Read() = 0;
+
+  virtual ~Counter() = default;
 };
 //////////////////////////////////////////////
 } // namespace cubpackpp
