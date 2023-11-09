@@ -33,7 +33,7 @@ namespace cubpackpp {
 /////////////////////////////////////////////////
     template<class GEOMETRY>
     void
-    Rule<GEOMETRY>::Apply(Integrand &F, GEOMETRY &G, real &i, real &d) {
+    Rule<GEOMETRY>::Apply(Integrand &, GEOMETRY &, real &, real &) {
     }
 
 ///////////////////////////////////////////////////

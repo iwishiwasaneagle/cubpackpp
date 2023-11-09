@@ -25,7 +25,7 @@ namespace cubpackpp {
 //////////////////////////////////////////////////
 void Parallelogram_Divide4::Apply(const Parallelogram &t,
                                   Stack<Parallelogram> &Offspring,
-                                  const Vector<unsigned int> &DiffOrder) {
+                                  const Vector<unsigned int> &) {
   Point m12 = (t.Vertex(0) + t.Vertex(1)) / 2;
   Point m13 = (t.Vertex(0) + t.Vertex(2)) / 2;
   Point m23 = (t.Vertex(2) + t.Vertex(1)) / 2;

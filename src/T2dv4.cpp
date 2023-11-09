@@ -23,7 +23,7 @@
 namespace cubpackpp {
 //////////////////////////////////////////////////
 void Triangle_Divide4::Apply(const Triangle &t, Stack<Triangle> &Offspring,
-                             const Vector<unsigned int> &D) {
+                             const Vector<unsigned int> &) {
 
   Point m12 = (t.Vertex(0) + t.Vertex(1)) / 2;
   Point m13 = (t.Vertex(0) + t.Vertex(2)) / 2;

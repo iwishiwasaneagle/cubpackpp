@@ -7,7 +7,7 @@
 using namespace cubpackpp;
 
 real f(const Point& p)
- { real x=p.X() , y=p.Y();
+ {
    return p.Y();
  }
 

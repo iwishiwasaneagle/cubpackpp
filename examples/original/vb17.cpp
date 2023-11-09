@@ -7,7 +7,7 @@
 using namespace cubpackpp;
 real f(const Point& p)
  {
-   real x=p.X() , y=p.Y();
+   real x=p.X();
    return 0.25/sqrt(x*(2.0-x));
  }
 
